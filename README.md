@@ -1,21 +1,10 @@
 # Hilo
 
-Landing page de **Hilo** — herramientas inteligentes para equipos reales.
+Landing page — herramientas inteligentes para equipos reales.
 
-## Desarrollo local
+**Sitio:** https://gasacher.github.io/hilo/
 
-```bash
-npm install
-npm run dev
-```
+## Publicar
 
-## Publicación
-
-Al hacer push a `main`, GitHub Actions compila la landing y la publica en la rama `gh-pages`.
-
-En el repo: **Settings → Pages → Build and deployment**
-
-- **Source:** Deploy from a branch
-- **Branch:** `gh-pages` / `/ (root)`
-
-https://gasacher.github.io/hilo/
+1. Push a `main` → GitHub Actions genera la rama `gh-pages`
+2. **Settings → Pages → Deploy from branch → `gh-pages` / root**
