@@ -4,6 +4,9 @@ const isGithubPages = process.env.GITHUB_PAGES === "true";
 const basePath = isGithubPages ? "/hilo" : "";
 
 const nextConfig: NextConfig = {
+  turbopack: {
+    root: import.meta.dirname,
+  },
   ...(isGithubPages
     ? {
         output: "export",

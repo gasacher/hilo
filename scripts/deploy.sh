@@ -7,13 +7,13 @@ cd "$ROOT"
 echo "→ Building for GitHub Pages..."
 GITHUB_PAGES=true npm run build:pages
 
-echo "→ Publishing to origin/main..."
+echo "→ Publishing to origin/gh-pages..."
 cd out
 rm -rf .git
 git init -q
-git checkout -b main
+git checkout -b gh-pages
 git add -A
 git commit -q -m "Deploy Hilo landing"
-git push -f origin main
+git push -f origin gh-pages
 
 echo "✓ Live at https://gasacher.github.io/hilo/"
