@@ -66,14 +66,14 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid transparent;
+  border-bottom: 1px solid var(--blue-line);
+  background: rgba(8, 13, 26, 0.82);
+  backdrop-filter: blur(16px);
   transition: all 0.4s ease;
 }
 
 .hilo-landing nav.scrolled {
-  background: rgba(8, 13, 26, 0.92);
-  backdrop-filter: blur(16px);
-  border-bottom-color: var(--blue-line);
+  background: rgba(8, 13, 26, 0.96);
   padding: 16px 60px;
 }
 
@@ -127,6 +127,47 @@
 .hilo-landing .nav-cta:hover {
   background: var(--blue-dim);
   border-color: var(--blue);
+}
+
+.hilo-landing .nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.hilo-landing .nav-toggle {
+  display: none;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--blue-line);
+  border-radius: 2px;
+  background: transparent;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.hilo-landing .nav-toggle span {
+  display: block;
+  width: 16px;
+  height: 1px;
+  background: var(--off);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.hilo-landing nav.menu-open .nav-toggle span:first-child {
+  transform: translateY(3.5px) rotate(45deg);
+}
+
+.hilo-landing nav.menu-open .nav-toggle span:last-child {
+  transform: translateY(-3.5px) rotate(-45deg);
+}
+
+.hilo-landing .nav-mobile-panel {
+  display: none;
 }
 
 .hilo-landing #hero {
@@ -271,6 +312,17 @@
   text-transform: uppercase;
   color: var(--muted);
   line-height: 1.5;
+}
+
+.hilo-landing .hero-metrics-note {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  opacity: 0.7;
+  margin: 16px 0 0;
+  max-width: 720px;
 }
 
 .hilo-landing .hero-actions {
@@ -668,20 +720,24 @@
   margin-top: 28px;
   padding-top: 24px;
   border-top: 1px solid var(--blue-line);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
-.hilo-landing .case-cta a {
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+.hilo-landing .case-cta-text {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 17px;
   color: var(--white);
-  text-decoration: none;
-  transition: color 0.2s;
+  letter-spacing: -0.02em;
+  margin: 0;
 }
 
-.hilo-landing .case-cta a:hover {
-  color: var(--blue);
+.hilo-landing .case-cta-btn {
+  flex-shrink: 0;
 }
 
 .hilo-landing #proceso {
@@ -999,9 +1055,10 @@
 }
 
 .hilo-landing .contact-alt {
-  margin: 28px 0 0;
+  margin: 20px 0 0;
   font-size: 14px;
   color: var(--muted);
+  text-align: center;
 }
 
 .hilo-landing .contact-mail-inline {
@@ -1056,35 +1113,60 @@
   margin-bottom: 20px;
 }
 
-.hilo-landing .sticky-cta {
+.hilo-landing .sticky-cta-bar {
   position: fixed;
   bottom: 24px;
   right: 24px;
-  z-index: 99;
-  background: var(--blue);
-  color: var(--night);
+  z-index: 120;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  border: 1px solid rgba(74, 158, 255, 0.35);
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(12px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.hilo-landing .sticky-cta-bar.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.hilo-landing .sticky-cta-primary,
+.hilo-landing .sticky-cta-secondary {
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: 10px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   font-weight: 700;
-  padding: 14px 24px;
-  border-radius: 2px;
   text-decoration: none;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease, transform 0.2s ease;
+  padding: 14px 18px;
+  transition: background 0.2s ease, color 0.2s ease;
 }
 
-.hilo-landing .sticky-cta.visible {
-  opacity: 1;
-  pointer-events: auto;
+.hilo-landing .sticky-cta-primary {
+  background: var(--blue);
+  color: var(--night);
 }
 
-.hilo-landing .sticky-cta:hover {
-  transform: translateY(-2px);
+.hilo-landing .sticky-cta-primary:hover {
   background: #6db3ff;
+}
+
+.hilo-landing .sticky-cta-secondary {
+  background: rgba(8, 13, 26, 0.96);
+  color: var(--off);
+  border-left: 1px solid var(--blue-line);
+}
+
+.hilo-landing .sticky-cta-secondary:hover {
+  color: var(--white);
+  background: var(--navy);
 }
 
 .hilo-landing .contact-sub {
@@ -1126,6 +1208,30 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 24px;
+}
+
+.hilo-landing .footer-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.hilo-landing .footer-email {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--off);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(74, 158, 255, 0.25);
+  padding-bottom: 2px;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.hilo-landing .footer-email:hover {
+  color: var(--blue);
+  border-bottom-color: var(--blue);
 }
 
 .hilo-landing .footer-logo {
@@ -1179,6 +1285,10 @@
 @media (max-width: 900px) {
   .hilo-landing nav {
     padding: 20px 24px;
+    flex-wrap: wrap;
+    background: rgba(8, 13, 26, 0.92);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--blue-line);
   }
 
   .hilo-landing nav.scrolled {
@@ -1187,6 +1297,54 @@
 
   .hilo-landing .nav-links {
     display: none;
+  }
+
+  .hilo-landing .nav-toggle {
+    display: inline-flex;
+  }
+
+  .hilo-landing .nav-mobile-panel {
+    display: none;
+    width: 100%;
+    order: 4;
+    padding-top: 16px;
+    border-top: 1px solid var(--blue-line);
+    margin-top: 12px;
+  }
+
+  .hilo-landing nav.menu-open .nav-mobile-panel {
+    display: block;
+  }
+
+  .hilo-landing .nav-mobile-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .hilo-landing .nav-mobile-links a {
+    display: block;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    padding: 12px 0;
+    transition: color 0.2s;
+  }
+
+  .hilo-landing .nav-mobile-links a:hover,
+  .hilo-landing .nav-mobile-cta {
+    color: var(--white);
+  }
+
+  .hilo-landing .nav-mobile-cta {
+    color: var(--blue) !important;
+    margin-top: 8px;
   }
 
   .hilo-landing #hero {
@@ -1235,8 +1393,22 @@
   .hilo-landing footer {
     padding: 24px;
     flex-direction: column;
-    gap: 12px;
+    gap: 16px;
     text-align: center;
+  }
+
+  .hilo-landing .footer-right {
+    align-items: center;
+  }
+
+  .hilo-landing .case-cta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hilo-landing .case-cta-btn {
+    width: 100%;
+    justify-content: center;
   }
 
   .hilo-landing #contacto {
@@ -1247,9 +1419,18 @@
     padding: 24px;
   }
 
-  .hilo-landing .sticky-cta {
-    bottom: 16px;
+  .hilo-landing .sticky-cta-bar {
+    left: 16px;
     right: 16px;
+    bottom: 16px;
+    justify-content: stretch;
+  }
+
+  .hilo-landing .sticky-cta-primary,
+  .hilo-landing .sticky-cta-secondary {
+    flex: 1;
+    text-align: center;
+    padding: 14px 12px;
   }
 
   .hilo-landing .form-row {

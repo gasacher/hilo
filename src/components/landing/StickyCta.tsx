@@ -9,7 +9,7 @@ export function StickyCta() {
     function onScroll() {
       const hero = document.getElementById("hero");
       if (!hero) return;
-      setVisible(hero.getBoundingClientRect().bottom < 0);
+      setVisible(hero.getBoundingClientRect().bottom < 120);
     }
 
     onScroll();
@@ -18,12 +18,16 @@ export function StickyCta() {
   }, []);
 
   return (
-    <a
-      href="#contacto"
-      className={`sticky-cta${visible ? " visible" : ""}`}
-      aria-hidden={!visible}
-    >
-      Hablemos →
-    </a>
+    <div className={`sticky-cta-bar${visible ? " visible" : ""}`} aria-hidden={!visible}>
+      <a href="#contacto" className="sticky-cta-primary">
+        Hablemos →
+      </a>
+      <a
+        href="mailto:hola@hilo.studio?subject=Consulta%20desde%20hilo.studio"
+        className="sticky-cta-secondary"
+      >
+        hola@hilo.studio
+      </a>
+    </div>
   );
 }

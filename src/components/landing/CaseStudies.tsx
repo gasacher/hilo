@@ -12,7 +12,7 @@ const cases = [
       { value: "2.3 semanas", label: "Desde diagnóstico hasta MVP" },
       { value: "91%", label: "Del equipo lo usa activamente" },
     ],
-    cta: "¿Tu equipo pierde tiempo en consultas repetitivas? Hablemos →",
+    cta: "¿Tu equipo tiene un problema similar?",
   },
   {
     type: "Automatización Operativa",
@@ -26,7 +26,7 @@ const cases = [
       { value: "-94%", label: "Tiempo en consolidación de datos" },
       { value: "Real-time", label: "Dashboard en vez de Excel mensual" },
     ],
-    cta: "¿Tus reportes toman días en armarse? Veamos cómo acortarlo →",
+    cta: "¿Tu equipo tiene un problema similar?",
   },
 ];
 
@@ -72,7 +72,10 @@ export function CaseStudies() {
                 ))}
               </div>
               <div className="case-cta">
-                <a href="#contacto">{item.cta}</a>
+                <p className="case-cta-text">{item.cta}</p>
+                <a href="#contacto" className="btn-primary case-cta-btn">
+                  Hablemos →
+                </a>
               </div>
             </div>
           </article>

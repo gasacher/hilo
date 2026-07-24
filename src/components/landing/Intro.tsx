@@ -5,25 +5,14 @@ export function Intro() {
         <div className="intro-text reveal">
           <div className="section-tag">Quiénes somos</div>
           <p>
-            Somos un estudio enfocado en crear{" "}
-            <strong>herramientas inteligentes para empresas</strong> que buscan trabajar de
-            forma más ágil, organizada y eficiente.
+            Somos un estudio que construye{" "}
+            <strong>herramientas inteligentes para equipos</strong> con menos fricción operativa
+            — diseño, operaciones e IA aplicada al problema concreto, no al buzzword del momento.
           </p>
           <p>
-            No vendemos tecnología por la tecnología. Construimos lo que resuelve un dolor
-            concreto de tu equipo — combinando diseño, operaciones y desarrollo acelerado con
-            inteligencia artificial.
+            Conocemos los procesos desde adentro. Construimos lo que la gente elige usar, validamos
+            con el equipo antes de escalar, y no buscamos reemplazar personas sino potenciarlas.
           </p>
-          <p>
-            Tenemos experiencia desde adentro: conocemos cómo se viven los procesos, no solo
-            cómo se diagraman. Sabemos dónde se traba un equipo antes de proponer una
-            solución.
-          </p>
-          <div className="intro-statement">
-            No buscamos reemplazar personas.
-            <br />
-            Buscamos potenciar equipos.
-          </div>
         </div>
         <div className="intro-aside reveal">
           <div className="intro-aside-card">

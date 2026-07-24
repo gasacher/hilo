@@ -1,7 +1,7 @@
 import { ContactForm } from "./ContactForm";
 
 const details = [
-  { label: "Email", value: "hola@hilo.studio", href: "mailto:hola@hilo.studio" },
+  { label: "Email", value: "hola@hilo.studio", href: "mailto:hola@hilo.studio?subject=Consulta%20desde%20hilo.studio" },
   { label: "Respuesta", value: "En menos de 24h" },
   { label: "Diagnóstico", value: "Gratuito, sin compromiso" },
 ];
@@ -32,7 +32,7 @@ export function Contact() {
             ))}
           </ul>
         </div>
-        <div className="contact-form-wrap reveal">
+        <div className="contact-form-wrap">
           <ContactForm />
         </div>
       </div>

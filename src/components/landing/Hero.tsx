@@ -82,6 +82,7 @@ export function Hero() {
             </div>
           ))}
         </div>
+        <p className="hero-metrics-note">Promedio de nuestros últimos 8 proyectos</p>
       </div>
     </section>
   );
