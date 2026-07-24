@@ -23,27 +23,24 @@ const steps = [
 
 export function HowWeWork() {
   return (
-    <section id="como">
-      <div className="how-grid">
-        <div className="reveal">
-          <div className="section-tag">Proceso</div>
-          <h2>Cómo trabajamos</h2>
-          <p className="how-intro">
-            En lugar de proyectos largos y difíciles de implementar, construimos MVPs funcionales
-            que permiten validar rápidamente el valor real de cada herramienta.
-          </p>
-        </div>
-        <div className="how-steps reveal">
-          {steps.map((step) => (
-            <div key={step.num} className="step">
-              <span className="step-num">{step.num}</span>
-              <div>
-                <div className="step-title">{step.title}</div>
-                <p className="step-text">{step.text}</p>
-              </div>
-            </div>
-          ))}
-        </div>
+    <section id="proceso">
+      <div className="process-header reveal">
+        <div className="section-tag">Cómo trabajamos</div>
+        <h2>De problema a herramienta en 4 pasos</h2>
+        <p className="section-desc">
+          No hacemos proyectos largos y difíciles de implementar. Construimos MVPs funcionales que
+          permiten validar rápidamente el valor real.
+        </p>
+      </div>
+
+      <div className="process-steps">
+        {steps.map((step) => (
+          <div key={step.num} className="process-step reveal">
+            <span className="process-num">{step.num}</span>
+            <div className="process-title">{step.title}</div>
+            <p className="process-text">{step.text}</p>
+          </div>
+        ))}
       </div>
     </section>
   );

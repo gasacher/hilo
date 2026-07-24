@@ -1,7 +1,7 @@
 const items = [
   {
-    title: "Entendemos operaciones reales",
-    text: "Trabajamos sobre problemas concretos que viven los equipos todos los días. No partimos desde la teoría ni desde el buzzword del momento.",
+    title: "Conocemos los procesos desde adentro",
+    text: "Tenemos experiencia real dentro de operaciones y equipos. Entendemos dónde se traba el trabajo en la práctica — no desde la teoría ni desde el buzzword del momento.",
   },
   {
     title: "Diseñamos para la adopción",
@@ -19,10 +19,14 @@ const items = [
 
 export function Differential() {
   return (
-    <section id="diferencial">
+    <section id="por-que">
       <div className="reveal">
         <div className="section-tag">Por qué Hilo</div>
-        <h2>Nuestro diferencial</h2>
+        <h2>No somos otra consultora de IA</h2>
+        <p className="section-desc">
+          Hay cientos de equipos que prometen automatizar. Nosotros partimos de haber estado del
+          otro lado — del que vive el proceso todos los días.
+        </p>
       </div>
       <div className="dif-grid">
         {items.map((item) => (

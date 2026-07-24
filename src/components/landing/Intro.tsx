@@ -10,9 +10,14 @@ export function Intro() {
             forma más ágil, organizada y eficiente.
           </p>
           <p>
-            Combinamos experiencia en diseño, operaciones y desarrollo acelerado con
-            inteligencia artificial para transformar tareas manuales y procesos complejos en
-            soluciones simples, funcionales y rápidas de implementar.
+            No vendemos tecnología por la tecnología. Construimos lo que resuelve un dolor
+            concreto de tu equipo — combinando diseño, operaciones y desarrollo acelerado con
+            inteligencia artificial.
+          </p>
+          <p>
+            Tenemos experiencia desde adentro: conocemos cómo se viven los procesos, no solo
+            cómo se diagraman. Sabemos dónde se traba un equipo antes de proponer una
+            solución.
           </p>
           <div className="intro-statement">
             No buscamos reemplazar personas.
@@ -20,28 +25,20 @@ export function Intro() {
             Buscamos potenciar equipos.
           </div>
         </div>
-        <div className="intro-stats reveal">
-          <div className="stat">
-            <div className="stat-num">
-              3<span>x</span>
-            </div>
-            <div className="stat-label">
-              Velocidad de implementación vs. proyectos tradicionales
-            </div>
+        <div className="intro-aside reveal">
+          <div className="intro-aside-card">
+            <div className="intro-aside-label">Desde adentro</div>
+            <p>
+              Hemos estado del lado de quien ejecuta el proceso — operaciones, equipos y
+              fricción real. No llegamos a observar desde afuera ni a vender un framework.
+            </p>
           </div>
-          <div className="stat">
-            <div className="stat-num">
-              MVP<span>.</span>
-            </div>
-            <div className="stat-label">Empezamos con soluciones funcionales, no promesas</div>
-          </div>
-          <div className="stat">
-            <div className="stat-num">
-              0<span>↗</span>
-            </div>
-            <div className="stat-label">
-              Fricción de adopción — herramientas que los equipos eligen usar
-            </div>
+          <div className="intro-aside-card">
+            <div className="intro-aside-label">Resultado</div>
+            <p>
+              Herramientas que la gente elige usar — no que se ven obligada a usar porque
+              &quot;así lo pidió dirección&quot;.
+            </p>
           </div>
         </div>
       </div>

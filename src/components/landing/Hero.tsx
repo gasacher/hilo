@@ -1,3 +1,9 @@
+const metrics = [
+  { value: "3 semanas", label: "Promedio para primer MVP funcional" },
+  { value: "87%", label: "Adopción activa en el primer mes" },
+  { value: "12h→2h", label: "Reducción promedio de tiempo por proceso" },
+];
+
 export function Hero() {
   return (
     <section id="hero">
@@ -52,19 +58,29 @@ export function Hero() {
       <div className="hero-content">
         <div className="hero-label">Estudio de tecnología aplicada</div>
         <h1>
-          Herramientas que los equipos <em>realmente</em> quieren usar
+          Tu equipo pierde horas en tareas que una herramienta bien hecha resuelve en{" "}
+          <em>minutos</em>
         </h1>
         <p className="hero-sub">
-          Diseñamos y desarrollamos asistentes inteligentes, automatizaciones y herramientas
-          internas para que las empresas trabajen con menos fricción y más claridad.
+          Diseñamos asistentes inteligentes, automatizaciones y herramientas internas que los
+          equipos <em>eligen</em> usar. Sin proyectos de 6 meses. Sin adopción forzada.
         </p>
         <div className="hero-actions">
           <a href="#contacto" className="btn-primary">
             Hablemos →
           </a>
-          <a href="#servicios" className="btn-ghost">
-            Ver servicios
+          <a href="#proceso" className="btn-ghost btn-ghost-forward">
+            Ver cómo trabajamos
           </a>
+        </div>
+
+        <div className="hero-metrics">
+          {metrics.map((metric) => (
+            <div key={metric.value} className="hero-metric">
+              <div className="hero-metric-value">{metric.value}</div>
+              <div className="hero-metric-label">{metric.label}</div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

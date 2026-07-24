@@ -28,15 +28,18 @@ export function Navbar() {
           <a href="#servicios">Servicios</a>
         </li>
         <li>
-          <a href="#como">Cómo trabajamos</a>
+          <a href="#casos">Casos</a>
         </li>
         <li>
-          <a href="#diferencial">Diferencial</a>
+          <a href="#proceso">Proceso</a>
+        </li>
+        <li>
+          <a href="#por-que">Por qué Hilo</a>
         </li>
       </ul>
 
       <a href="#contacto" className="nav-cta">
-        Contacto
+        Hablemos
       </a>
     </nav>
   );

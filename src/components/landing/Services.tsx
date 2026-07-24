@@ -3,7 +3,7 @@ const services = [
     num: "01",
     title: "Asistentes inteligentes internos",
     description:
-      "Herramientas que interpretan documentación, responden consultas y ayudan a los equipos a acceder al conocimiento interno de la empresa.",
+      "Herramientas que interpretan documentación, responden consultas y ayudan a los equipos a acceder al conocimiento interno de la empresa sin perder tiempo buscando.",
     tags: ["Búsqueda documental", "Resúmenes automáticos", "Consultas internas"],
     icon: (
       <svg className="service-icon" viewBox="0 0 40 40" fill="none" aria-hidden>
@@ -58,8 +58,12 @@ export function Services() {
   return (
     <section id="servicios">
       <div className="services-header reveal">
-        <div className="section-tag">Servicios</div>
-        <h2>Qué construimos</h2>
+        <div className="section-tag">Qué hacemos</div>
+        <h2>Tres formas de quitarle fricción a tu operación</h2>
+        <p className="section-desc">
+          No vendemos tecnología por la tecnología. Construimos lo que resuelve un dolor concreto
+          de tu equipo.
+        </p>
       </div>
 
       <div className="services-grid">

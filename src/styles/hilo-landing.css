@@ -227,10 +227,50 @@
   font-size: 19px;
   font-weight: 300;
   color: var(--muted);
-  max-width: 520px;
+  max-width: 560px;
   margin: 0 0 52px;
   line-height: 1.7;
   animation: hilo-fade-up 0.8s ease 0.2s both;
+}
+
+.hilo-landing .hero-sub em {
+  font-style: italic;
+  color: var(--off);
+}
+
+.hilo-landing .hero-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  max-width: 720px;
+  margin-top: 64px;
+  animation: hilo-fade-up 0.8s ease 0.4s both;
+}
+
+.hilo-landing .hero-metric {
+  border: 1px solid var(--blue-line);
+  border-radius: 4px;
+  padding: 24px 20px;
+  background: rgba(13, 21, 40, 0.5);
+}
+
+.hilo-landing .hero-metric-value {
+  font-family: var(--display);
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--white);
+  letter-spacing: -0.03em;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.hilo-landing .hero-metric-label {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  line-height: 1.5;
 }
 
 .hilo-landing .hero-actions {
@@ -283,6 +323,10 @@
   content: "↓";
 }
 
+.hilo-landing .btn-ghost-forward::after {
+  content: "→";
+}
+
 .hilo-landing .hero-nodes {
   position: absolute;
   right: 60px;
@@ -329,6 +373,15 @@
   margin: 0 0 24px;
 }
 
+.hilo-landing .section-desc {
+  font-size: 17px;
+  font-weight: 300;
+  color: var(--muted);
+  line-height: 1.7;
+  max-width: 560px;
+  margin: 0;
+}
+
 .hilo-landing #intro {
   border-top: 1px solid var(--blue-line);
   background: var(--navy);
@@ -368,37 +421,35 @@
   margin-top: 40px;
 }
 
-.hilo-landing .intro-stats {
+.hilo-landing .intro-aside {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 24px;
 }
 
-.hilo-landing .stat {
-  border-top: 1px solid var(--blue-line);
-  padding-top: 28px;
+.hilo-landing .intro-aside-card {
+  border: 1px solid var(--blue-line);
+  border-radius: 4px;
+  padding: 32px;
+  background: rgba(8, 13, 26, 0.4);
 }
 
-.hilo-landing .stat-num {
-  font-family: var(--display);
-  font-size: 52px;
-  font-weight: 800;
-  color: var(--white);
-  letter-spacing: -0.04em;
-  line-height: 1;
-  margin-bottom: 6px;
-}
-
-.hilo-landing .stat-num span {
-  color: var(--blue);
-}
-
-.hilo-landing .stat-label {
+.hilo-landing .intro-aside-label {
   font-family: var(--mono);
   font-size: 10px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
+  color: var(--blue);
+  opacity: 0.7;
+  margin-bottom: 12px;
+}
+
+.hilo-landing .intro-aside-card p {
+  font-size: 15px;
+  font-weight: 300;
   color: var(--muted);
+  line-height: 1.65;
+  margin: 0;
 }
 
 .hilo-landing #servicios {
@@ -406,7 +457,7 @@
 }
 
 .hilo-landing .services-header {
-  max-width: 600px;
+  max-width: 640px;
   margin-bottom: 72px;
 }
 
@@ -488,49 +539,202 @@
   border-bottom: 1px solid var(--blue-line);
 }
 
-.hilo-landing .how-grid {
+.hilo-landing #casos {
+  background: var(--navy);
+  border-top: 1px solid var(--blue-line);
+}
+
+.hilo-landing .cases-header {
+  max-width: 640px;
+  margin-bottom: 56px;
+}
+
+.hilo-landing .cases-list {
+  max-width: 1100px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.hilo-landing .case-card {
+  border: 1px solid var(--blue-line);
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--night);
+}
+
+.hilo-landing .case-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 24px 32px;
+  border-bottom: 1px solid var(--blue-line);
+  background: rgba(74, 158, 255, 0.04);
+}
+
+.hilo-landing .case-type {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--blue);
+  opacity: 0.7;
+  margin-bottom: 6px;
+}
+
+.hilo-landing .case-title {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--white);
+  letter-spacing: -0.02em;
+}
+
+.hilo-landing .case-badge {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  border: 1px solid var(--blue-line);
+  padding: 8px 14px;
+  border-radius: 2px;
+}
+
+.hilo-landing .case-body {
+  padding: 32px;
+}
+
+.hilo-landing .case-grid {
   display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 80px;
-  align-items: start;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 32px;
+}
+
+.hilo-landing .case-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+
+.hilo-landing .case-text {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--muted);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.hilo-landing .case-metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.hilo-landing .case-metric {
+  border: 1px solid rgba(74, 158, 255, 0.25);
+  background: var(--blue-dim);
+  padding: 16px 20px;
+  border-radius: 4px;
+  min-width: 140px;
+}
+
+.hilo-landing .case-metric-value {
+  font-family: var(--display);
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--white);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.hilo-landing .case-metric-label {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--blue);
+  opacity: 0.8;
+  margin-top: 6px;
+  line-height: 1.4;
+}
+
+.hilo-landing .case-cta {
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid var(--blue-line);
+}
+
+.hilo-landing .case-cta a {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--white);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.hilo-landing .case-cta a:hover {
+  color: var(--blue);
+}
+
+.hilo-landing #proceso {
+  background: var(--night);
+}
+
+.hilo-landing .process-header {
+  max-width: 640px;
+  margin-bottom: 56px;
+}
+
+.hilo-landing .process-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+  background: var(--blue-line);
+  border: 1px solid var(--blue-line);
+  border-radius: 4px;
+  overflow: hidden;
   max-width: 1100px;
 }
 
-.hilo-landing .how-steps {
-  display: flex;
-  flex-direction: column;
+.hilo-landing .process-step {
+  background: var(--night);
+  padding: 36px 28px;
+  position: relative;
 }
 
-.hilo-landing .step {
-  display: grid;
-  grid-template-columns: 48px 1fr;
-  gap: 20px;
-  padding: 32px 0;
-  border-bottom: 1px solid var(--blue-line);
-}
-
-.hilo-landing .step:last-child {
-  border-bottom: none;
-}
-
-.hilo-landing .step-num {
+.hilo-landing .process-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(74, 158, 255, 0.3);
+  border-radius: 50%;
   font-family: var(--mono);
   font-size: 11px;
   color: var(--blue);
-  opacity: 0.5;
-  padding-top: 4px;
+  margin-bottom: 20px;
 }
 
-.hilo-landing .step-title {
+.hilo-landing .process-title {
   font-family: var(--display);
   font-weight: 700;
-  font-size: 17px;
+  font-size: 16px;
   color: var(--white);
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   letter-spacing: -0.01em;
+  line-height: 1.3;
 }
 
-.hilo-landing .step-text {
+.hilo-landing .process-text {
   font-size: 14px;
   font-weight: 300;
   color: var(--muted);
@@ -538,16 +742,11 @@
   margin: 0;
 }
 
-.hilo-landing .how-intro {
-  font-size: 16px;
-  font-weight: 300;
-  color: var(--muted);
-  line-height: 1.7;
-  margin-top: 16px;
-}
-
-.hilo-landing #diferencial {
-  background: var(--night);
+.hilo-landing #diferencial,
+.hilo-landing #por-que {
+  background: var(--navy);
+  border-top: 1px solid var(--blue-line);
+  border-bottom: 1px solid var(--blue-line);
 }
 
 .hilo-landing .dif-grid {
@@ -555,7 +754,7 @@
   grid-template-columns: repeat(2, 1fr);
   gap: 40px;
   max-width: 1100px;
-  margin-top: 60px;
+  margin-top: 48px;
 }
 
 .hilo-landing .dif-card {
@@ -605,15 +804,122 @@
 }
 
 .hilo-landing #contacto {
+  background: var(--night);
+  border-top: 1px solid var(--blue-line);
+  padding: 120px 60px;
+}
+
+.hilo-landing .cta-section {
   background: var(--navy);
   border-top: 1px solid var(--blue-line);
   text-align: center;
-  padding: 140px 60px;
+  padding: 120px 60px;
+  position: relative;
+  overflow: hidden;
 }
 
-.hilo-landing .contact-inner {
+.hilo-landing .cta-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(74, 158, 255, 0.06) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.hilo-landing .cta-inner {
+  position: relative;
   max-width: 640px;
   margin: 0 auto;
+}
+
+.hilo-landing .cta-inner h2 {
+  margin-bottom: 20px;
+}
+
+.hilo-landing .cta-inner p {
+  font-size: 17px;
+  font-weight: 300;
+  color: var(--muted);
+  line-height: 1.7;
+  margin: 0 0 40px;
+}
+
+.hilo-landing .cta-actions {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.hilo-landing .btn-ghost-light {
+  color: var(--off);
+}
+
+.hilo-landing .btn-ghost-light:hover {
+  color: var(--white);
+}
+
+.hilo-landing .btn-ghost-light::after {
+  content: none;
+}
+
+.hilo-landing .contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.hilo-landing .contact-info h2 {
+  margin-bottom: 20px;
+}
+
+.hilo-landing .contact-info-text {
+  font-size: 17px;
+  font-weight: 300;
+  color: var(--muted);
+  line-height: 1.7;
+  margin: 0 0 36px;
+}
+
+.hilo-landing .contact-details {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.hilo-landing .contact-details li {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-top: 20px;
+  border-top: 1px solid var(--blue-line);
+}
+
+.hilo-landing .contact-detail-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.hilo-landing .contact-detail-value {
+  font-size: 16px;
+  color: var(--off);
+}
+
+.hilo-landing .contact-form-wrap {
+  border: 1px solid var(--blue-line);
+  border-radius: 4px;
+  padding: 36px;
+  background: rgba(13, 21, 40, 0.5);
 }
 
 .hilo-landing .contact-form {
@@ -678,11 +984,11 @@
 
 .hilo-landing .form-actions {
   margin-top: 8px;
-  display: flex;
-  justify-content: center;
 }
 
 .hilo-landing .form-actions .btn-primary {
+  width: 100%;
+  justify-content: center;
   border: none;
   cursor: pointer;
 }
@@ -694,7 +1000,6 @@
 
 .hilo-landing .contact-alt {
   margin: 28px 0 0;
-  text-align: center;
   font-size: 14px;
   color: var(--muted);
 }
@@ -749,6 +1054,37 @@
 
 .hilo-landing .contact-inner h2 {
   margin-bottom: 20px;
+}
+
+.hilo-landing .sticky-cta {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 99;
+  background: var(--blue);
+  color: var(--night);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 14px 24px;
+  border-radius: 2px;
+  text-decoration: none;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.2s ease;
+}
+
+.hilo-landing .sticky-cta.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.hilo-landing .sticky-cta:hover {
+  transform: translateY(-2px);
+  background: #6db3ff;
 }
 
 .hilo-landing .contact-sub {
@@ -866,9 +1202,26 @@
   }
 
   .hilo-landing .intro-grid,
-  .hilo-landing .how-grid {
+  .hilo-landing .contact-grid {
     grid-template-columns: 1fr;
     gap: 48px;
+  }
+
+  .hilo-landing .hero-metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .hilo-landing .case-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .hilo-landing .process-steps {
+    grid-template-columns: 1fr;
+  }
+
+  .hilo-landing .cta-section {
+    padding: 80px 24px;
   }
 
   .hilo-landing .services-grid {
@@ -888,6 +1241,15 @@
 
   .hilo-landing #contacto {
     padding: 80px 24px;
+  }
+
+  .hilo-landing .contact-form-wrap {
+    padding: 24px;
+  }
+
+  .hilo-landing .sticky-cta {
+    bottom: 16px;
+    right: 16px;
   }
 
   .hilo-landing .form-row {

@@ -3,9 +3,9 @@ import { assetPath } from "@/lib/base-path";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Hilo — Herramientas inteligentes para equipos reales",
+  title: "Hilo — Herramientas que tu equipo elige usar",
   description:
-    "Diseñamos y desarrollamos asistentes inteligentes, automatizaciones y herramientas internas para que las empresas trabajen con menos fricción y más claridad.",
+    "Diseñamos asistentes inteligentes y automatizaciones que los equipos realmente adoptan. MVP en 3 semanas.",
   icons: {
     icon: assetPath("/favicon.png"),
   },

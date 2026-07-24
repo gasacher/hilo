@@ -6,14 +6,14 @@ type FormState = {
   name: string;
   email: string;
   company: string;
-  message: string;
+  process: string;
 };
 
 const initialState: FormState = {
   name: "",
   email: "",
   company: "",
-  message: "",
+  process: "",
 };
 
 export function ContactForm() {
@@ -31,7 +31,7 @@ export function ContactForm() {
 
     const subject = encodeURIComponent(`Consulta de ${form.name}${form.company ? ` · ${form.company}` : ""}`);
     const body = encodeURIComponent(
-      `Nombre: ${form.name}\nEmail: ${form.email}\nEmpresa: ${form.company || "—"}\n\nMensaje:\n${form.message}`
+      `Nombre: ${form.name}\nEmail: ${form.email}\nEmpresa: ${form.company || "—"}\n\nProceso:\n${form.process}`
     );
 
     window.setTimeout(() => {
@@ -62,7 +62,7 @@ export function ContactForm() {
   }
 
   return (
-    <form className="contact-form reveal" onSubmit={handleSubmit}>
+    <form className="contact-form" onSubmit={handleSubmit}>
       <div className="form-row">
         <div className="form-field">
           <label htmlFor="contact-name">Nombre</label>
@@ -105,29 +105,22 @@ export function ContactForm() {
       </div>
 
       <div className="form-field">
-        <label htmlFor="contact-message">Mensaje</label>
+        <label htmlFor="contact-process">¿Qué proceso te consume más tiempo?</label>
         <textarea
-          id="contact-message"
+          id="contact-process"
           required
           rows={5}
-          value={form.message}
-          onChange={(e) => handleChange("message", e.target.value)}
-          placeholder="Contanos qué proceso te genera fricción o qué querés resolver..."
+          value={form.process}
+          onChange={(e) => handleChange("process", e.target.value)}
+          placeholder="Ej: cada semana armamos un reporte consolidando datos de 3 sistemas y tarda 6 horas..."
         />
       </div>
 
       <div className="form-actions">
         <button type="submit" className="btn-primary" disabled={submitting}>
-          {submitting ? "Preparando..." : "Enviar mensaje →"}
+          {submitting ? "Preparando..." : "Enviar consulta →"}
         </button>
       </div>
-
-      <p className="contact-alt">
-        o escribinos a{" "}
-        <a href="mailto:hola@hilo.studio" className="contact-mail-inline">
-          hola@hilo.studio
-        </a>
-      </p>
     </form>
   );
 }
