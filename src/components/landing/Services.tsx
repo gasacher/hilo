@@ -66,7 +66,7 @@ export function Services() {
   return (
     <section id="trabajo">
       <div className="services-header reveal">
-        <h2>Pedidos que tomamos</h2>
+        <h2>Qué hacemos</h2>
         <p className="section-desc">
           Si es otra cosa, lo evaluamos. Si no es para nosotros, lo decimos.
         </p>

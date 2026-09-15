@@ -1,8 +1,8 @@
 const steps = [
   {
     num: "01",
-    title: "Nos contás el pedido",
-    text: "Qué necesitás y para qué. Landing, web, reportería, un bot, identidad visual, o algo que no entra en esa lista.",
+    title: "Nos contás qué necesitás",
+    text: "Landing, web, reportería, un bot, identidad visual — o algo que no entra en esa lista.",
   },
   {
     num: "02",

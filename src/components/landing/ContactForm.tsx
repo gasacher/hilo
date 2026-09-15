@@ -32,7 +32,7 @@ export function ContactForm() {
   }
 
   return (
-    <form className="contact-form" onSubmit={onSubmit} aria-label="Enviar un pedido">
+    <form className="contact-form" onSubmit={onSubmit} aria-label="Formulario de contacto">
       <div className="form-row">
         <div className="form-field">
           <label htmlFor="contact-name">Nombre</label>
@@ -85,7 +85,7 @@ export function ContactForm() {
 
       <div className="form-actions">
         <button type="submit" className="btn-primary">
-          Enviar pedido <span className="btn-arrow">→</span>
+          Contanos qué necesitás <span className="btn-arrow">→</span>
         </button>
       </div>
 

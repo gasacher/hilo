@@ -5,7 +5,7 @@ export function Contact() {
     <section id="contacto">
       <div className="contact-grid">
         <div className="contact-info reveal">
-          <h2>¿Tenés un pedido?</h2>
+          <h2>¿Hablamos?</h2>
           <p className="contact-info-text">
             Landing, web, dashboard, bot, identidad visual — o algo que no entra
             en esa lista. Contanos y te respondemos en menos de 24 horas: si lo

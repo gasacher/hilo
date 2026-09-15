@@ -5,6 +5,8 @@
   --text-secondary: #94a3b8;
   --text-muted: #8b9cb3;
   --accent: #60a5fa;
+  --blue: #4a9eff;
+  --blue-line: rgba(74, 158, 255, 0.12);
   --border: rgba(148, 163, 184, 0.12);
   --radius: 12px;
   --radius-sm: 8px;
@@ -20,8 +22,40 @@
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   min-height: 100vh;
-  cursor: auto;
   overflow-x: hidden;
+}
+
+@media (pointer: fine) {
+  .hilo-landing:has(.cursor),
+  .hilo-landing:has(.cursor) * {
+    cursor: none !important;
+  }
+}
+
+.hilo-landing .cursor {
+  width: 8px;
+  height: 8px;
+  background: var(--blue);
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.15s ease;
+  mix-blend-mode: screen;
+}
+
+.hilo-landing .cursor-ring {
+  width: 32px;
+  height: 32px;
+  border: 1px solid rgba(74, 158, 255, 0.4);
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9998;
 }
 
 .hilo-landing *,
@@ -181,20 +215,63 @@ html {
 }
 
 .hilo-landing #hero {
+  position: relative;
+  overflow: hidden;
   padding: 100px 24px 80px;
+  max-width: none;
+  margin: 0;
+}
+
+.hilo-landing .hero-inner {
+  position: relative;
+  z-index: 1;
   max-width: var(--max);
   margin: 0 auto;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 240px;
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 320px);
   align-items: center;
   gap: 48px;
 }
 
-.hilo-landing .hero-bg,
-.hilo-landing .hero-nodes,
-.hilo-landing .hero-blob,
-.hilo-landing .hero-label {
-  display: none;
+.hilo-landing .hero-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.hilo-landing .hero-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--blue-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--blue-line) 1px, transparent 1px);
+  background-size: 80px 80px;
+  mask-image: radial-gradient(ellipse 70% 70% at 60% 40%, black 0%, transparent 70%);
+}
+
+.hilo-landing .hero-blob {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(74, 158, 255, 0.08) 0%, transparent 70%);
+  top: 50%;
+  right: -100px;
+  transform: translateY(-50%);
+  animation: hilo-blob-pulse 6s ease-in-out infinite;
+}
+
+@keyframes hilo-blob-pulse {
+  0%,
+  100% {
+    transform: translateY(-50%) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-50%) scale(1.08);
+    opacity: 0.7;
+  }
 }
 
 .hilo-landing .hero-content {
@@ -202,86 +279,20 @@ html {
   min-width: 0;
 }
 
-.hilo-landing .hero-visual {
+.hilo-landing .hero-nodes {
   width: 100%;
   height: auto;
   display: block;
+  animation: hilo-float 8s ease-in-out infinite;
 }
 
-.hilo-landing .hero-ring {
-  stroke: rgba(96, 165, 250, 0.14);
-  stroke-width: 1;
-  fill: none;
-  transform-origin: 120px 120px;
-  animation: hilo-spin 28s linear infinite;
-}
-
-.hilo-landing .hero-ring-delay {
-  animation-duration: 40s;
-  animation-direction: reverse;
-  stroke: rgba(96, 165, 250, 0.08);
-}
-
-.hilo-landing .hero-line {
-  stroke: #60a5fa;
-  stroke-width: 1.8;
-  stroke-linecap: round;
-  opacity: 0.55;
-}
-
-.hilo-landing .hero-line-soft {
-  stroke: #fff;
-  opacity: 0.28;
-}
-
-.hilo-landing .hero-line-dash {
-  stroke-dasharray: 4 5;
-  opacity: 0.35;
-  animation: hilo-dash 8s linear infinite;
-}
-
-.hilo-landing .hero-node {
-  transform-origin: center;
-  transform-box: fill-box;
-  animation: hilo-pulse 3.2s ease-in-out infinite;
-}
-
-.hilo-landing .hero-node-a {
-  fill: #60a5fa;
-}
-
-.hilo-landing .hero-node-b {
-  fill: #fff;
-  animation-delay: 0.4s;
-}
-
-.hilo-landing .hero-node-c {
-  fill: #60a5fa;
-  opacity: 0.7;
-  animation-delay: 0.9s;
-}
-
-@keyframes hilo-pulse {
+@keyframes hilo-float {
   0%,
   100% {
-    transform: scale(1);
-    opacity: 0.75;
+    transform: translateY(0);
   }
   50% {
-    transform: scale(1.12);
-    opacity: 1;
-  }
-}
-
-@keyframes hilo-dash {
-  to {
-    stroke-dashoffset: -36;
-  }
-}
-
-@keyframes hilo-spin {
-  to {
-    transform: rotate(360deg);
+    transform: translateY(-12px);
   }
 }
 
@@ -292,6 +303,11 @@ html {
   letter-spacing: -0.03em;
   color: var(--text);
   margin: 0 0 20px;
+}
+
+.hilo-landing h1 em {
+  font-style: normal;
+  color: var(--accent);
 }
 
 .hilo-landing .hero-sub {
@@ -912,6 +928,9 @@ html {
 
   .hilo-landing #hero {
     padding: 60px 20px 50px;
+  }
+
+  .hilo-landing .hero-inner {
     grid-template-columns: 1fr;
     gap: 36px;
   }
@@ -927,9 +946,15 @@ html {
     width: 100%;
   }
 
-  .hilo-landing .hero-visual {
-    width: 180px;
+  .hilo-landing .hero-nodes {
+    width: 220px;
     margin: 0 auto;
+  }
+
+  .hilo-landing .hero-blob {
+    width: 420px;
+    height: 420px;
+    right: -140px;
   }
 
   .hilo-landing .process-step:not(:last-child)::after {
@@ -964,10 +989,29 @@ html {
   }
 }
 
+@media (pointer: coarse) {
+  .hilo-landing {
+    cursor: auto;
+  }
+
+  .hilo-landing .cursor,
+  .hilo-landing .cursor-ring {
+    display: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .hilo-landing .hero-ring,
-  .hilo-landing .hero-line-dash,
-  .hilo-landing .hero-node {
+  .hilo-landing {
+    cursor: auto;
+  }
+
+  .hilo-landing .cursor,
+  .hilo-landing .cursor-ring {
+    display: none;
+  }
+
+  .hilo-landing .hero-blob,
+  .hilo-landing .hero-nodes {
     animation: none;
   }
 

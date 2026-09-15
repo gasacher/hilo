@@ -1,9 +1,30 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export function CustomCursor() {
+  const [enabled, setEnabled] = useState(false);
+
   useEffect(() => {
+    const finePointer = window.matchMedia("(pointer: fine)");
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+    function sync() {
+      setEnabled(finePointer.matches && !reduceMotion.matches);
+    }
+
+    sync();
+    finePointer.addEventListener("change", sync);
+    reduceMotion.addEventListener("change", sync);
+    return () => {
+      finePointer.removeEventListener("change", sync);
+      reduceMotion.removeEventListener("change", sync);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!enabled) return;
+
     const cursor = document.getElementById("hilo-cursor");
     const ring = document.getElementById("hilo-cursor-ring");
     if (!cursor || !ring) return;
@@ -17,15 +38,15 @@ export function CustomCursor() {
     function onMouseMove(e: MouseEvent) {
       mx = e.clientX;
       my = e.clientY;
-      cursor!.style.left = `${mx - 4}px`;
-      cursor!.style.top = `${my - 4}px`;
+      cursor.style.left = `${mx - 4}px`;
+      cursor.style.top = `${my - 4}px`;
     }
 
     function animateRing() {
       rx += (mx - rx - 16) * 0.12;
       ry += (my - ry - 16) * 0.12;
-      ring!.style.left = `${rx}px`;
-      ring!.style.top = `${ry}px`;
+      ring.style.left = `${rx}px`;
+      ring.style.top = `${ry}px`;
       frameId = requestAnimationFrame(animateRing);
     }
 
@@ -36,7 +57,9 @@ export function CustomCursor() {
       document.removeEventListener("mousemove", onMouseMove);
       cancelAnimationFrame(frameId);
     };
-  }, []);
+  }, [enabled]);
+
+  if (!enabled) return null;
 
   return (
     <>

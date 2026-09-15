@@ -3,7 +3,7 @@ import { assetPath } from "@/lib/base-path";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Hilo Estudio \u2014 Un pedido puntual. Una respuesta concreta.",
+  title: "Hilo Estudio \u2014 Una necesidad puntual. Una respuesta concreta.",
   description:
     "Estudio de dise\u00f1o y desarrollo en Buenos Aires. Landings, sitios, dashboards, automatizaciones e identidad visual, con propuesta concreta y precio cerrado.",
   icons: {
@@ -13,9 +13,9 @@ export const metadata: Metadata = {
     ],
   },
   openGraph: {
-    title: "Hilo Estudio \u2014 Un pedido puntual. Una respuesta concreta.",
+    title: "Hilo Estudio \u2014 Una necesidad puntual. Una respuesta concreta.",
     description:
-      "Landings, sitios, dashboards, bots e identidad visual. Contanos el pedido, te decimos qu\u00e9 har\u00edamos y cu\u00e1nto.",
+      "Landings, sitios, dashboards, bots e identidad visual. Contanos qué necesitás, te decimos qu\u00e9 har\u00edamos y cu\u00e1nto.",
     type: "website",
     locale: "es_AR",
   },
