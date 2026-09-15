@@ -1,32 +1,27 @@
 const cases = [
   {
-    type: "Asistente Inteligente",
-    title: "Startup fintech — Onboarding de clientes",
-    badge: "B2B SaaS · 45 empleados",
+    type: "Llegás con esto",
+    title: "“Necesito una landing”",
     problem:
-      "El equipo de CX pasaba 15 horas por semana respondiendo las mismas 20 preguntas sobre documentación requerida. La información existía en Notion, pero nadie la encontraba. Cada nuevo empleado tardaba 3 semanas en ser productivo.",
+      "La marca ya está, o está por salir, y no hay página. Una agencia cotiza un sitio entero. Un freelancer te entrega un template.",
     solution:
-      "Asistente interno conectado a su base de conocimiento. Responde en Slack, resume documentos largos y sugiere pasos siguientes. Se entrenó con su documentación existente en 48 horas.",
-    metrics: [
-      { value: "-82%", label: "Tiempo en consultas repetitivas" },
-      { value: "2.3 semanas", label: "Desde diagnóstico hasta MVP" },
-      { value: "91%", label: "Del equipo lo usa activamente" },
-    ],
-    cta: "¿Tu equipo tiene un problema similar?",
+      "Vemos alcance de verdad: una página, tres idiomas, WhatsApp. Cotizamos eso. Si después hace falta web o carrito, se reutiliza.",
   },
   {
-    type: "Automatización Operativa",
-    title: "Empresa de logística — Reportes mensuales",
-    badge: "Logística · 120 empleados",
+    type: "Llegás con esto",
+    title: "“Necesito ver los números”",
     problem:
-      "Cada fin de mes, 3 personas dedicaban 2 días completos a consolidar datos de 4 fuentes distintas en un Excel que nadie leía. Los errores eran comunes y las decisiones se tomaban con información de hace 30 días.",
+      "Los datos están en planillas, en un sistema que nadie abre o en la cabeza de una persona. Pedir un ERP es caro y tarda un año.",
     solution:
-      "Pipeline automático que extrae, limpia y visualiza los datos en un dashboard actualizado en tiempo real. Alertas por anomalías incluidas. Integración con sus herramientas existentes sin cambiar procesos.",
-    metrics: [
-      { value: "-94%", label: "Tiempo en consolidación de datos" },
-      { value: "Real-time", label: "Dashboard en vez de Excel mensual" },
-    ],
-    cta: "¿Tu equipo tiene un problema similar?",
+      "Un dashboard o una reportería que se pueda usar la semana que viene. Lo justo para decidir. No un sistema de gestión.",
+  },
+  {
+    type: "Llegás con esto",
+    title: "“Esto lo hacemos a mano”",
+    problem:
+      "Las mismas preguntas por WhatsApp. El mismo reporte cada viernes. Copiar y pegar entre tres lugares.",
+    solution:
+      "Un bot, un flujo o una automatización. Si con eso alcanza, no construimos una plataforma.",
   },
 ];
 
@@ -34,11 +29,11 @@ export function CaseStudies() {
   return (
     <section id="casos">
       <div className="cases-header reveal">
-        <div className="section-tag">Casos de éxito</div>
-        <h2>Lo que ya construimos — y los resultados</h2>
+        <div className="section-tag">En la práctica</div>
+        <h2>El pedido entra. Nosotros lo acomodamos.</h2>
         <p className="section-desc">
-          Proyectos reales. Métricas reales. Sin nombres porque respetamos la confidencialidad de
-          nuestros clientes.
+          No vendemos un paquete cerrado. Escuchamos qué pedís y proponemos lo que
+          hace falta — a veces es menos de lo que pensabas.
         </p>
       </div>
 
@@ -50,7 +45,6 @@ export function CaseStudies() {
                 <div className="case-type">{item.type}</div>
                 <div className="case-title">{item.title}</div>
               </div>
-              <div className="case-badge">{item.badge}</div>
             </div>
             <div className="case-body">
               <div className="case-grid">
@@ -59,23 +53,9 @@ export function CaseStudies() {
                   <p className="case-text">{item.problem}</p>
                 </div>
                 <div>
-                  <div className="case-label">Lo que construimos</div>
+                  <div className="case-label">Qué proponemos</div>
                   <p className="case-text">{item.solution}</p>
                 </div>
-              </div>
-              <div className="case-metrics">
-                {item.metrics.map((metric) => (
-                  <div key={metric.label} className="case-metric">
-                    <div className="case-metric-value">{metric.value}</div>
-                    <div className="case-metric-label">{metric.label}</div>
-                  </div>
-                ))}
-              </div>
-              <div className="case-cta">
-                <p className="case-cta-text">{item.cta}</p>
-                <a href="#contacto" className="btn-primary case-cta-btn">
-                  Hablemos →
-                </a>
               </div>
             </div>
           </article>

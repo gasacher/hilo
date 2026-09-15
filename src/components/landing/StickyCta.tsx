@@ -20,7 +20,7 @@ export function StickyCta() {
   return (
     <div className={`sticky-cta-bar${visible ? " visible" : ""}`} aria-hidden={!visible}>
       <a href="#contacto" className="sticky-cta-primary">
-        Hablemos →
+        Contanos →
       </a>
       <a
         href="mailto:hola@hilo.studio?subject=Consulta%20desde%20hilo.studio"

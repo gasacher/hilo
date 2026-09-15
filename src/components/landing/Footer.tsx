@@ -1,12 +1,11 @@
 import Link from "next/link";
-import { HiloIcon } from "./HiloIcon";
+import { HiloLogo } from "./HiloLogo";
 
 export function Footer() {
   return (
     <footer>
-      <Link href="/" className="footer-logo">
-        <HiloIcon size={20} />
-        <span className="footer-word">hilo</span>
+      <Link href="/" className="footer-logo" aria-label="hilo">
+        <HiloLogo size={22} />
       </Link>
       <div className="footer-right">
         <a
@@ -15,7 +14,7 @@ export function Footer() {
         >
           hola@hilo.studio
         </a>
-        <span className="footer-copy">© 2026 Hilo Studio</span>
+        <span className="footer-copy">Hilo Estudio · Buenos Aires · © 2026</span>
       </div>
     </footer>
   );

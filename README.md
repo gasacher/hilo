@@ -1,6 +1,6 @@
 # Hilo
 
-Landing page — herramientas inteligentes para equipos reales.
+Landing — una web, una venta, una herramienta.
 
 **Producción:** https://gasacher.github.io/hilo/
 

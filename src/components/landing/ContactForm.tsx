@@ -1,13 +1,38 @@
-export function ContactForm() {
-  return (
-    <form
-      className="contact-form"
-      action="mailto:hola@hilo.studio"
-      method="POST"
-      encType="text/plain"
-    >
-      <input type="hidden" name="Origen" value="Formulario web Hilo" />
+"use client";
 
+import { FormEvent, useState } from "react";
+
+const MAIL = "hola@hilo.studio";
+const MAILTO_SUBJECT = encodeURIComponent("Pedido desde hilo.studio");
+
+export function ContactForm() {
+  const [mailtoHint, setMailtoHint] = useState(false);
+
+  function onSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    const name = String(data.get("Nombre") ?? "").trim();
+    const email = String(data.get("Email") ?? "").trim();
+    const company = String(data.get("Empresa") ?? "").trim();
+    const pedido = String(data.get("Pedido") ?? "").trim();
+
+    const lines = [
+      `Nombre: ${name}`,
+      `Email: ${email}`,
+      company ? `Empresa: ${company}` : null,
+      "",
+      "Pedido:",
+      pedido,
+    ].filter((line) => line !== null);
+
+    const href = `mailto:${MAIL}?subject=${MAILTO_SUBJECT}&body=${encodeURIComponent(lines.join("\n"))}`;
+
+    setMailtoHint(true);
+    window.location.href = href;
+  }
+
+  return (
+    <form className="contact-form" onSubmit={onSubmit} aria-label="Enviar un pedido">
       <div className="form-row">
         <div className="form-field">
           <label htmlFor="contact-name">Nombre</label>
@@ -28,6 +53,7 @@ export function ContactForm() {
             type="email"
             required
             autoComplete="email"
+            inputMode="email"
             placeholder="tu@empresa.com"
           />
         </div>
@@ -47,28 +73,37 @@ export function ContactForm() {
       </div>
 
       <div className="form-field">
-        <label htmlFor="contact-process">¿Qué proceso te consume más tiempo?</label>
+        <label htmlFor="contact-process">¿Qué necesitás?</label>
         <textarea
           id="contact-process"
-          name="Proceso"
+          name="Pedido"
           required
           rows={5}
-          placeholder="Ej: cada semana armamos un reporte consolidando datos de 3 sistemas y tarda 6 horas..."
+          placeholder="Ej: una landing, un logo, un dashboard, un bot de WhatsApp..."
         />
       </div>
 
       <div className="form-actions">
         <button type="submit" className="btn-primary">
-          Enviar consulta →
+          Enviar pedido <span className="btn-arrow">→</span>
         </button>
       </div>
 
-      <p className="contact-alt">
-        o escribinos a{" "}
-        <a href="mailto:hola@hilo.studio?subject=Consulta%20desde%20hilo.studio" className="contact-mail-inline">
-          hola@hilo.studio
-        </a>
-      </p>
+      {mailtoHint ? (
+        <p className="contact-fallback" role="status">
+          Si no se abrió tu correo, escribinos directo a{" "}
+          <a href={`mailto:${MAIL}?subject=${MAILTO_SUBJECT}`} className="contact-mail-inline">
+            hola@hilo.studio
+          </a>
+        </p>
+      ) : (
+        <p className="contact-alt">
+          o escribinos a{" "}
+          <a href={`mailto:${MAIL}?subject=${MAILTO_SUBJECT}`} className="contact-mail-inline">
+            hola@hilo.studio
+          </a>
+        </p>
+      )}
     </form>
   );
 }

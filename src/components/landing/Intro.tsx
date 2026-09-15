@@ -3,30 +3,30 @@ export function Intro() {
     <section id="intro">
       <div className="intro-grid">
         <div className="intro-text reveal">
-          <div className="section-tag">Quiénes somos</div>
+          <div className="section-tag">El estudio</div>
           <p>
-            Somos un estudio que construye{" "}
-            <strong>herramientas inteligentes para equipos</strong> con menos fricción operativa
-            — diseño, operaciones e IA aplicada al problema concreto, no al buzzword del momento.
+            Los pedidos llegan concretos: una página, un tablero, un bot. Los
+            miramos y respondemos con una propuesta.
           </p>
           <p>
-            Conocemos los procesos desde adentro. Construimos lo que la gente elige usar, validamos
-            con el equipo antes de escalar, y no buscamos reemplazar personas sino potenciarlas.
+            Evaluamos porque no podemos — ni queremos — hacer de todo. Si el
+            pedido no es para nosotros, lo decimos. Si lo es, lo construimos
+            para que se use.
           </p>
         </div>
         <div className="intro-aside reveal">
           <div className="intro-aside-card">
-            <div className="intro-aside-label">Desde adentro</div>
+            <div className="intro-aside-label">La pieza</div>
             <p>
-              Hemos estado del lado de quien ejecuta el proceso — operaciones, equipos y
-              fricción real. No llegamos a observar desde afuera ni a vender un framework.
+              La pieza, la página, el tablero. Identidad, claridad, que se vea
+              y se entienda en el celular.
             </p>
           </div>
           <div className="intro-aside-card">
-            <div className="intro-aside-label">Resultado</div>
+            <div className="intro-aside-label">El alcance</div>
             <p>
-              Herramientas que la gente elige usar — no que se ven obligada a usar porque
-              &quot;así lo pidió dirección&quot;.
+              El pedido, el alcance, el precio. Que la solución cierre para
+              quien la pide, no solo para el estudio.
             </p>
           </div>
         </div>

@@ -1,38 +1,31 @@
 import { ContactForm } from "./ContactForm";
 
-const details = [
-  { label: "Email", value: "hola@hilo.studio", href: "mailto:hola@hilo.studio?subject=Consulta%20desde%20hilo.studio" },
-  { label: "Respuesta", value: "En menos de 24h" },
-  { label: "Diagnóstico", value: "Gratuito, sin compromiso" },
-];
-
 export function Contact() {
   return (
     <section id="contacto">
       <div className="contact-grid">
         <div className="contact-info reveal">
-          <div className="section-tag">Contacto</div>
-          <h2>Hablemos de tu proceso</h2>
+          <h2>¿Tenés un pedido?</h2>
           <p className="contact-info-text">
-            Contanos qué tarea o proceso consume más tiempo innecesario en tu equipo. Arrancamos
-            desde ahí.
+            Landing, web, dashboard, bot, identidad visual — o algo que no entra
+            en esa lista. Contanos y te respondemos en menos de 24 horas: si lo
+            podemos hacer, qué haríamos y cuánto, o te decimos que no es para
+            Hilo.
           </p>
-          <ul className="contact-details">
-            {details.map((detail) => (
-              <li key={detail.label}>
-                <span className="contact-detail-label">{detail.label}</span>
-                {detail.href ? (
-                  <a href={detail.href} className="contact-mail-inline">
-                    {detail.value}
-                  </a>
-                ) : (
-                  <span className="contact-detail-value">{detail.value}</span>
-                )}
-              </li>
-            ))}
-          </ul>
+          <p>
+            <a
+              href="mailto:hola@hilo.studio?subject=Pedido%20desde%20hilo.studio"
+              className="contact-email"
+            >
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden>
+                <rect x="3.5" y="5.5" width="17" height="13" rx="2" stroke="currentColor" strokeWidth="1.6" />
+                <path d="M5 8l7 5 7-5" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" />
+              </svg>
+              hola@hilo.studio
+            </a>
+          </p>
         </div>
-        <div className="contact-form-wrap">
+        <div className="contact-form-wrap reveal">
           <ContactForm />
         </div>
       </div>

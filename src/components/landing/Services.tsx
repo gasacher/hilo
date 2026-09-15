@@ -1,85 +1,86 @@
+const icons = {
+  web: (
+    <svg className="service-icon" viewBox="0 0 32 32" fill="none" aria-hidden>
+      <rect x="4" y="6" width="24" height="20" rx="3" stroke="currentColor" strokeWidth="1.5" />
+      <path d="M4 12h24" stroke="currentColor" strokeWidth="1.5" />
+      <circle cx="8.5" cy="9" r="1" fill="currentColor" />
+      <circle cx="12" cy="9" r="1" fill="currentColor" opacity="0.5" />
+      <path d="M9 17h8M9 21h5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+    </svg>
+  ),
+  data: (
+    <svg className="service-icon" viewBox="0 0 32 32" fill="none" aria-hidden>
+      <path d="M8 22V14M16 22V8M24 22v-6" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+      <path d="M6 24h20" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" opacity="0.45" />
+    </svg>
+  ),
+  auto: (
+    <svg className="service-icon" viewBox="0 0 32 32" fill="none" aria-hidden>
+      <circle cx="8" cy="16" r="3" stroke="currentColor" strokeWidth="1.5" />
+      <circle cx="24" cy="9" r="3" stroke="currentColor" strokeWidth="1.5" />
+      <circle cx="24" cy="23" r="3" stroke="currentColor" strokeWidth="1.5" />
+      <path d="M11 16h10M21.5 11.2l-8.8 3.6M21.5 20.8l-8.8-3.6" stroke="currentColor" strokeWidth="1.4" opacity="0.7" />
+    </svg>
+  ),
+  identity: (
+    <svg className="service-icon" viewBox="0 0 32 32" fill="none" aria-hidden>
+      <circle cx="13" cy="13" r="6" stroke="currentColor" strokeWidth="1.5" />
+      <path d="M18 18l7 7" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+      <path d="M11 13h4M13 11v4" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" opacity="0.7" />
+    </svg>
+  ),
+};
+
 const services = [
   {
-    num: "01",
-    title: "Asistentes inteligentes internos",
+    tag: "Web",
+    title: "Landing y sitios",
     description:
-      "Herramientas que interpretan documentación, responden consultas y ayudan a los equipos a acceder al conocimiento interno de la empresa sin perder tiempo buscando.",
-    tags: ["Búsqueda documental", "Resúmenes automáticos", "Consultas internas"],
-    icon: (
-      <svg className="service-icon" viewBox="0 0 40 40" fill="none" aria-hidden>
-        <circle cx="20" cy="12" r="6" stroke="#4a9eff" strokeWidth="1.5" opacity="0.7" />
-        <circle cx="8" cy="32" r="4" stroke="#4a9eff" strokeWidth="1.5" opacity="0.4" />
-        <circle cx="32" cy="32" r="4" stroke="#4a9eff" strokeWidth="1.5" opacity="0.4" />
-        <line x1="20" y1="18" x2="8" y2="28" stroke="#4a9eff" strokeWidth="1" opacity="0.3" />
-        <line x1="20" y1="18" x2="32" y2="28" stroke="#4a9eff" strokeWidth="1" opacity="0.3" />
-        <circle cx="20" cy="12" r="2" fill="#4a9eff" opacity="0.8" />
-      </svg>
-    ),
+      "Una página para que te encuentren, o un sitio para vender y explicar. Identidad, celular, un contacto claro.",
+    icon: icons.web,
   },
   {
-    num: "02",
-    title: "Automatización operativa",
+    tag: "Datos",
+    title: "Dashboards y reportería",
     description:
-      "Automatizamos tareas repetitivas y procesos administrativos que consumen tiempo y generan fricción dentro de las organizaciones.",
-    tags: ["Workflows", "Reportes", "Consolidación de datos"],
-    icon: (
-      <svg className="service-icon" viewBox="0 0 40 40" fill="none" aria-hidden>
-        <rect x="4" y="16" width="12" height="8" rx="2" stroke="#4a9eff" strokeWidth="1.5" opacity="0.6" />
-        <rect x="24" y="16" width="12" height="8" rx="2" stroke="#4a9eff" strokeWidth="1.5" opacity="0.6" />
-        <line x1="16" y1="20" x2="24" y2="20" stroke="#4a9eff" strokeWidth="1.5" opacity="0.4" />
-        <path d="M20 8 L20 14" stroke="#4a9eff" strokeWidth="1" opacity="0.3" strokeDasharray="2 2" />
-        <path d="M20 26 L20 32" stroke="#4a9eff" strokeWidth="1" opacity="0.3" strokeDasharray="2 2" />
-        <circle cx="20" cy="6" r="2.5" fill="#4a9eff" opacity="0.5" />
-        <circle cx="20" cy="34" r="2.5" fill="#4a9eff" opacity="0.5" />
-      </svg>
-    ),
+      "Ver los números sin armar el Excel cada viernes. Un tablero o un reporte que el equipo abra de verdad.",
+    icon: icons.data,
   },
   {
-    num: "03",
-    title: "Herramientas internas a medida",
+    tag: "Automatización",
+    title: "Bots y flujos",
     description:
-      "Plataformas simples, modernas y funcionales diseñadas para resolver necesidades específicas de operación y gestión.",
-    tags: ["Dashboards", "Portales internos", "Copilotos operativos"],
-    icon: (
-      <svg className="service-icon" viewBox="0 0 40 40" fill="none" aria-hidden>
-        <rect x="4" y="4" width="32" height="24" rx="3" stroke="#4a9eff" strokeWidth="1.5" opacity="0.6" />
-        <line x1="4" y1="12" x2="36" y2="12" stroke="#4a9eff" strokeWidth="1" opacity="0.3" />
-        <rect x="8" y="16" width="10" height="8" rx="1" fill="#4a9eff" opacity="0.15" />
-        <rect x="22" y="16" width="10" height="3" rx="1" fill="#4a9eff" opacity="0.2" />
-        <rect x="22" y="21" width="6" height="3" rx="1" fill="#4a9eff" opacity="0.15" />
-        <line x1="16" y1="32" x2="24" y2="32" stroke="#4a9eff" strokeWidth="2" strokeLinecap="round" opacity="0.4" />
-        <line x1="20" y1="28" x2="20" y2="32" stroke="#4a9eff" strokeWidth="1.5" opacity="0.3" />
-      </svg>
-    ),
+      "Lo que hoy se responde a mano, se copia entre planillas o vive en un solo WhatsApp. Un bot o un flujo que lo resuelva.",
+    icon: icons.auto,
+  },
+  {
+    tag: "Identidad",
+    title: "Identidad visual",
+    description:
+      "Logos, piezas y sistema visual. Que se vea y se entienda, en la marca y en el celular. Lo que hace falta, nada más.",
+    icon: icons.identity,
   },
 ];
 
 export function Services() {
   return (
-    <section id="servicios">
+    <section id="trabajo">
       <div className="services-header reveal">
-        <div className="section-tag">Qué hacemos</div>
-        <h2>Tres formas de quitarle fricción a tu operación</h2>
+        <h2>Pedidos que tomamos</h2>
         <p className="section-desc">
-          No vendemos tecnología por la tecnología. Construimos lo que resuelve un dolor concreto
-          de tu equipo.
+          Si es otra cosa, lo evaluamos. Si no es para nosotros, lo decimos.
         </p>
       </div>
 
       <div className="services-grid">
         {services.map((service) => (
-          <div key={service.num} className="service-card reveal">
-            <div className="service-num">{service.num}</div>
-            {service.icon}
-            <div className="service-title">{service.title}</div>
-            <p className="service-desc">{service.description}</p>
-            <div className="service-tags">
-              {service.tags.map((tag) => (
-                <span key={tag} className="tag">
-                  {tag}
-                </span>
-              ))}
+          <div key={service.tag} className="service-card reveal">
+            <div className="card-head">
+              {service.icon}
+              <div className="card-tag">{service.tag}</div>
             </div>
+            <h3 className="service-title">{service.title}</h3>
+            <p className="service-desc">{service.description}</p>
           </div>
         ))}
       </div>
