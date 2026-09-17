@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hilo Estudio — el hilo conductor</title>
+    <meta name="description" content="Estudio de diseño y desarrollo en Buenos Aires. Web, identidad, tableros, automatización, contenido y productos digitales, con propuesta concreta y precio cerrado." />
+    <meta property="og:title" content="Hilo Estudio — el hilo conductor" />
+    <meta property="og:description" content="Web, identidad, tableros, bots, contenido y productos digitales. Contanos qué necesitás, te decimos qué haríamos y cuánto." />
+    <meta property="og:type" content="website" />
+    <link rel="icon" type="image/svg+xml" href="public/favicon.svg" />
+    <link rel="icon" type="image/png" href="public/favicon.png" />
+    <link rel="stylesheet" href="src/styles/hilo-landing.css" />
+    <style>
+      html, body { margin: 0; background: #0a0e1a; }
+    </style>
+  </head>
+  <body>
+    <div class="hilo-landing">
+      <div class="cursor" id="hilo-cursor"></div>
+      <div class="cursor-ring" id="hilo-cursor-ring"></div>
+      <nav>
+        <div class="header-inner">
+          <a href="#hero" class="nav-logo" aria-label="hilo">
+            <span class="hilo-logo">
+              <svg width="36" height="36" viewBox="0 0 28 28" fill="none" aria-hidden>
+                <line x1="5" y1="23" x2="14" y2="6" stroke="#4a9eff" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+                <line x1="14" y1="6" x2="23" y2="15" stroke="#fff" stroke-width="1.5" stroke-linecap="round" opacity="0.35"/>
+                <line x1="5" y1="23" x2="23" y2="15" stroke="#4a9eff" stroke-width="1" stroke-linecap="round" opacity="0.2" stroke-dasharray="3 3"/>
+                <circle cx="5" cy="23" r="3" fill="#4a9eff" opacity="0.9"/>
+                <circle cx="14" cy="6" r="4" fill="#fff" opacity="0.95"/>
+                <circle cx="23" cy="15" r="2.5" fill="#4a9eff" opacity="0.6"/>
+              </svg>
+              <span class="hilo-logo-word">hilo</span>
+            </span>
+          </a>
+          <ul class="nav-links">
+            <li><a href="#trabajo">Servicios</a></li>
+            <li><a href="#como">Cómo trabajamos</a></li>
+            <li><a href="#estudio">Por qué nosotros</a></li>
+            <li><a href="#faq">Preguntas</a></li>
+          </ul>
+          <div class="nav-actions">
+            <a href="#contacto" class="nav-cta">Contanos</a>
+            <button type="button" class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-menu">
+              <span></span>
+              <span></span>
+            </button>
+          </div>
+        </div>
+        <div id="nav-menu" class="nav-mobile-panel">
+          <ul class="nav-mobile-links">
+            <li><a href="#trabajo">Servicios</a></li>
+            <li><a href="#como">Cómo trabajamos</a></li>
+            <li><a href="#estudio">Por qué nosotros</a></li>
+            <li><a href="#faq">Preguntas</a></li>
+            <li><a href="#contacto" class="nav-mobile-cta">Contanos →</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      <main>
+        <section id="hero">
+          <div class="hero-bg" aria-hidden>
+            <div class="hero-blob"></div>
+          </div>
+          <div class="hero-inner">
+            <div class="hero-content">
+              <h1>Somos el hilo conductor<br />que potencia <em>digitalmente</em> tu negocio.</h1>
+              <p class="hero-sub">
+                ¿Qué te está frenando: web, identidad visual o procesos repetitivos
+                y sin automatizar? Lo evaluamos y te decimos qué haríamos, en
+                cuánto tiempo y a qué precio.
+              </p>
+              <div class="hero-actions">
+                <a href="#contacto" class="btn-primary">Contanos <span class="btn-arrow">→</span></a>
+                <a href="#trabajo" class="btn-ghost">Ver qué hacemos</a>
+              </div>
+            </div>
+            <svg class="hero-nodes" viewBox="0 0 340 340" fill="none" aria-hidden>
+              <circle cx="170" cy="170" r="160" fill="rgba(74,158,255,0.03)" />
+              <circle cx="170" cy="170" r="140" stroke="rgba(74,158,255,0.06)" stroke-width="1" />
+              <circle cx="170" cy="170" r="100" stroke="rgba(74,158,255,0.08)" stroke-width="1" />
+              <line x1="80" y1="260" x2="170" y2="80" stroke="#4a9eff" stroke-width="1.5" opacity="0.3" />
+              <line x1="170" y1="80" x2="280" y2="190" stroke="#fff" stroke-width="1" opacity="0.15" />
+              <line x1="80" y1="260" x2="280" y2="190" stroke="#4a9eff" stroke-width="1" opacity="0.12" stroke-dasharray="5 5" />
+              <line x1="170" y1="80" x2="230" y2="270" stroke="#4a9eff" stroke-width="1" opacity="0.1" stroke-dasharray="3 6" />
+              <line x1="80" y1="260" x2="140" y2="160" stroke="#fff" stroke-width="1" opacity="0.08" />
+              <line x1="140" y1="160" x2="280" y2="190" stroke="#4a9eff" stroke-width="1" opacity="0.15" />
+              <circle cx="80" cy="260" r="10" fill="#4a9eff" opacity="0.7" />
+              <circle cx="80" cy="260" r="18" fill="#4a9eff" opacity="0.08" />
+              <circle cx="170" cy="80" r="14" fill="#fff" opacity="0.9" />
+              <circle cx="170" cy="80" r="24" fill="#fff" opacity="0.05" />
+              <circle cx="280" cy="190" r="8" fill="#4a9eff" opacity="0.5" />
+              <circle cx="280" cy="190" r="16" fill="#4a9eff" opacity="0.06" />
+              <circle cx="140" cy="160" r="5" fill="#fff" opacity="0.4" />
+              <circle cx="230" cy="270" r="6" fill="#4a9eff" opacity="0.35" />
+            </svg>
+          </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <section id="trabajo">
+          <div class="services-header reveal">
+            <h2>Qué hacemos</h2>
+            <p class="section-desc">Seis áreas. Abrí cada una. Si es otra cosa, lo evaluamos.</p>
+          </div>
+          <div class="services-grid">
+            <details class="service-card reveal">
+              <summary>
+                <div class="card-head">
+                  <svg class="service-icon" viewBox="0 0 32 32" fill="none" aria-hidden>
+                    <rect x="4" y="6" width="24" height="20" rx="3" stroke="currentColor" stroke-width="1.5" />
+                    <path d="M4 12h24" stroke="currentColor" stroke-width="1.5" />
+                    <circle cx="8.5" cy="9" r="1" fill="currentColor" />
+                    <circle cx="12" cy="9" r="1" fill="currentColor" opacity="0.5" />
+                    <path d="M9 17h8M9 21h5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                  </svg>
+                  <div class="card-tag">01</div>
+                </div>
+                <h3 class="service-title">Desarrollo web</h3>
+                <p class="service-desc">Landings y sitios para explicar, vender o que te encuentren.</p>
+              </summary>
+              <ul class="service-list">
+                <li>Landing para un lanzamiento o un servicio</li>
+                <li>Sitio institucional o e-commerce (Tiendanube, Shopify u otra)</li>
+                <li>SEO técnico y on-page</li>
+                <li>Que se adapte a cualquier pantalla</li>
+              </ul>
+            </details>
+            <details class="service-card reveal">
+              <summary>
+                <div class="card-head">
+                  <svg class="service-icon" viewBox="0 0 32 32" fill="none" aria-hidden>
+                    <path d="M8 22V14M16 22V8M24 22v-6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
+                    <path d="M6 24h20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.45" />
+                  </svg>
+                  <div class="card-tag">02</div>
+                </div>
+                <h3 class="service-title">Dashboards</h3>
+                <p class="service-desc">Tableros y reportes a partir de los datos que ya tenés.</p>
+              </summary>
+              <ul class="service-list">
+                <li>Un tablero para ver números en un solo lugar</li>
+                <li>Reportes que no tengas que armar a mano cada vez</li>
+                <li>Que se pueda actualizar después</li>
+              </ul>
+            </details>
+            <details class="service-card reveal">
+              <summary>
+                <div class="card-head">
+                  <svg class="service-icon" viewBox="0 0 32 32" fill="none" aria-hidden>
+                    <circle cx="8" cy="16" r="3" stroke="currentColor" stroke-width="1.5" />
+                    <circle cx="24" cy="9" r="3" stroke="currentColor" stroke-width="1.5" />
+                    <circle cx="24" cy="23" r="3" stroke="currentColor" stroke-width="1.5" />
+                    <path d="M11 16h10M21.5 11.2l-8.8 3.6M21.5 20.8l-8.8-3.6" stroke="currentColor" stroke-width="1.4" opacity="0.7" />
+                  </svg>
+                  <div class="card-tag">03</div>
+                </div>
+                <h3 class="service-title">Automatización</h3>
+                <p class="service-desc">Bots y flujos para lo que hoy se responde o se copia a mano.</p>
+              </summary>
+              <ul class="service-list">
+                <li>Bot de WhatsApp u otro canal</li>
+                <li>Pasar datos entre herramientas</li>
+                <li>Un flujo chico, no un proyecto que no termina nunca</li>
+              </ul>
+            </details>
+            <details class="service-card reveal">
+              <summary>
+                <div class="card-head">
+                  <svg class="service-icon" viewBox="0 0 32 32" fill="none" aria-hidden>
+                    <circle cx="13" cy="13" r="6" stroke="currentColor" stroke-width="1.5" />
+                    <path d="M18 18l7 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+                    <path d="M11 13h4M13 11v4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" opacity="0.7" />
+                  </svg>
+                  <div class="card-tag">04</div>
+                </div>
+                <h3 class="service-title">Identidad visual</h3>
+                <p class="service-desc">Logo, piezas y sistema visual. Lo que hace falta.</p>
+              </summary>
+              <ul class="service-list">
+                <li>Logo y marca aplicada</li>
+                <li>Sistema visual para web y piezas</li>
+                <li>Que se reconozca igual en cualquier pantalla</li>
+              </ul>
+            </details>
+            <details class="service-card reveal">
+              <summary>
+                <div class="card-head">
+                  <svg class="service-icon" viewBox="0 0 32 32" fill="none" aria-hidden>
+                    <rect x="6" y="6" width="20" height="20" rx="6" stroke="currentColor" stroke-width="1.5" />
+                    <circle cx="16" cy="16" r="5" stroke="currentColor" stroke-width="1.5" />
+                    <circle cx="22" cy="10" r="1.2" fill="currentColor" />
+                  </svg>
+                  <div class="card-tag">05</div>
+                </div>
+                <h3 class="service-title">Social media</h3>
+                <p class="service-desc">Contenido para redes sociales. Que se vea y se publique.</p>
+              </summary>
+              <ul class="service-list">
+                <li>Dirección de contenido y piezas para el feed</li>
+                <li>Stories y formatos cortos</li>
+                <li>Una línea visual, no un post suelto cada tanto</li>
+              </ul>
+            </details>
+            <details class="service-card reveal">
+              <summary>
+                <div class="card-head">
+                  <svg class="service-icon" viewBox="0 0 32 32" fill="none" aria-hidden>
+                    <rect x="5" y="5" width="9" height="9" rx="2" stroke="currentColor" stroke-width="1.5" />
+                    <rect x="18" y="5" width="9" height="9" rx="2" stroke="currentColor" stroke-width="1.5" />
+                    <rect x="5" y="18" width="9" height="9" rx="2" stroke="currentColor" stroke-width="1.5" />
+                    <rect x="18" y="18" width="9" height="9" rx="2" stroke="currentColor" stroke-width="1.5" opacity="0.55" />
+                  </svg>
+                  <div class="card-tag">06</div>
+                </div>
+                <h3 class="service-title">Apps</h3>
+                <p class="service-desc">Productos digitales para usar: web apps, herramientas, lo que hace falta.</p>
+              </summary>
+              <ul class="service-list">
+                <li>Web apps y herramientas internas</li>
+                <li>Backend, login y base de datos</li>
+                <li>Integración de pagos (Stripe, Mercado Pago)</li>
+                <li>Algo que se abra y se use, no un sistema infinito</li>
+              </ul>
+            </details>
+          </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <section id="como">
+          <div class="process-header reveal">
+            <h2>Así entra un trabajo</h2>
+            <p class="section-desc">
+              Una conversación. Una propuesta. Un entregable.
+            </p>
+          </div>
+          <div class="process-steps">
+            <div class="process-step reveal">
+              <span class="process-num">01</span>
+              <h4 class="process-title">Nos contás qué necesitás</h4>
+              <p class="process-text">
+                Web, dashboards, identidad, social media, automatización o apps — o algo que no entra en esa lista.
+              </p>
+            </div>
+            <div class="process-step reveal">
+              <span class="process-num">02</span>
+              <h4 class="process-title">Lo evaluamos</h4>
+              <p class="process-text">
+                En unos días te decimos si lo tomamos y con qué alcance.
+              </p>
+            </div>
+            <div class="process-step reveal">
+              <span class="process-num">03</span>
+              <h4 class="process-title">Propuesta concreta</h4>
+              <p class="process-text">
+                Alcance, plazo y precio. Por escrito, antes de empezar.
+              </p>
+            </div>
+            <div class="process-step reveal">
+              <span class="process-num">04</span>
+              <h4 class="process-title">Se entrega</h4>
+              <p class="process-text">
+                Una web, un dashboard, una identidad, contenido, una automatización o una app. Si hace falta un ajuste, entra en esa entrega.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <section id="estudio">
+          <div class="reveal">
+            <h2>Por qué nosotros</h2>
+            <p class="section-desc">
+              Cómo preferimos trabajar.
+            </p>
+          </div>
+          <div class="dif-grid">
+            <div class="dif-card reveal">
+              <svg class="dif-icon" viewBox="0 0 24 24" fill="none" aria-hidden>
+                <circle cx="8" cy="9" r="2.4" stroke="currentColor" stroke-width="1.5" />
+                <circle cx="16" cy="9" r="2.4" stroke="currentColor" stroke-width="1.5" />
+                <path d="M4.5 18c.6-2.4 2.4-3.6 3.5-3.6S11 15.6 11.6 18M12.4 18c.6-2.4 2.4-3.6 3.6-3.6s2.9 1.2 3.5 3.6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+              </svg>
+              <h3 class="dif-title">Directo con vos</h3>
+              <p class="dif-text">
+                Hablamos con quien pide el trabajo. Sin cadena de intermediarios.
+              </p>
+            </div>
+            <div class="dif-card reveal">
+              <svg class="dif-icon" viewBox="0 0 24 24" fill="none" aria-hidden>
+                <path d="M12 3.5l7.5 4v9L12 20.5 4.5 16.5v-9L12 3.5z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
+                <path d="M12 8.5v7M9.8 11.2h3.3a1.4 1.4 0 010 2.8H10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+              </svg>
+              <h3 class="dif-title">Precio cerrado</h3>
+              <p class="dif-text">
+                Alcance, plazo y monto por escrito, antes de empezar.
+              </p>
+            </div>
+            <div class="dif-card reveal">
+              <svg class="dif-icon" viewBox="0 0 24 24" fill="none" aria-hidden>
+                <circle cx="6" cy="16" r="2.2" stroke="currentColor" stroke-width="1.5" />
+                <circle cx="12" cy="7" r="2.2" stroke="currentColor" stroke-width="1.5" />
+                <circle cx="18" cy="16" r="2.2" stroke="currentColor" stroke-width="1.5" />
+                <path d="M8 14.5l2.5-5.2M16 14.5l-2.5-5.2" stroke="currentColor" stroke-width="1.4" opacity="0.7" />
+              </svg>
+              <h3 class="dif-title">Una entrega, no un proyecto eterno</h3>
+              <p class="dif-text">
+                Definimos el alcance antes de arrancar y lo cerramos ahí. Nada de scope que crece solo.
+              </p>
+            </div>
+            <div class="dif-card reveal">
+              <svg class="dif-icon" viewBox="0 0 24 24" fill="none" aria-hidden>
+                <circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.5" />
+                <path d="M16 16l4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+              </svg>
+              <h3 class="dif-title">Si no entra, lo decimos</h3>
+              <p class="dif-text">
+                No forzamos un trabajo que no vamos a hacer bien.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <section id="faq">
+          <div class="reveal">
+            <h2>Preguntas</h2>
+            <p class="section-desc">Antes de escribir.</p>
+          </div>
+          <div class="faq-list">
+            <details class="faq-item reveal">
+              <summary>¿Cuánto cuesta un proyecto?</summary>
+              <p>Depende del alcance. Después de evaluar tu pedido, te pasamos un precio cerrado — sabés cuánto vas a pagar antes de empezar.</p>
+            </details>
+            <details class="faq-item reveal">
+              <summary>¿Cuánto tarda un proyecto?</summary>
+              <p>Depende del servicio y de qué tan definidos estén tus materiales (logo, textos, contenido). Un proyecto simple puede estar en 1 a 2 semanas; uno más complejo, un poco más. Te damos un tiempo estimado concreto en la propuesta.</p>
+            </details>
+            <details class="faq-item reveal">
+              <summary>¿Trabajan con marcas que ya tienen web o logo?</summary>
+              <p>Sí. Hacemos reingeniería y rebranding — actualizamos lo que ya existe, o lo repensamos de cero si hace falta.</p>
+            </details>
+            <details class="faq-item reveal">
+              <summary>¿Puedo contratar un solo servicio?</summary>
+              <p>Sí, cada servicio funciona por separado. Aunque si combinás — por ejemplo, identidad de marca junto con la web — el resultado es más coherente porque lo hace el mismo equipo de punta a punta, y el presupuesto se arma acorde al paquete.</p>
+            </details>
+            <details class="faq-item reveal">
+              <summary>¿De dónde son?</summary>
+              <p>Buenos Aires, y trabajamos remoto con todo el país. Si hace falta, nos juntamos a tomar una birra.</p>
+            </details>
+            <details class="faq-item reveal">
+              <summary>¿Y si no me convence el primer entregable?</summary>
+              <p>El precio incluye 2 rondas de cambios — la mayoría de las veces alcanza con la primera. Si después de eso seguimos lejos, lo charlamos y vemos cómo seguir, sin drama.</p>
+            </details>
+          </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <section id="contacto">
+          <div class="contact-grid">
+            <div class="contact-info reveal">
+              <h2>¿Hablamos?</h2>
+              <p class="contact-info-text">
+                Web, dashboards, identidad, social media, automatización o apps — o
+                algo que no entra en esa lista. Contanos: si lo podemos hacer, qué
+                haríamos y cuánto, o te decimos que no es para Hilo.
+              </p>
+              <div class="contact-channels">
+                <p>
+                  <a href="mailto:hola@hilo.studio?subject=Consulta%20desde%20hilo.studio" class="contact-email">
+                    <svg viewBox="0 0 24 24" fill="none" aria-hidden>
+                      <rect x="3.5" y="5.5" width="17" height="13" rx="2" stroke="currentColor" stroke-width="1.6" />
+                      <path d="M5 8l7 5 7-5" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" />
+                    </svg>
+                    hola@hilo.studio
+                  </a>
+                </p>
+                <p>
+                  <a href="https://www.instagram.com/hilo.studio/" class="contact-instagram" target="_blank" rel="noreferrer">
+                    <svg viewBox="0 0 24 24" fill="none" aria-hidden>
+                      <rect x="3.5" y="3.5" width="17" height="17" rx="5" stroke="currentColor" stroke-width="1.6" />
+                      <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.6" />
+                      <circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" />
+                    </svg>
+                    @hilo.studio
+                  </a>
+                </p>
+              </div>
+            </div>
+            <form class="contact-form reveal" id="pedido-form" aria-label="Formulario de contacto">
+              <div class="form-row">
+                <div class="form-field">
+                  <label for="contact-name">Nombre</label>
+                  <input id="contact-name" name="Nombre" type="text" required autocomplete="name" placeholder="Tu nombre" />
+                </div>
+                <div class="form-field">
+                  <label for="contact-email">Email</label>
+                  <input id="contact-email" name="Email" type="email" required autocomplete="email" inputmode="email" placeholder="tu@empresa.com" />
+                </div>
+              </div>
+              <div class="form-field">
+                <label for="contact-company">Empresa <span class="form-optional">(opcional)</span></label>
+                <input id="contact-company" name="Empresa" type="text" autocomplete="organization" placeholder="Nombre de tu empresa" />
+              </div>
+              <div class="form-field">
+                <label for="contact-process">¿Qué necesitás?</label>
+                <textarea id="contact-process" name="Pedido" required rows="5" placeholder="Ej: una landing, contenido para Instagram, una app, un dashboard..."></textarea>
+              </div>
+              <div class="form-actions">
+                <button type="submit" class="btn-primary">Contanos qué necesitás <span class="btn-arrow">→</span></button>
+              </div>
+              <p class="contact-alt" id="contact-alt">
+                o escribinos a
+                <a href="mailto:hola@hilo.studio?subject=Consulta%20desde%20hilo.studio" class="contact-mail-inline">hola@hilo.studio</a>
+              </p>
+              <p class="contact-fallback" id="contact-fallback" role="status" hidden>
+                Si no se abrió tu correo, escribinos directo a
+                <a href="mailto:hola@hilo.studio?subject=Consulta%20desde%20hilo.studio" class="contact-mail-inline">hola@hilo.studio</a>
+              </p>
+            </form>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <a href="#hero" class="footer-logo" aria-label="hilo">
+          <span class="hilo-logo">
+            <svg width="36" height="36" viewBox="0 0 28 28" fill="none" aria-hidden>
+              <line x1="5" y1="23" x2="14" y2="6" stroke="#4a9eff" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+              <line x1="14" y1="6" x2="23" y2="15" stroke="#fff" stroke-width="1.5" stroke-linecap="round" opacity="0.35"/>
+              <line x1="5" y1="23" x2="23" y2="15" stroke="#4a9eff" stroke-width="1" stroke-linecap="round" opacity="0.2" stroke-dasharray="3 3"/>
+              <circle cx="5" cy="23" r="3" fill="#4a9eff" opacity="0.9"/>
+              <circle cx="14" cy="6" r="4" fill="#fff" opacity="0.95"/>
+              <circle cx="23" cy="15" r="2.5" fill="#4a9eff" opacity="0.6"/>
+            </svg>
+            <span class="hilo-logo-word">hilo</span>
+          </span>
+        </a>
+        <div class="footer-right">
+          <a href="mailto:hola@hilo.studio" class="footer-email">hola@hilo.studio</a>
+          <a href="https://www.instagram.com/hilo.studio/" class="footer-instagram" target="_blank" rel="noreferrer">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden>
+              <rect x="3.5" y="3.5" width="17" height="17" rx="5" stroke="currentColor" stroke-width="1.6" />
+              <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.6" />
+              <circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" />
+            </svg>
+            @hilo.studio
+          </a>
+          <span class="footer-copy">Hilo Estudio · Buenos Aires · © 2026</span>
+        </div>
+      </footer>
+    </div>
+    <script>
+      const nav = document.querySelector("nav");
+      const toggle = document.querySelector(".nav-toggle");
+      toggle?.addEventListener("click", () => {
+        const open = nav.classList.toggle("menu-open");
+        toggle.setAttribute("aria-label", open ? "Cerrar menú" : "Abrir menú");
+        toggle.setAttribute("aria-expanded", open);
+      });
+      nav?.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          nav.classList.remove("menu-open");
+          toggle?.setAttribute("aria-expanded", "false");
+          toggle?.setAttribute("aria-label", "Abrir menú");
+        });
+      });
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              io.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12 }
+      );
+      document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
+
+      (function initCursor() {
+        const fine = window.matchMedia("(pointer: fine)").matches;
+        const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        const cursor = document.getElementById("hilo-cursor");
+        const ring = document.getElementById("hilo-cursor-ring");
+        if (!fine || reduce || !cursor || !ring) {
+          cursor?.remove();
+          ring?.remove();
+          return;
+        }
+        let mx = 0;
+        let my = 0;
+        let rx = 0;
+        let ry = 0;
+        document.addEventListener("mousemove", (e) => {
+          mx = e.clientX;
+          my = e.clientY;
+          cursor.style.left = `${mx - 4}px`;
+          cursor.style.top = `${my - 4}px`;
+          const overLink = Boolean(
+            e.target?.closest?.("a, button, summary, input, textarea, select")
+          );
+          ring.classList.toggle("is-hover", overLink);
+        });
+        function animateRing() {
+          rx += (mx - rx - 16) * 0.12;
+          ry += (my - ry - 16) * 0.12;
+          ring.style.left = `${rx}px`;
+          ring.style.top = `${ry}px`;
+          requestAnimationFrame(animateRing);
+        }
+        requestAnimationFrame(animateRing);
+      })();
+
+      document.getElementById("pedido-form")?.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const form = event.currentTarget;
+        const data = new FormData(form);
+        const name = String(data.get("Nombre") || "").trim();
+        const email = String(data.get("Email") || "").trim();
+        const company = String(data.get("Empresa") || "").trim();
+        const pedido = String(data.get("Pedido") || "").trim();
+        const lines = [
+          `Nombre: ${name}`,
+          `Email: ${email}`,
+          company ? `Empresa: ${company}` : null,
+          "",
+          "Pedido:",
+          pedido,
+        ].filter(Boolean);
+        const alt = document.getElementById("contact-alt");
+        const fallback = document.getElementById("contact-fallback");
+        if (alt) alt.hidden = true;
+        if (fallback) fallback.hidden = false;
+        window.location.href = `mailto:hola@hilo.studio?subject=${encodeURIComponent("Consulta desde hilo.studio")}&body=${encodeURIComponent(lines.join("\n"))}`;
+      });
+    </script>
+  </body>
+</html>

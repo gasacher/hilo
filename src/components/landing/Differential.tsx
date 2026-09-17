@@ -1,7 +1,7 @@
 const items = [
   {
-    title: "Sin vueltas de fábrica de software",
-    text: "Trabajamos directo con quien decide. Sin capas de PM, sin reuniones que no aportan. Vos y nosotros, resolviendo.",
+    title: "Directo con vos",
+    text: "Hablamos con quien pide el trabajo. Sin cadena de intermediarios.",
     icon: (
       <svg className="dif-icon" viewBox="0 0 24 24" fill="none" aria-hidden>
         <circle cx="8" cy="9" r="2.4" stroke="currentColor" strokeWidth="1.5" />
@@ -11,8 +11,8 @@ const items = [
     ),
   },
   {
-    title: "Precio cerrado, no por hora",
-    text: "Sabés cuánto vas a pagar antes de empezar. Nada de horas que se acumulan sin que te enteres.",
+    title: "Precio cerrado",
+    text: "Alcance, plazo y monto por escrito, antes de empezar.",
     icon: (
       <svg className="dif-icon" viewBox="0 0 24 24" fill="none" aria-hidden>
         <path d="M12 3.5l7.5 4v9L12 20.5 4.5 16.5v-9L12 3.5z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
@@ -21,8 +21,8 @@ const items = [
     ),
   },
   {
-    title: "Hecho para durar, no para entregar y listo",
-    text: "No armamos algo lindo que se rompe con el primer cambio. Lo que construimos, se puede extender después.",
+    title: "Una entrega, no un proyecto eterno",
+    text: "Definimos el alcance antes de arrancar y lo cerramos ahí. Nada de scope que crece solo.",
     icon: (
       <svg className="dif-icon" viewBox="0 0 24 24" fill="none" aria-hidden>
         <circle cx="6" cy="16" r="2.2" stroke="currentColor" strokeWidth="1.5" />
@@ -33,8 +33,8 @@ const items = [
     ),
   },
   {
-    title: "Elegimos con quién trabajar",
-    text: "No tomamos cualquier proyecto. Si vemos que no podemos aportar valor real, te lo decimos de entrada.",
+    title: "Si no entra, lo decimos",
+    text: "No forzamos un trabajo que no vamos a hacer bien.",
     icon: (
       <svg className="dif-icon" viewBox="0 0 24 24" fill="none" aria-hidden>
         <circle cx="11" cy="11" r="6.5" stroke="currentColor" strokeWidth="1.5" />
@@ -49,9 +49,7 @@ export function Differential() {
     <section id="estudio">
       <div className="reveal">
         <h2>Por qué nosotros</h2>
-        <p className="section-desc">
-          No es solo qué hacemos. Es cómo lo hacemos.
-        </p>
+        <p className="section-desc">Cómo preferimos trabajar.</p>
       </div>
       <div className="dif-grid">
         {items.map((item) => (

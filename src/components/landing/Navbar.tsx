@@ -8,6 +8,7 @@ const links = [
   { href: "#trabajo", label: "Servicios" },
   { href: "#como", label: "Cómo trabajamos" },
   { href: "#estudio", label: "Por qué nosotros" },
+  { href: "#faq", label: "Preguntas" },
 ];
 
 export function Navbar() {
@@ -29,7 +30,7 @@ export function Navbar() {
     <nav id="nav" className={menuOpen ? "menu-open" : ""}>
       <div className="header-inner">
         <Link href="/" className="nav-logo" aria-label="hilo" onClick={closeMenu}>
-          <HiloLogo size={28} />
+          <HiloLogo size={36} />
         </Link>
 
         <ul className="nav-links">

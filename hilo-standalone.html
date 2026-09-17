@@ -1,0 +1,1809 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hilo Estudio — el hilo conductor</title>
+    <meta name="description" content="Estudio de diseño y desarrollo en Buenos Aires. Web, identidad, tableros, automatización, contenido y productos digitales, con propuesta concreta y precio cerrado." />
+    <meta property="og:title" content="Hilo Estudio — el hilo conductor" />
+    <meta property="og:description" content="Web, identidad, tableros, bots, contenido y productos digitales. Contanos qué necesitás, te decimos qué haríamos y cuánto." />
+    <meta property="og:type" content="website" />
+    <link rel="icon" type="image/svg+xml" href="public/favicon.svg" />
+    <link rel="icon" type="image/png" href="public/favicon.png" />
+    <style>
+      html, body { margin: 0; background: #0a0e1a; }
+:root {
+  --bg: #0a0e1a;
+  --surface: #111827;
+  --text: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-muted: #8b9cb3;
+  --accent: #60a5fa;
+  --blue: #4a9eff;
+  --blue-line: rgba(74, 158, 255, 0.12);
+  --border: rgba(148, 163, 184, 0.12);
+  --radius: 12px;
+  --radius-sm: 8px;
+  --max: 960px;
+  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.hilo-landing {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+@media (pointer: fine) {
+  .hilo-landing:has(.cursor),
+  .hilo-landing:has(.cursor) * {
+    cursor: none !important;
+  }
+}
+
+.hilo-landing .cursor {
+  width: 8px;
+  height: 8px;
+  background: var(--blue);
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.15s ease;
+  mix-blend-mode: screen;
+}
+
+.hilo-landing .cursor-ring {
+  width: 32px;
+  height: 32px;
+  border: 1px solid rgba(74, 158, 255, 0.4);
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9998;
+  transition: transform 0.2s ease, border-color 0.2s ease, width 0.2s ease, height 0.2s ease;
+}
+
+.hilo-landing .cursor-ring.is-hover {
+  transform: scale(1.5);
+  border-color: var(--accent);
+}
+
+.hilo-landing *,
+.hilo-landing *::before,
+.hilo-landing *::after {
+  box-sizing: border-box;
+}
+
+.hilo-landing a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.hilo-landing button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.hilo-landing nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(10, 14, 26, 0.9);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0;
+  display: block;
+  max-width: none;
+}
+
+.hilo-landing .header-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.hilo-landing .hilo-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.hilo-landing .hilo-logo svg {
+  display: block;
+  flex-shrink: 0;
+}
+
+.hilo-landing .hilo-logo-word {
+  font-weight: 700;
+  font-size: 26px;
+  letter-spacing: -0.045em;
+  line-height: 1;
+  color: var(--text);
+}
+
+.hilo-landing .nav-logo {
+  display: flex;
+  align-items: center;
+}
+
+.hilo-landing .nav-logo:hover .hilo-logo-word {
+  color: var(--accent);
+}
+
+.hilo-landing .nav-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  z-index: 2;
+}
+
+.hilo-landing .nav-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  position: relative;
+  padding: 8px 10px;
+  border-radius: 8px;
+  transition: color 0.18s ease, background-color 0.18s ease;
+}
+
+.hilo-landing .nav-links a::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  opacity: 0;
+  transform: scale(0.5);
+  transition: opacity 0.18s ease, transform 0.18s ease;
+  flex-shrink: 0;
+}
+
+.hilo-landing .nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 24px;
+  right: 10px;
+  bottom: 5px;
+  height: 2px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.2s ease;
+  pointer-events: none;
+}
+
+.hilo-landing .nav-links a:hover,
+.hilo-landing .nav-links a:focus-visible {
+  color: var(--text);
+  background: rgba(74, 158, 255, 0.14);
+}
+
+.hilo-landing .nav-links a:hover::before,
+.hilo-landing .nav-links a:focus-visible::before {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.hilo-landing .nav-links a:hover::after,
+.hilo-landing .nav-links a:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.hilo-landing .nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.hilo-landing .nav-cta {
+  background: var(--text);
+  color: var(--bg);
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.hilo-landing .nav-cta {
+  transition: transform 0.15s ease, opacity 0.2s ease;
+}
+
+.hilo-landing .nav-cta:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.hilo-landing .nav-toggle {
+  display: none;
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(148, 163, 184, 0.28);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  padding: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.hilo-landing .nav-toggle span {
+  display: block;
+  width: 16px;
+  height: 1px;
+  background: var(--text);
+}
+
+.hilo-landing .nav-mobile-panel {
+  display: none;
+}
+
+.hilo-landing #hero {
+  position: relative;
+  overflow: hidden;
+  padding: 100px 24px 80px;
+  max-width: none;
+  margin: 0;
+}
+
+.hilo-landing .hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: var(--max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(180px, 280px);
+  align-items: center;
+  gap: 40px;
+}
+
+.hilo-landing .hero-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.hilo-landing .hero-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--blue-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--blue-line) 1px, transparent 1px);
+  background-size: 80px 80px;
+  mask-image: radial-gradient(ellipse 70% 70% at 60% 40%, black 0%, transparent 70%);
+}
+
+.hilo-landing .hero-blob {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(74, 158, 255, 0.08) 0%, transparent 70%);
+  top: 50%;
+  right: -100px;
+  transform: translateY(-50%);
+  animation: hilo-blob-pulse 6s ease-in-out infinite;
+}
+
+@keyframes hilo-blob-pulse {
+  0%,
+  100% {
+    transform: translateY(-50%) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-50%) scale(1.08);
+    opacity: 0.7;
+  }
+}
+
+.hilo-landing .hero-content {
+  max-width: none;
+  min-width: 0;
+}
+
+.hilo-landing h1 {
+  font-size: clamp(28px, 4.4vw, 44px);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.035em;
+  color: var(--text);
+  margin: 0 0 20px;
+  text-wrap: balance;
+}
+
+.hilo-landing .hero-nodes {
+  width: 100%;
+  height: auto;
+  display: block;
+  animation: hilo-float 8s ease-in-out infinite;
+}
+
+@keyframes hilo-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+.hilo-landing h1 em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.hilo-landing .hero-offer {
+  font-size: clamp(18px, 2.2vw, 22px);
+  font-weight: 600;
+  color: var(--text);
+  margin: 0 0 16px;
+  letter-spacing: -0.02em;
+  line-height: 1.35;
+}
+
+.hilo-landing .hero-sub {
+  font-size: 18px;
+  color: var(--text-secondary);
+  max-width: 580px;
+  margin: 0 0 36px;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+.hilo-landing .hero-sub em {
+  font-style: italic;
+  color: var(--text);
+}
+
+.hilo-landing .hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.hilo-landing .btn-primary,
+.hilo-landing .btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 24px;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0;
+  text-transform: none;
+  border: 1px solid transparent;
+  appearance: none;
+}
+
+.hilo-landing .btn-primary {
+  background: var(--text);
+  color: var(--bg);
+  transition: transform 0.15s ease, opacity 0.2s ease;
+}
+
+.hilo-landing .btn-primary:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
+}
+
+.hilo-landing .btn-arrow {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.hilo-landing .btn-primary:hover .btn-arrow {
+  transform: translateX(3px);
+}
+
+.hilo-landing .btn-ghost,
+.hilo-landing .btn-ghost-light {
+  background: transparent;
+  color: var(--text);
+  border-color: var(--border);
+  transition: background 0.2s ease, transform 0.15s ease, border-color 0.2s ease;
+}
+
+.hilo-landing .btn-ghost:hover,
+.hilo-landing .btn-ghost-light:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(148, 163, 184, 0.28);
+  transform: translateY(-1px);
+}
+
+.hilo-landing .btn-ghost::after,
+.hilo-landing .btn-ghost-forward::after {
+  content: none;
+}
+
+.hilo-landing section {
+  padding: 80px 24px;
+  max-width: var(--max);
+  margin: 0 auto;
+  position: relative;
+}
+
+.hilo-landing .section-tag {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+
+.hilo-landing .section-tag::before {
+  content: none;
+}
+
+.hilo-landing h2 {
+  font-size: clamp(24px, 3.5vw, 32px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  line-height: 1.2;
+  margin: 0 0 10px;
+}
+
+.hilo-landing .section-desc {
+  color: var(--text-secondary);
+  font-size: 16px;
+  margin: 0 0 40px;
+  max-width: 600px;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.hilo-landing .divider {
+  max-width: var(--max);
+  margin: 0 auto;
+  height: 1px;
+  background: var(--border);
+}
+
+.hilo-landing #trabajo,
+.hilo-landing #como,
+.hilo-landing #estudio,
+.hilo-landing #faq,
+.hilo-landing #contacto {
+  background: transparent;
+  border: 0;
+}
+
+.hilo-landing .intro-grid,
+.hilo-landing .services-grid,
+.hilo-landing .dif-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.hilo-landing .services-grid {
+  max-width: none;
+  background: none;
+  border: 0;
+}
+
+@media (min-width: 760px) {
+  .hilo-landing .services-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.hilo-landing .intro-text p,
+.hilo-landing .intro-aside-card p {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0 0 16px;
+}
+
+.hilo-landing .service-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px;
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hilo-landing details.service-card > summary {
+  list-style: none;
+  cursor: pointer;
+  position: relative;
+  padding-right: 28px;
+}
+
+.hilo-landing details.service-card > summary::-webkit-details-marker {
+  display: none;
+}
+
+.hilo-landing details.service-card > summary::after {
+  content: "+";
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: var(--accent);
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.hilo-landing details.service-card[open] > summary::after {
+  content: "–";
+}
+
+.hilo-landing .intro-aside-card,
+.hilo-landing .dif-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px;
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hilo-landing .service-card:hover,
+.hilo-landing .dif-card:hover {
+  border-color: rgba(96, 165, 250, 0.35);
+  transform: translateY(-3px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.28);
+}
+
+.hilo-landing .card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.hilo-landing .card-head .card-tag {
+  margin-bottom: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.hilo-landing .service-icon,
+.hilo-landing .dif-icon {
+  display: block;
+  width: 28px;
+  height: 28px;
+  color: var(--accent);
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.hilo-landing .dif-icon {
+  width: 22px;
+  height: 22px;
+  margin-bottom: 14px;
+}
+
+.hilo-landing .service-card:hover .service-icon,
+.hilo-landing .dif-card:hover .dif-icon {
+  transform: scale(1.08);
+}
+
+.hilo-landing .dif-card::before {
+  content: none;
+}
+
+.hilo-landing .intro-aside-label,
+.hilo-landing .card-tag,
+.hilo-landing .tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 5px 10px;
+  border-radius: 6px;
+  background: rgba(96, 165, 250, 0.1);
+  color: var(--accent);
+  margin-bottom: 14px;
+  border: 0;
+  opacity: 1;
+}
+
+.hilo-landing .service-num {
+  display: none;
+}
+
+.hilo-landing .service-title,
+.hilo-landing .dif-title {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--text);
+  margin: 0 0 8px;
+  letter-spacing: 0;
+}
+
+.hilo-landing .service-desc,
+.hilo-landing .dif-text {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  margin: 0;
+}
+
+.hilo-landing .service-list {
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 8px;
+}
+
+.hilo-landing .service-list li {
+  position: relative;
+  padding-left: 14px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.45;
+}
+
+.hilo-landing .service-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 5px;
+  height: 1px;
+  background: var(--accent);
+}
+
+.hilo-landing .service-tags {
+  display: none;
+}
+
+.hilo-landing .services-header,
+.hilo-landing .process-header {
+  max-width: none;
+  margin-bottom: 0;
+}
+
+.hilo-landing .process-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  background: none;
+  border: 0;
+  max-width: none;
+}
+
+.hilo-landing .process-step {
+  background: none;
+  padding: 0;
+  position: relative;
+  transition: transform 0.2s ease;
+}
+
+.hilo-landing .process-step:hover {
+  transform: translateY(-2px);
+}
+
+.hilo-landing .process-step:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 16px;
+  left: 44px;
+  right: -16px;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(96, 165, 250, 0.45), transparent);
+}
+
+.hilo-landing .process-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 12px;
+  letter-spacing: 0.02em;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.hilo-landing .process-step:hover .process-num {
+  border-color: rgba(96, 165, 250, 0.45);
+  background: rgba(96, 165, 250, 0.1);
+}
+
+.hilo-landing .process-title {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  letter-spacing: 0;
+}
+
+.hilo-landing .process-text {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.hilo-landing .faq-list {
+  display: grid;
+  gap: 10px;
+}
+
+.hilo-landing .faq-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.hilo-landing .faq-item summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 18px 22px;
+  font-weight: 600;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.hilo-landing .faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.hilo-landing .faq-item summary::after {
+  content: "+";
+  color: var(--accent);
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.hilo-landing .faq-item[open] summary::after {
+  content: "–";
+}
+
+.hilo-landing .faq-item p {
+  padding: 0 22px 18px;
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.hilo-landing .cta-section {
+  padding: 80px 24px 0;
+  text-align: center;
+  max-width: 640px;
+}
+
+.hilo-landing .cta-inner h2 {
+  margin-bottom: 14px;
+}
+
+.hilo-landing .cta-inner p {
+  color: var(--text-secondary);
+  margin-bottom: 32px;
+}
+
+.hilo-landing .cta-actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.hilo-landing #contacto {
+  padding-top: 80px;
+}
+
+.hilo-landing .contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.hilo-landing .contact-simple {
+  display: block;
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.hilo-landing .contact-simple .contact-info-text {
+  margin: 0 auto 32px;
+}
+
+.hilo-landing .contact-simple .btn-primary {
+  justify-content: center;
+}
+
+.hilo-landing .contact-simple .contact-email {
+  justify-content: center;
+  margin-top: 8px;
+}
+
+.hilo-landing .contact-info-text {
+  color: var(--text-secondary);
+  margin: 0 0 24px;
+}
+
+.hilo-landing .contact-channels {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+}
+
+.hilo-landing .contact-instagram {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.hilo-landing .contact-instagram svg {
+  width: 18px;
+  height: 18px;
+}
+
+.hilo-landing .contact-details {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.hilo-landing .contact-detail-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 2px;
+}
+
+.hilo-landing .contact-detail-value,
+.hilo-landing .contact-mail-inline,
+.hilo-landing .contact-email {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.hilo-landing .contact-email {
+  font-size: 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.hilo-landing .contact-email svg {
+  width: 18px;
+  height: 18px;
+}
+
+.hilo-landing .contact-email:hover,
+.hilo-landing .contact-instagram:hover,
+.hilo-landing .contact-mail-inline:hover {
+  text-decoration: underline;
+}
+
+.hilo-landing .form-actions {
+  margin-top: 4px;
+}
+
+.hilo-landing .contact-alt {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.hilo-landing .contact-fallback {
+  margin: 0;
+  padding: 12px 14px;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--text);
+  background: rgba(96, 165, 250, 0.1);
+  border: 1px solid rgba(96, 165, 250, 0.28);
+  border-radius: 10px;
+}
+
+.hilo-landing .contact-fallback[hidden] {
+  display: none;
+}
+
+.hilo-landing .form-field textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.hilo-landing .contact-form {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px;
+  display: grid;
+  gap: 16px;
+}
+
+.hilo-landing .form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.hilo-landing .form-field {
+  display: grid;
+  gap: 6px;
+}
+
+.hilo-landing .form-field label {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.hilo-landing .form-field input,
+.hilo-landing .form-field textarea {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  padding: 12px 14px;
+  font: inherit;
+  font-size: 15px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hilo-landing .form-field input:focus,
+.hilo-landing .form-field textarea:focus {
+  outline: none;
+  border-color: rgba(96, 165, 250, 0.55);
+  box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.12);
+}
+
+.hilo-landing .form-optional {
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.hilo-landing footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 40px 24px;
+  max-width: var(--max);
+  margin: 0 auto;
+  border-top: 1px solid var(--border);
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.hilo-landing .footer-logo {
+  display: flex;
+  align-items: center;
+}
+
+.hilo-landing .footer-logo:hover .hilo-logo-word {
+  color: var(--accent);
+}
+
+.hilo-landing .footer-right {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.hilo-landing .footer-instagram {
+  color: var(--accent);
+  font-size: 13px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.hilo-landing .footer-instagram svg {
+  width: 14px;
+  height: 14px;
+}
+
+.hilo-landing .footer-instagram:hover {
+  text-decoration: underline;
+}
+
+.hilo-landing .footer-email {
+  color: var(--accent);
+  font-size: 13px;
+  letter-spacing: 0;
+}
+
+.hilo-landing .reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+.hilo-landing .reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+.hilo-landing .services-grid .service-card:nth-child(2),
+.hilo-landing .dif-grid .dif-card:nth-child(2),
+.hilo-landing .process-steps .process-step:nth-child(2) {
+  transition-delay: 0.06s;
+}
+
+.hilo-landing .services-grid .service-card:nth-child(3),
+.hilo-landing .dif-grid .dif-card:nth-child(3),
+.hilo-landing .process-steps .process-step:nth-child(3) {
+  transition-delay: 0.12s;
+}
+
+.hilo-landing .services-grid .service-card:nth-child(4),
+.hilo-landing .dif-grid .dif-card:nth-child(4),
+.hilo-landing .process-steps .process-step:nth-child(4) {
+  transition-delay: 0.18s;
+}
+
+.hilo-landing .services-grid .service-card:nth-child(5) {
+  transition-delay: 0.22s;
+}
+
+.hilo-landing .services-grid .service-card:nth-child(6) {
+  transition-delay: 0.26s;
+}
+
+.hilo-landing .sticky-cta-bar {
+  display: none;
+}
+
+@media (max-width: 720px) {
+  .hilo-landing .nav-links {
+    display: none;
+  }
+
+  .hilo-landing .nav-actions .nav-cta {
+    display: none;
+  }
+
+  .hilo-landing .nav-toggle {
+    display: flex;
+  }
+
+  .hilo-landing nav.menu-open .nav-mobile-panel {
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    padding: 16px 24px 24px;
+  }
+
+  .hilo-landing .nav-mobile-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 12px;
+  }
+
+  .hilo-landing .nav-mobile-links a {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 0;
+  }
+
+  .hilo-landing .nav-mobile-links a::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    opacity: 0;
+    flex-shrink: 0;
+  }
+
+  .hilo-landing .nav-mobile-links a:hover,
+  .hilo-landing .nav-mobile-links a:focus-visible {
+    color: var(--text);
+  }
+
+  .hilo-landing .nav-mobile-links a:hover::before,
+  .hilo-landing .nav-mobile-links a:focus-visible::before {
+    opacity: 1;
+  }
+
+  .hilo-landing .nav-mobile-cta {
+    display: inline-flex;
+    margin-top: 8px;
+    background: var(--text);
+    color: var(--bg);
+    padding: 10px 16px;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    font-size: 14px;
+  }
+
+  .hilo-landing .nav-mobile-links a.nav-mobile-cta::before {
+    display: none;
+  }
+
+  .hilo-landing #hero {
+    padding: 60px 20px 50px;
+  }
+
+  .hilo-landing .hero-inner {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .hilo-landing .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hilo-landing .hero-actions .btn-primary,
+  .hilo-landing .hero-actions .btn-ghost {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .hilo-landing .hero-nodes {
+    width: 220px;
+    margin: 0 auto;
+  }
+
+  .hilo-landing .hero-blob {
+    width: 420px;
+    height: 420px;
+    right: -140px;
+  }
+
+  .hilo-landing .process-step:not(:last-child)::after {
+    content: none;
+  }
+
+  .hilo-landing section {
+    padding: 56px 20px;
+  }
+
+  .hilo-landing .intro-grid,
+  .hilo-landing .services-grid,
+  .hilo-landing .dif-grid,
+  .hilo-landing .contact-grid,
+  .hilo-landing .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .hilo-landing .process-steps {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .hilo-landing footer {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hilo-landing .process-steps {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (pointer: coarse) {
+  .hilo-landing {
+    cursor: auto;
+  }
+
+  .hilo-landing .cursor,
+  .hilo-landing .cursor-ring {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hilo-landing {
+    cursor: auto;
+  }
+
+  .hilo-landing .cursor,
+  .hilo-landing .cursor-ring {
+    display: none;
+  }
+
+  .hilo-landing .hero-blob,
+  .hilo-landing .hero-nodes {
+    animation: none;
+  }
+
+  .hilo-landing .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .hilo-landing .btn-primary,
+  .hilo-landing .btn-ghost,
+  .hilo-landing .service-card,
+  .hilo-landing .dif-card,
+  .hilo-landing .process-step {
+    transition: none;
+  }
+}
+
+    </style>
+  </head>
+  <body>
+    <div class="hilo-landing">
+      <div class="cursor" id="hilo-cursor"></div>
+      <div class="cursor-ring" id="hilo-cursor-ring"></div>
+      <nav>
+        <div class="header-inner">
+          <a href="#hero" class="nav-logo" aria-label="hilo">
+            <span class="hilo-logo">
+              <svg width="36" height="36" viewBox="0 0 28 28" fill="none" aria-hidden>
+                <line x1="5" y1="23" x2="14" y2="6" stroke="#4a9eff" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+                <line x1="14" y1="6" x2="23" y2="15" stroke="#fff" stroke-width="1.5" stroke-linecap="round" opacity="0.35"/>
+                <line x1="5" y1="23" x2="23" y2="15" stroke="#4a9eff" stroke-width="1" stroke-linecap="round" opacity="0.2" stroke-dasharray="3 3"/>
+                <circle cx="5" cy="23" r="3" fill="#4a9eff" opacity="0.9"/>
+                <circle cx="14" cy="6" r="4" fill="#fff" opacity="0.95"/>
+                <circle cx="23" cy="15" r="2.5" fill="#4a9eff" opacity="0.6"/>
+              </svg>
+              <span class="hilo-logo-word">hilo</span>
+            </span>
+          </a>
+          <ul class="nav-links">
+            <li><a href="#trabajo">Servicios</a></li>
+            <li><a href="#como">Cómo trabajamos</a></li>
+            <li><a href="#estudio">Por qué nosotros</a></li>
+            <li><a href="#faq">Preguntas</a></li>
+          </ul>
+          <div class="nav-actions">
+            <a href="#contacto" class="nav-cta">Contanos</a>
+            <button type="button" class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-menu">
+              <span></span>
+              <span></span>
+            </button>
+          </div>
+        </div>
+        <div id="nav-menu" class="nav-mobile-panel">
+          <ul class="nav-mobile-links">
+            <li><a href="#trabajo">Servicios</a></li>
+            <li><a href="#como">Cómo trabajamos</a></li>
+            <li><a href="#estudio">Por qué nosotros</a></li>
+            <li><a href="#faq">Preguntas</a></li>
+            <li><a href="#contacto" class="nav-mobile-cta">Contanos →</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      <main>
+        <section id="hero">
+          <div class="hero-bg" aria-hidden>
+            <div class="hero-blob"></div>
+          </div>
+          <div class="hero-inner">
+            <div class="hero-content">
+              <h1>Somos el hilo conductor<br />que potencia <em>digitalmente</em> tu negocio.</h1>
+              <p class="hero-sub">
+                ¿Qué te está frenando: web, identidad visual o procesos repetitivos
+                y sin automatizar? Lo evaluamos y te decimos qué haríamos, en
+                cuánto tiempo y a qué precio.
+              </p>
+              <div class="hero-actions">
+                <a href="#contacto" class="btn-primary">Contanos <span class="btn-arrow">→</span></a>
+                <a href="#trabajo" class="btn-ghost">Ver qué hacemos</a>
+              </div>
+            </div>
+            <svg class="hero-nodes" viewBox="0 0 340 340" fill="none" aria-hidden>
+              <circle cx="170" cy="170" r="160" fill="rgba(74,158,255,0.03)" />
+              <circle cx="170" cy="170" r="140" stroke="rgba(74,158,255,0.06)" stroke-width="1" />
+              <circle cx="170" cy="170" r="100" stroke="rgba(74,158,255,0.08)" stroke-width="1" />
+              <line x1="80" y1="260" x2="170" y2="80" stroke="#4a9eff" stroke-width="1.5" opacity="0.3" />
+              <line x1="170" y1="80" x2="280" y2="190" stroke="#fff" stroke-width="1" opacity="0.15" />
+              <line x1="80" y1="260" x2="280" y2="190" stroke="#4a9eff" stroke-width="1" opacity="0.12" stroke-dasharray="5 5" />
+              <line x1="170" y1="80" x2="230" y2="270" stroke="#4a9eff" stroke-width="1" opacity="0.1" stroke-dasharray="3 6" />
+              <line x1="80" y1="260" x2="140" y2="160" stroke="#fff" stroke-width="1" opacity="0.08" />
+              <line x1="140" y1="160" x2="280" y2="190" stroke="#4a9eff" stroke-width="1" opacity="0.15" />
+              <circle cx="80" cy="260" r="10" fill="#4a9eff" opacity="0.7" />
+              <circle cx="80" cy="260" r="18" fill="#4a9eff" opacity="0.08" />
+              <circle cx="170" cy="80" r="14" fill="#fff" opacity="0.9" />
+              <circle cx="170" cy="80" r="24" fill="#fff" opacity="0.05" />
+              <circle cx="280" cy="190" r="8" fill="#4a9eff" opacity="0.5" />
+              <circle cx="280" cy="190" r="16" fill="#4a9eff" opacity="0.06" />
+              <circle cx="140" cy="160" r="5" fill="#fff" opacity="0.4" />
+              <circle cx="230" cy="270" r="6" fill="#4a9eff" opacity="0.35" />
+            </svg>
+          </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <section id="trabajo">
+          <div class="services-header reveal">
+            <h2>Qué hacemos</h2>
+            <p class="section-desc">Seis áreas. Abrí cada una. Si es otra cosa, lo evaluamos.</p>
+          </div>
+          <div class="services-grid">
+            <details class="service-card reveal">
+              <summary>
+                <div class="card-head">
+                  <svg class="service-icon" viewBox="0 0 32 32" fill="none" aria-hidden>
+                    <rect x="4" y="6" width="24" height="20" rx="3" stroke="currentColor" stroke-width="1.5" />
+                    <path d="M4 12h24" stroke="currentColor" stroke-width="1.5" />
+                    <circle cx="8.5" cy="9" r="1" fill="currentColor" />
+                    <circle cx="12" cy="9" r="1" fill="currentColor" opacity="0.5" />
+                    <path d="M9 17h8M9 21h5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                  </svg>
+                  <div class="card-tag">01</div>
+                </div>
+                <h3 class="service-title">Desarrollo web</h3>
+                <p class="service-desc">Landings y sitios para explicar, vender o que te encuentren.</p>
+              </summary>
+              <ul class="service-list">
+                <li>Landing para un lanzamiento o un servicio</li>
+                <li>Sitio institucional o e-commerce (Tiendanube, Shopify u otra)</li>
+                <li>SEO técnico y on-page</li>
+                <li>Que se adapte a cualquier pantalla</li>
+              </ul>
+            </details>
+            <details class="service-card reveal">
+              <summary>
+                <div class="card-head">
+                  <svg class="service-icon" viewBox="0 0 32 32" fill="none" aria-hidden>
+                    <path d="M8 22V14M16 22V8M24 22v-6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
+                    <path d="M6 24h20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.45" />
+                  </svg>
+                  <div class="card-tag">02</div>
+                </div>
+                <h3 class="service-title">Dashboards</h3>
+                <p class="service-desc">Tableros y reportes a partir de los datos que ya tenés.</p>
+              </summary>
+              <ul class="service-list">
+                <li>Un tablero para ver números en un solo lugar</li>
+                <li>Reportes que no tengas que armar a mano cada vez</li>
+                <li>Que se pueda actualizar después</li>
+              </ul>
+            </details>
+            <details class="service-card reveal">
+              <summary>
+                <div class="card-head">
+                  <svg class="service-icon" viewBox="0 0 32 32" fill="none" aria-hidden>
+                    <circle cx="8" cy="16" r="3" stroke="currentColor" stroke-width="1.5" />
+                    <circle cx="24" cy="9" r="3" stroke="currentColor" stroke-width="1.5" />
+                    <circle cx="24" cy="23" r="3" stroke="currentColor" stroke-width="1.5" />
+                    <path d="M11 16h10M21.5 11.2l-8.8 3.6M21.5 20.8l-8.8-3.6" stroke="currentColor" stroke-width="1.4" opacity="0.7" />
+                  </svg>
+                  <div class="card-tag">03</div>
+                </div>
+                <h3 class="service-title">Automatización</h3>
+                <p class="service-desc">Bots y flujos para lo que hoy se responde o se copia a mano.</p>
+              </summary>
+              <ul class="service-list">
+                <li>Bot de WhatsApp u otro canal</li>
+                <li>Pasar datos entre herramientas</li>
+                <li>Un flujo chico, no un proyecto que no termina nunca</li>
+              </ul>
+            </details>
+            <details class="service-card reveal">
+              <summary>
+                <div class="card-head">
+                  <svg class="service-icon" viewBox="0 0 32 32" fill="none" aria-hidden>
+                    <circle cx="13" cy="13" r="6" stroke="currentColor" stroke-width="1.5" />
+                    <path d="M18 18l7 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+                    <path d="M11 13h4M13 11v4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" opacity="0.7" />
+                  </svg>
+                  <div class="card-tag">04</div>
+                </div>
+                <h3 class="service-title">Identidad visual</h3>
+                <p class="service-desc">Logo, piezas y sistema visual. Lo que hace falta.</p>
+              </summary>
+              <ul class="service-list">
+                <li>Logo y marca aplicada</li>
+                <li>Sistema visual para web y piezas</li>
+                <li>Que se reconozca igual en cualquier pantalla</li>
+              </ul>
+            </details>
+            <details class="service-card reveal">
+              <summary>
+                <div class="card-head">
+                  <svg class="service-icon" viewBox="0 0 32 32" fill="none" aria-hidden>
+                    <rect x="6" y="6" width="20" height="20" rx="6" stroke="currentColor" stroke-width="1.5" />
+                    <circle cx="16" cy="16" r="5" stroke="currentColor" stroke-width="1.5" />
+                    <circle cx="22" cy="10" r="1.2" fill="currentColor" />
+                  </svg>
+                  <div class="card-tag">05</div>
+                </div>
+                <h3 class="service-title">Social media</h3>
+                <p class="service-desc">Contenido para redes sociales. Que se vea y se publique.</p>
+              </summary>
+              <ul class="service-list">
+                <li>Dirección de contenido y piezas para el feed</li>
+                <li>Stories y formatos cortos</li>
+                <li>Una línea visual, no un post suelto cada tanto</li>
+              </ul>
+            </details>
+            <details class="service-card reveal">
+              <summary>
+                <div class="card-head">
+                  <svg class="service-icon" viewBox="0 0 32 32" fill="none" aria-hidden>
+                    <rect x="5" y="5" width="9" height="9" rx="2" stroke="currentColor" stroke-width="1.5" />
+                    <rect x="18" y="5" width="9" height="9" rx="2" stroke="currentColor" stroke-width="1.5" />
+                    <rect x="5" y="18" width="9" height="9" rx="2" stroke="currentColor" stroke-width="1.5" />
+                    <rect x="18" y="18" width="9" height="9" rx="2" stroke="currentColor" stroke-width="1.5" opacity="0.55" />
+                  </svg>
+                  <div class="card-tag">06</div>
+                </div>
+                <h3 class="service-title">Apps</h3>
+                <p class="service-desc">Productos digitales para usar: web apps, herramientas, lo que hace falta.</p>
+              </summary>
+              <ul class="service-list">
+                <li>Web apps y herramientas internas</li>
+                <li>Backend, login y base de datos</li>
+                <li>Integración de pagos (Stripe, Mercado Pago)</li>
+                <li>Algo que se abra y se use, no un sistema infinito</li>
+              </ul>
+            </details>
+          </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <section id="como">
+          <div class="process-header reveal">
+            <h2>Así entra un trabajo</h2>
+            <p class="section-desc">
+              Una conversación. Una propuesta. Un entregable.
+            </p>
+          </div>
+          <div class="process-steps">
+            <div class="process-step reveal">
+              <span class="process-num">01</span>
+              <h4 class="process-title">Nos contás qué necesitás</h4>
+              <p class="process-text">
+                Web, dashboards, identidad, social media, automatización o apps — o algo que no entra en esa lista.
+              </p>
+            </div>
+            <div class="process-step reveal">
+              <span class="process-num">02</span>
+              <h4 class="process-title">Lo evaluamos</h4>
+              <p class="process-text">
+                En unos días te decimos si lo tomamos y con qué alcance.
+              </p>
+            </div>
+            <div class="process-step reveal">
+              <span class="process-num">03</span>
+              <h4 class="process-title">Propuesta concreta</h4>
+              <p class="process-text">
+                Alcance, plazo y precio. Por escrito, antes de empezar.
+              </p>
+            </div>
+            <div class="process-step reveal">
+              <span class="process-num">04</span>
+              <h4 class="process-title">Se entrega</h4>
+              <p class="process-text">
+                Una web, un dashboard, una identidad, contenido, una automatización o una app. Si hace falta un ajuste, entra en esa entrega.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <section id="estudio">
+          <div class="reveal">
+            <h2>Por qué nosotros</h2>
+            <p class="section-desc">
+              Cómo preferimos trabajar.
+            </p>
+          </div>
+          <div class="dif-grid">
+            <div class="dif-card reveal">
+              <svg class="dif-icon" viewBox="0 0 24 24" fill="none" aria-hidden>
+                <circle cx="8" cy="9" r="2.4" stroke="currentColor" stroke-width="1.5" />
+                <circle cx="16" cy="9" r="2.4" stroke="currentColor" stroke-width="1.5" />
+                <path d="M4.5 18c.6-2.4 2.4-3.6 3.5-3.6S11 15.6 11.6 18M12.4 18c.6-2.4 2.4-3.6 3.6-3.6s2.9 1.2 3.5 3.6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+              </svg>
+              <h3 class="dif-title">Directo con vos</h3>
+              <p class="dif-text">
+                Hablamos con quien pide el trabajo. Sin cadena de intermediarios.
+              </p>
+            </div>
+            <div class="dif-card reveal">
+              <svg class="dif-icon" viewBox="0 0 24 24" fill="none" aria-hidden>
+                <path d="M12 3.5l7.5 4v9L12 20.5 4.5 16.5v-9L12 3.5z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
+                <path d="M12 8.5v7M9.8 11.2h3.3a1.4 1.4 0 010 2.8H10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+              </svg>
+              <h3 class="dif-title">Precio cerrado</h3>
+              <p class="dif-text">
+                Alcance, plazo y monto por escrito, antes de empezar.
+              </p>
+            </div>
+            <div class="dif-card reveal">
+              <svg class="dif-icon" viewBox="0 0 24 24" fill="none" aria-hidden>
+                <circle cx="6" cy="16" r="2.2" stroke="currentColor" stroke-width="1.5" />
+                <circle cx="12" cy="7" r="2.2" stroke="currentColor" stroke-width="1.5" />
+                <circle cx="18" cy="16" r="2.2" stroke="currentColor" stroke-width="1.5" />
+                <path d="M8 14.5l2.5-5.2M16 14.5l-2.5-5.2" stroke="currentColor" stroke-width="1.4" opacity="0.7" />
+              </svg>
+              <h3 class="dif-title">Una entrega, no un proyecto eterno</h3>
+              <p class="dif-text">
+                Definimos el alcance antes de arrancar y lo cerramos ahí. Nada de scope que crece solo.
+              </p>
+            </div>
+            <div class="dif-card reveal">
+              <svg class="dif-icon" viewBox="0 0 24 24" fill="none" aria-hidden>
+                <circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.5" />
+                <path d="M16 16l4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+              </svg>
+              <h3 class="dif-title">Si no entra, lo decimos</h3>
+              <p class="dif-text">
+                No forzamos un trabajo que no vamos a hacer bien.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <section id="faq">
+          <div class="reveal">
+            <h2>Preguntas</h2>
+            <p class="section-desc">Antes de escribir.</p>
+          </div>
+          <div class="faq-list">
+            <details class="faq-item reveal">
+              <summary>¿Cuánto cuesta un proyecto?</summary>
+              <p>Depende del alcance. Después de evaluar tu pedido, te pasamos un precio cerrado — sabés cuánto vas a pagar antes de empezar.</p>
+            </details>
+            <details class="faq-item reveal">
+              <summary>¿Cuánto tarda un proyecto?</summary>
+              <p>Depende del servicio y de qué tan definidos estén tus materiales (logo, textos, contenido). Un proyecto simple puede estar en 1 a 2 semanas; uno más complejo, un poco más. Te damos un tiempo estimado concreto en la propuesta.</p>
+            </details>
+            <details class="faq-item reveal">
+              <summary>¿Trabajan con marcas que ya tienen web o logo?</summary>
+              <p>Sí. Hacemos reingeniería y rebranding — actualizamos lo que ya existe, o lo repensamos de cero si hace falta.</p>
+            </details>
+            <details class="faq-item reveal">
+              <summary>¿Puedo contratar un solo servicio?</summary>
+              <p>Sí, cada servicio funciona por separado. Aunque si combinás — por ejemplo, identidad de marca junto con la web — el resultado es más coherente porque lo hace el mismo equipo de punta a punta, y el presupuesto se arma acorde al paquete.</p>
+            </details>
+            <details class="faq-item reveal">
+              <summary>¿De dónde son?</summary>
+              <p>Buenos Aires, y trabajamos remoto con todo el país. Si hace falta, nos juntamos a tomar una birra.</p>
+            </details>
+            <details class="faq-item reveal">
+              <summary>¿Y si no me convence el primer entregable?</summary>
+              <p>El precio incluye 2 rondas de cambios — la mayoría de las veces alcanza con la primera. Si después de eso seguimos lejos, lo charlamos y vemos cómo seguir, sin drama.</p>
+            </details>
+          </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <section id="contacto">
+          <div class="contact-grid">
+            <div class="contact-info reveal">
+              <h2>¿Hablamos?</h2>
+              <p class="contact-info-text">
+                Web, dashboards, identidad, social media, automatización o apps — o
+                algo que no entra en esa lista. Contanos: si lo podemos hacer, qué
+                haríamos y cuánto, o te decimos que no es para Hilo.
+              </p>
+              <div class="contact-channels">
+                <p>
+                  <a href="mailto:hola@hilo.studio?subject=Consulta%20desde%20hilo.studio" class="contact-email">
+                    <svg viewBox="0 0 24 24" fill="none" aria-hidden>
+                      <rect x="3.5" y="5.5" width="17" height="13" rx="2" stroke="currentColor" stroke-width="1.6" />
+                      <path d="M5 8l7 5 7-5" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" />
+                    </svg>
+                    hola@hilo.studio
+                  </a>
+                </p>
+                <p>
+                  <a href="https://www.instagram.com/hilo.studio/" class="contact-instagram" target="_blank" rel="noreferrer">
+                    <svg viewBox="0 0 24 24" fill="none" aria-hidden>
+                      <rect x="3.5" y="3.5" width="17" height="17" rx="5" stroke="currentColor" stroke-width="1.6" />
+                      <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.6" />
+                      <circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" />
+                    </svg>
+                    @hilo.studio
+                  </a>
+                </p>
+              </div>
+            </div>
+            <form class="contact-form reveal" id="pedido-form" aria-label="Formulario de contacto">
+              <div class="form-row">
+                <div class="form-field">
+                  <label for="contact-name">Nombre</label>
+                  <input id="contact-name" name="Nombre" type="text" required autocomplete="name" placeholder="Tu nombre" />
+                </div>
+                <div class="form-field">
+                  <label for="contact-email">Email</label>
+                  <input id="contact-email" name="Email" type="email" required autocomplete="email" inputmode="email" placeholder="tu@empresa.com" />
+                </div>
+              </div>
+              <div class="form-field">
+                <label for="contact-company">Empresa <span class="form-optional">(opcional)</span></label>
+                <input id="contact-company" name="Empresa" type="text" autocomplete="organization" placeholder="Nombre de tu empresa" />
+              </div>
+              <div class="form-field">
+                <label for="contact-process">¿Qué necesitás?</label>
+                <textarea id="contact-process" name="Pedido" required rows="5" placeholder="Ej: una landing, contenido para Instagram, una app, un dashboard..."></textarea>
+              </div>
+              <div class="form-actions">
+                <button type="submit" class="btn-primary">Contanos qué necesitás <span class="btn-arrow">→</span></button>
+              </div>
+              <p class="contact-alt" id="contact-alt">
+                o escribinos a
+                <a href="mailto:hola@hilo.studio?subject=Consulta%20desde%20hilo.studio" class="contact-mail-inline">hola@hilo.studio</a>
+              </p>
+              <p class="contact-fallback" id="contact-fallback" role="status" hidden>
+                Si no se abrió tu correo, escribinos directo a
+                <a href="mailto:hola@hilo.studio?subject=Consulta%20desde%20hilo.studio" class="contact-mail-inline">hola@hilo.studio</a>
+              </p>
+            </form>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <a href="#hero" class="footer-logo" aria-label="hilo">
+          <span class="hilo-logo">
+            <svg width="36" height="36" viewBox="0 0 28 28" fill="none" aria-hidden>
+              <line x1="5" y1="23" x2="14" y2="6" stroke="#4a9eff" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+              <line x1="14" y1="6" x2="23" y2="15" stroke="#fff" stroke-width="1.5" stroke-linecap="round" opacity="0.35"/>
+              <line x1="5" y1="23" x2="23" y2="15" stroke="#4a9eff" stroke-width="1" stroke-linecap="round" opacity="0.2" stroke-dasharray="3 3"/>
+              <circle cx="5" cy="23" r="3" fill="#4a9eff" opacity="0.9"/>
+              <circle cx="14" cy="6" r="4" fill="#fff" opacity="0.95"/>
+              <circle cx="23" cy="15" r="2.5" fill="#4a9eff" opacity="0.6"/>
+            </svg>
+            <span class="hilo-logo-word">hilo</span>
+          </span>
+        </a>
+        <div class="footer-right">
+          <a href="mailto:hola@hilo.studio" class="footer-email">hola@hilo.studio</a>
+          <a href="https://www.instagram.com/hilo.studio/" class="footer-instagram" target="_blank" rel="noreferrer">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden>
+              <rect x="3.5" y="3.5" width="17" height="17" rx="5" stroke="currentColor" stroke-width="1.6" />
+              <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.6" />
+              <circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" />
+            </svg>
+            @hilo.studio
+          </a>
+          <span class="footer-copy">Hilo Estudio · Buenos Aires · © 2026</span>
+        </div>
+      </footer>
+    </div>
+    <script>
+      const nav = document.querySelector("nav");
+      const toggle = document.querySelector(".nav-toggle");
+      toggle?.addEventListener("click", () => {
+        const open = nav.classList.toggle("menu-open");
+        toggle.setAttribute("aria-label", open ? "Cerrar menú" : "Abrir menú");
+        toggle.setAttribute("aria-expanded", open);
+      });
+      nav?.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          nav.classList.remove("menu-open");
+          toggle?.setAttribute("aria-expanded", "false");
+          toggle?.setAttribute("aria-label", "Abrir menú");
+        });
+      });
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              io.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12 }
+      );
+      document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
+
+      (function initCursor() {
+        const fine = window.matchMedia("(pointer: fine)").matches;
+        const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        const cursor = document.getElementById("hilo-cursor");
+        const ring = document.getElementById("hilo-cursor-ring");
+        if (!fine || reduce || !cursor || !ring) {
+          cursor?.remove();
+          ring?.remove();
+          return;
+        }
+        let mx = 0;
+        let my = 0;
+        let rx = 0;
+        let ry = 0;
+        document.addEventListener("mousemove", (e) => {
+          mx = e.clientX;
+          my = e.clientY;
+          cursor.style.left = `${mx - 4}px`;
+          cursor.style.top = `${my - 4}px`;
+          const overLink = Boolean(
+            e.target?.closest?.("a, button, summary, input, textarea, select")
+          );
+          ring.classList.toggle("is-hover", overLink);
+        });
+        function animateRing() {
+          rx += (mx - rx - 16) * 0.12;
+          ry += (my - ry - 16) * 0.12;
+          ring.style.left = `${rx}px`;
+          ring.style.top = `${ry}px`;
+          requestAnimationFrame(animateRing);
+        }
+        requestAnimationFrame(animateRing);
+      })();
+
+      document.getElementById("pedido-form")?.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const form = event.currentTarget;
+        const data = new FormData(form);
+        const name = String(data.get("Nombre") || "").trim();
+        const email = String(data.get("Email") || "").trim();
+        const company = String(data.get("Empresa") || "").trim();
+        const pedido = String(data.get("Pedido") || "").trim();
+        const lines = [
+          `Nombre: ${name}`,
+          `Email: ${email}`,
+          company ? `Empresa: ${company}` : null,
+          "",
+          "Pedido:",
+          pedido,
+        ].filter(Boolean);
+        const alt = document.getElementById("contact-alt");
+        const fallback = document.getElementById("contact-fallback");
+        if (alt) alt.hidden = true;
+        if (fallback) fallback.hidden = false;
+        window.location.href = `mailto:hola@hilo.studio?subject=${encodeURIComponent("Consulta desde hilo.studio")}&body=${encodeURIComponent(lines.join("\n"))}`;
+      });
+    </script>
+  </body>
+</html>

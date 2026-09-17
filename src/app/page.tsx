@@ -3,6 +3,7 @@ import { Hero } from "@/components/landing/Hero";
 import { Services } from "@/components/landing/Services";
 import { HowWeWork } from "@/components/landing/HowWeWork";
 import { Differential } from "@/components/landing/Differential";
+import { Faq } from "@/components/landing/Faq";
 import { Contact } from "@/components/landing/Contact";
 import { Footer } from "@/components/landing/Footer";
 import { CustomCursor } from "@/components/landing/CustomCursor";
@@ -23,6 +24,8 @@ export default function LandingPage() {
         <HowWeWork />
         <div className="divider" />
         <Differential />
+        <div className="divider" />
+        <Faq />
         <div className="divider" />
         <Contact />
       </main>

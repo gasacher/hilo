@@ -56,6 +56,12 @@
   left: 0;
   pointer-events: none;
   z-index: 9998;
+  transition: transform 0.2s ease, border-color 0.2s ease, width 0.2s ease, height 0.2s ease;
+}
+
+.hilo-landing .cursor-ring.is-hover {
+  transform: scale(1.5);
+  border-color: var(--accent);
 }
 
 .hilo-landing *,
@@ -103,7 +109,7 @@ html {
 .hilo-landing .hilo-logo {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
 }
 
 .hilo-landing .hilo-logo svg {
@@ -113,7 +119,7 @@ html {
 
 .hilo-landing .hilo-logo-word {
   font-weight: 700;
-  font-size: 20px;
+  font-size: 26px;
   letter-spacing: -0.045em;
   line-height: 1;
   color: var(--text);
@@ -130,37 +136,69 @@ html {
 
 .hilo-landing .nav-links {
   display: flex;
-  gap: 22px;
+  align-items: center;
+  gap: 4px;
   list-style: none;
   margin: 0;
   padding: 0;
+  position: relative;
+  z-index: 2;
 }
 
 .hilo-landing .nav-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   font-size: 14px;
   font-weight: 500;
   color: var(--text-secondary);
   position: relative;
-  padding-bottom: 2px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  transition: color 0.18s ease, background-color 0.18s ease;
+}
+
+.hilo-landing .nav-links a::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  opacity: 0;
+  transform: scale(0.5);
+  transition: opacity 0.18s ease, transform 0.18s ease;
+  flex-shrink: 0;
 }
 
 .hilo-landing .nav-links a::after {
   content: "";
   position: absolute;
-  left: 0;
-  bottom: -2px;
-  width: 0;
-  height: 1px;
+  left: 24px;
+  right: 10px;
+  bottom: 5px;
+  height: 2px;
   background: var(--accent);
-  transition: width 0.2s ease;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.2s ease;
+  pointer-events: none;
 }
 
-.hilo-landing .nav-links a:hover {
+.hilo-landing .nav-links a:hover,
+.hilo-landing .nav-links a:focus-visible {
   color: var(--text);
+  background: rgba(74, 158, 255, 0.14);
 }
 
-.hilo-landing .nav-links a:hover::after {
-  width: 100%;
+.hilo-landing .nav-links a:hover::before,
+.hilo-landing .nav-links a:focus-visible::before {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.hilo-landing .nav-links a:hover::after,
+.hilo-landing .nav-links a:focus-visible::after {
+  transform: scaleX(1);
 }
 
 .hilo-landing .nav-actions {
@@ -228,9 +266,9 @@ html {
   max-width: var(--max);
   margin: 0 auto;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(220px, 320px);
+  grid-template-columns: minmax(0, 1.35fr) minmax(180px, 280px);
   align-items: center;
-  gap: 48px;
+  gap: 40px;
 }
 
 .hilo-landing .hero-bg {
@@ -275,8 +313,18 @@ html {
 }
 
 .hilo-landing .hero-content {
-  max-width: 700px;
+  max-width: none;
   min-width: 0;
+}
+
+.hilo-landing h1 {
+  font-size: clamp(28px, 4.4vw, 44px);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.035em;
+  color: var(--text);
+  margin: 0 0 20px;
+  text-wrap: balance;
 }
 
 .hilo-landing .hero-nodes {
@@ -296,18 +344,18 @@ html {
   }
 }
 
-.hilo-landing h1 {
-  font-size: clamp(36px, 6vw, 52px);
-  font-weight: 700;
-  line-height: 1.12;
-  letter-spacing: -0.03em;
-  color: var(--text);
-  margin: 0 0 20px;
+.hilo-landing h1 em {
+  font-style: italic;
+  color: var(--accent);
 }
 
-.hilo-landing h1 em {
-  font-style: normal;
-  color: var(--accent);
+.hilo-landing .hero-offer {
+  font-size: clamp(18px, 2.2vw, 22px);
+  font-weight: 600;
+  color: var(--text);
+  margin: 0 0 16px;
+  letter-spacing: -0.02em;
+  line-height: 1.35;
 }
 
 .hilo-landing .hero-sub {
@@ -431,6 +479,7 @@ html {
 .hilo-landing #trabajo,
 .hilo-landing #como,
 .hilo-landing #estudio,
+.hilo-landing #faq,
 .hilo-landing #contacto {
   background: transparent;
   border: 0;
@@ -445,11 +494,15 @@ html {
 }
 
 .hilo-landing .services-grid {
-  grid-template-columns: repeat(2, 1fr);
   max-width: none;
   background: none;
   border: 0;
-  gap: 16px;
+}
+
+@media (min-width: 760px) {
+  .hilo-landing .services-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 .hilo-landing .intro-text p,
@@ -461,8 +514,41 @@ html {
   margin: 0 0 16px;
 }
 
+.hilo-landing .service-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px;
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hilo-landing details.service-card > summary {
+  list-style: none;
+  cursor: pointer;
+  position: relative;
+  padding-right: 28px;
+}
+
+.hilo-landing details.service-card > summary::-webkit-details-marker {
+  display: none;
+}
+
+.hilo-landing details.service-card > summary::after {
+  content: "+";
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: var(--accent);
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.hilo-landing details.service-card[open] > summary::after {
+  content: "–";
+}
+
 .hilo-landing .intro-aside-card,
-.hilo-landing .service-card,
 .hilo-landing .dif-card {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -488,6 +574,7 @@ html {
 
 .hilo-landing .card-head .card-tag {
   margin-bottom: 0;
+  font-variant-numeric: tabular-nums;
 }
 
 .hilo-landing .service-icon,
@@ -552,6 +639,32 @@ html {
   color: var(--text-secondary);
   line-height: 1.55;
   margin: 0;
+}
+
+.hilo-landing .service-list {
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 8px;
+}
+
+.hilo-landing .service-list li {
+  position: relative;
+  padding-left: 14px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.45;
+}
+
+.hilo-landing .service-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 5px;
+  height: 1px;
+  background: var(--accent);
 }
 
 .hilo-landing .service-tags {
@@ -629,6 +742,54 @@ html {
   line-height: 1.5;
 }
 
+.hilo-landing .faq-list {
+  display: grid;
+  gap: 10px;
+}
+
+.hilo-landing .faq-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.hilo-landing .faq-item summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 18px 22px;
+  font-weight: 600;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.hilo-landing .faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.hilo-landing .faq-item summary::after {
+  content: "+";
+  color: var(--accent);
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.hilo-landing .faq-item[open] summary::after {
+  content: "–";
+}
+
+.hilo-landing .faq-item p {
+  padding: 0 22px 18px;
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
 .hilo-landing .cta-section {
   padding: 80px 24px 0;
   text-align: center;
@@ -687,6 +848,26 @@ html {
   margin: 0 0 24px;
 }
 
+.hilo-landing .contact-channels {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+}
+
+.hilo-landing .contact-instagram {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.hilo-landing .contact-instagram svg {
+  width: 18px;
+  height: 18px;
+}
+
 .hilo-landing .contact-details {
   list-style: none;
   margin: 0;
@@ -723,6 +904,7 @@ html {
 }
 
 .hilo-landing .contact-email:hover,
+.hilo-landing .contact-instagram:hover,
 .hilo-landing .contact-mail-inline:hover {
   text-decoration: underline;
 }
@@ -824,10 +1006,6 @@ html {
   align-items: center;
 }
 
-.hilo-landing .footer-logo .hilo-logo-word {
-  font-size: 17px;
-}
-
 .hilo-landing .footer-logo:hover .hilo-logo-word {
   color: var(--accent);
 }
@@ -836,6 +1014,24 @@ html {
   display: flex;
   gap: 16px;
   align-items: center;
+  flex-wrap: wrap;
+}
+
+.hilo-landing .footer-instagram {
+  color: var(--accent);
+  font-size: 13px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.hilo-landing .footer-instagram svg {
+  width: 14px;
+  height: 14px;
+}
+
+.hilo-landing .footer-instagram:hover {
+  text-decoration: underline;
 }
 
 .hilo-landing .footer-email {
@@ -871,6 +1067,14 @@ html {
 .hilo-landing .dif-grid .dif-card:nth-child(4),
 .hilo-landing .process-steps .process-step:nth-child(4) {
   transition-delay: 0.18s;
+}
+
+.hilo-landing .services-grid .service-card:nth-child(5) {
+  transition-delay: 0.22s;
+}
+
+.hilo-landing .services-grid .service-card:nth-child(6) {
+  transition-delay: 0.26s;
 }
 
 .hilo-landing .sticky-cta-bar {
@@ -913,6 +1117,30 @@ html {
     font-size: 16px;
     font-weight: 500;
     color: var(--text-secondary);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 0;
+  }
+
+  .hilo-landing .nav-mobile-links a::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    opacity: 0;
+    flex-shrink: 0;
+  }
+
+  .hilo-landing .nav-mobile-links a:hover,
+  .hilo-landing .nav-mobile-links a:focus-visible {
+    color: var(--text);
+  }
+
+  .hilo-landing .nav-mobile-links a:hover::before,
+  .hilo-landing .nav-mobile-links a:focus-visible::before {
+    opacity: 1;
   }
 
   .hilo-landing .nav-mobile-cta {
@@ -924,6 +1152,10 @@ html {
     border-radius: var(--radius-sm);
     font-weight: 600;
     font-size: 14px;
+  }
+
+  .hilo-landing .nav-mobile-links a.nav-mobile-cta::before {
+    display: none;
   }
 
   .hilo-landing #hero {

@@ -54,14 +54,14 @@ export function Hero() {
       <div className="hero-inner">
         <div className="hero-content">
           <h1>
-            Una necesidad puntual.
+            Somos el hilo conductor
             <br />
-            Una respuesta <em>concreta</em>.
+            que potencia <em>digitalmente</em> tu negocio.
           </h1>
           <p className="hero-sub">
-            Llegás con una landing, un dashboard, un bot, una identidad. Lo
-            evaluamos y te decimos qué haríamos, en cuánto tiempo y a qué
-            precio.
+            ¿Qué te está frenando: web, identidad visual o procesos repetitivos
+            y sin automatizar? Lo evaluamos y te decimos qué haríamos, en
+            cuánto tiempo y a qué precio.
           </p>
           <div className="hero-actions">
             <a href="#contacto" className="btn-primary">

@@ -3,7 +3,7 @@
 import { FormEvent, useState } from "react";
 
 const MAIL = "hola@hilo.studio";
-const MAILTO_SUBJECT = encodeURIComponent("Pedido desde hilo.studio");
+const MAILTO_SUBJECT = encodeURIComponent("Consulta desde hilo.studio");
 
 export function ContactForm() {
   const [mailtoHint, setMailtoHint] = useState(false);
@@ -79,7 +79,7 @@ export function ContactForm() {
           name="Pedido"
           required
           rows={5}
-          placeholder="Ej: una landing, un logo, un dashboard, un bot de WhatsApp..."
+          placeholder="Ej: una landing, contenido para Instagram, una app, un dashboard..."
         />
       </div>
 

@@ -40,6 +40,12 @@ export function CustomCursor() {
       my = e.clientY;
       cursor.style.left = `${mx - 4}px`;
       cursor.style.top = `${my - 4}px`;
+      const overLink = Boolean(
+        (e.target as Element | null)?.closest?.(
+          "a, button, summary, input, textarea, select"
+        )
+      );
+      ring.classList.toggle("is-hover", overLink);
     }
 
     function animateRing() {
