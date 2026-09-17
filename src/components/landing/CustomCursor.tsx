@@ -29,6 +29,9 @@ export function CustomCursor() {
     const ring = document.getElementById("hilo-cursor-ring");
     if (!cursor || !ring) return;
 
+    const cursorNode = cursor;
+    const ringNode = ring;
+
     let mx = 0;
     let my = 0;
     let rx = 0;
@@ -38,21 +41,21 @@ export function CustomCursor() {
     function onMouseMove(e: MouseEvent) {
       mx = e.clientX;
       my = e.clientY;
-      cursor.style.left = `${mx - 4}px`;
-      cursor.style.top = `${my - 4}px`;
+      cursorNode.style.left = `${mx - 4}px`;
+      cursorNode.style.top = `${my - 4}px`;
       const overLink = Boolean(
         (e.target as Element | null)?.closest?.(
           "a, button, summary, input, textarea, select"
         )
       );
-      ring.classList.toggle("is-hover", overLink);
+      ringNode.classList.toggle("is-hover", overLink);
     }
 
     function animateRing() {
       rx += (mx - rx - 16) * 0.12;
       ry += (my - ry - 16) * 0.12;
-      ring.style.left = `${rx}px`;
-      ring.style.top = `${ry}px`;
+      ringNode.style.left = `${rx}px`;
+      ringNode.style.top = `${ry}px`;
       frameId = requestAnimationFrame(animateRing);
     }
 
