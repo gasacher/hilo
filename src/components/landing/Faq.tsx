@@ -17,11 +17,11 @@ const items = [
   },
   {
     q: "¿De dónde son?",
-    a: "Buenos Aires. Trabajamos remoto con todo el país y con clientes de afuera: no hace falta estar cerca. Evaluación, propuesta y entregas quedan por escrito. Si se requiere, nos tomamos un cafecito, un vermú o una birra — a gusto del cliente.",
+    a: "Buenos Aires. Trabajamos remoto con todo el país — y si el proyecto es de afuera, también lo vemos. Evaluación, propuesta y entregas quedan por escrito. Si hace falta, nos tomamos un cafecito, un vermú o una birra — lo que gustes.",
   },
   {
     q: "¿Y si no me convence el primer entregable?",
-    a: "La propuesta incluye dos rondas de ajustes. Si después de la segunda el resultado sigue lejos de lo acordado, lo conversamos y encontramos una solución juntos. Lo que no va a pasar es que te quedes atado a algo que no te sirve.",
+    a: "La propuesta incluye dos rondas de ajustes. Si necesitás más, lo conversamos y encontramos una solución juntos. Lo que no va a pasar es que te quedes atado a algo que no te sirve.",
   },
 ];
 
