@@ -11,11 +11,14 @@ export function CTA() {
           <a href="#contacto" className="btn-primary">
             Contanos el pedido
           </a>
+          {/* TODO: verificar que la cuenta sea nuestra */}
           <a
-            href="mailto:hola@hilo.studio?subject=Consulta%20desde%20hilo.studio"
+            href="https://www.instagram.com/hilo.studio/"
             className="btn-ghost btn-ghost-light"
+            target="_blank"
+            rel="noreferrer"
           >
-            hola@hilo.studio
+            @hilo.studio
           </a>
         </div>
       </div>

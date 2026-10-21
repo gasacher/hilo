@@ -8,17 +8,12 @@ export function Footer() {
         <HiloLogo size={36} />
       </Link>
       <div className="footer-right">
-        <a
-          href="mailto:hola@hilo.studio?subject=Consulta%20desde%20hilo.studio"
-          className="footer-email"
-        >
-          hola@hilo.studio
-        </a>
+        {/* TODO: verificar que la cuenta sea nuestra */}
         <a
           href="https://www.instagram.com/hilo.studio/"
           className="footer-instagram"
           target="_blank"
-          rel="noreferrer"
+          rel="noopener noreferrer"
         >
           <svg viewBox="0 0 24 24" fill="none" aria-hidden>
             <rect x="3.5" y="3.5" width="17" height="17" rx="5" stroke="currentColor" strokeWidth="1.6" />

@@ -5,31 +5,22 @@ export function Contact() {
     <section id="contacto">
       <div className="contact-grid">
         <div className="contact-info reveal">
+          <p className="section-marker">06 Contacto</p>
           <h2>¿Hablamos?</h2>
           <p className="contact-info-text">
-            Web, dashboards, identidad, social media, automatización o apps — o
-            algo que no entra en esa lista. Contanos: si lo podemos hacer, qué
-            haríamos y cuánto, o te decimos que no es para Hilo.
+            Contanos tu proceso y te decimos qué se puede automatizar. Es un
+            diagnóstico corto y sin costo. Si no es para Hilo, también te lo
+            decimos.
           </p>
           <div className="contact-channels">
+            <p className="contact-email">Email: [A DEFINIR]</p>
             <p>
-              <a
-                href="mailto:hola@hilo.studio?subject=Consulta%20desde%20hilo.studio"
-                className="contact-email"
-              >
-                <svg viewBox="0 0 24 24" fill="none" aria-hidden>
-                  <rect x="3.5" y="5.5" width="17" height="13" rx="2" stroke="currentColor" strokeWidth="1.6" />
-                  <path d="M5 8l7 5 7-5" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" />
-                </svg>
-                hola@hilo.studio
-              </a>
-            </p>
-            <p>
+              {/* TODO: verificar que la cuenta sea nuestra */}
               <a
                 href="https://www.instagram.com/hilo.studio/"
                 className="contact-instagram"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
               >
                 <svg viewBox="0 0 24 24" fill="none" aria-hidden>
                   <rect x="3.5" y="3.5" width="17" height="17" rx="5" stroke="currentColor" strokeWidth="1.6" />

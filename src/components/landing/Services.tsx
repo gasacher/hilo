@@ -1,3 +1,5 @@
+import type { ReactNode } from "react";
+
 const icons = {
   web: (
     <svg className="service-icon" viewBox="0 0 32 32" fill="none" aria-hidden>
@@ -46,21 +48,16 @@ const icons = {
   ),
 };
 
-const services = [
+const services: {
+  tag: string;
+  title: string;
+  punch: string;
+  includes: string[];
+  example?: string;
+  icon: ReactNode;
+}[] = [
   {
     tag: "01",
-    title: "Desarrollo web",
-    punch: "Landings y sitios para explicar, vender o que te encuentren.",
-    includes: [
-      "Landing para un lanzamiento o un servicio",
-      "Sitio institucional o e-commerce (Tiendanube, Shopify u otra)",
-      "SEO técnico y on-page",
-      "Que se adapte a cualquier pantalla",
-    ],
-    icon: icons.web,
-  },
-  {
-    tag: "02",
     title: "Dashboards",
     punch: "Tableros y reportes a partir de los datos que ya tenés.",
     includes: [
@@ -71,40 +68,30 @@ const services = [
     icon: icons.data,
   },
   {
-    tag: "03",
+    tag: "02",
     title: "Automatización",
     punch: "Bots y flujos para lo que hoy se responde o se copia a mano.",
     includes: [
-      "Bot de WhatsApp u otro canal",
-      "Pasar datos entre herramientas",
-      "Un flujo chico, no un proyecto que no termina nunca",
+      "Bot de WhatsApp u otro canal para responder lo de siempre",
+      "Pasar datos entre herramientas sin copiar y pegar",
+      "Reportes que se arman solos, con IA si suma",
     ],
     icon: icons.auto,
   },
   {
+    tag: "03",
+    title: "Desarrollo web",
+    punch: "Landings y sitios para explicar, vender o que te encuentren.",
+    includes: [
+      "Landing para un lanzamiento o un servicio",
+      "Sitio institucional o e-commerce (Tiendanube, Shopify o a medida en Laravel)",
+      "SEO técnico y on-page",
+      "Que se adapte a cualquier pantalla",
+    ],
+    icon: icons.web,
+  },
+  {
     tag: "04",
-    title: "Identidad visual",
-    punch: "Logo, piezas y sistema visual. Lo que hace falta.",
-    includes: [
-      "Logo y marca aplicada",
-      "Sistema visual para web y piezas",
-      "Que se reconozca igual en cualquier pantalla",
-    ],
-    icon: icons.identity,
-  },
-  {
-    tag: "05",
-    title: "Social media",
-    punch: "Contenido para redes sociales. Que se vea y se publique.",
-    includes: [
-      "Dirección de contenido y piezas para el feed",
-      "Stories y formatos cortos",
-      "Una línea visual, no un post suelto cada tanto",
-    ],
-    icon: icons.social,
-  },
-  {
-    tag: "06",
     title: "Apps",
     punch: "Productos digitales para usar: web apps, herramientas, lo que hace falta.",
     includes: [
@@ -115,16 +102,36 @@ const services = [
     ],
     icon: icons.apps,
   },
+  {
+    tag: "05",
+    title: "Identidad visual",
+    punch: "Logo, piezas y sistema visual. Lo que hace falta.",
+    includes: [
+      "Logo y marca aplicada",
+      "Sistema visual para web y piezas",
+      "Que se reconozca igual en cualquier pantalla",
+    ],
+    icon: icons.identity,
+  },
+  {
+    tag: "06",
+    title: "Social media",
+    punch: "Contenido para redes sociales. Que se vea y se publique.",
+    includes: [
+      "Dirección de contenido y piezas para el feed",
+      "Stories y formatos cortos",
+      "Una línea visual, no un post suelto cada tanto",
+    ],
+    icon: icons.social,
+  },
 ];
 
 export function Services() {
   return (
     <section id="trabajo">
       <div className="services-header reveal">
+        <p className="section-marker">02 Qué hacemos</p>
         <h2>Qué hacemos</h2>
-        <p className="section-desc">
-          Seis áreas. Abrí cada una. Si es otra cosa, lo evaluamos.
-        </p>
       </div>
 
       <div className="services-grid">
@@ -143,6 +150,7 @@ export function Services() {
                 <li key={item}>{item}</li>
               ))}
             </ul>
+            {service.example ? <p className="service-example">{service.example}</p> : null}
           </details>
         ))}
       </div>

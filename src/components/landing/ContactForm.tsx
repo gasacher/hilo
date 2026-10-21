@@ -2,33 +2,55 @@
 
 import { FormEvent, useState } from "react";
 
-const MAIL = "hola@hilo.studio";
-const MAILTO_SUBJECT = encodeURIComponent("Consulta desde hilo.studio");
+const FORM_ENDPOINT = "[A DEFINIR]";
+
+type Status = "idle" | "sending" | "ok" | "error";
 
 export function ContactForm() {
-  const [mailtoHint, setMailtoHint] = useState(false);
+  const [status, setStatus] = useState<Status>("idle");
 
-  function onSubmit(event: FormEvent<HTMLFormElement>) {
+  async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    const name = String(data.get("Nombre") ?? "").trim();
-    const email = String(data.get("Email") ?? "").trim();
-    const company = String(data.get("Empresa") ?? "").trim();
-    const pedido = String(data.get("Pedido") ?? "").trim();
+    const form = event.currentTarget;
+    const data = new FormData(form);
 
-    const lines = [
-      `Nombre: ${name}`,
-      `Email: ${email}`,
-      company ? `Empresa: ${company}` : null,
-      "",
-      "Pedido:",
-      pedido,
-    ].filter((line) => line !== null);
+    if (String(data.get("_gotcha") ?? "").trim()) {
+      setStatus("ok");
+      form.reset();
+      return;
+    }
 
-    const href = `mailto:${MAIL}?subject=${MAILTO_SUBJECT}&body=${encodeURIComponent(lines.join("\n"))}`;
+    setStatus("sending");
 
-    setMailtoHint(true);
-    window.location.href = href;
+    try {
+      if (!FORM_ENDPOINT.startsWith("http")) {
+        throw new Error("endpoint-undefined");
+      }
+
+      const response = await fetch(FORM_ENDPOINT, {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          Nombre: String(data.get("Nombre") ?? "").trim(),
+          Email: String(data.get("Email") ?? "").trim(),
+          Empresa: String(data.get("Empresa") ?? "").trim(),
+          proceso: String(data.get("proceso") ?? "").trim(),
+        }),
+      });
+
+      if (!response.ok) {
+        setStatus("error");
+        return;
+      }
+
+      setStatus("ok");
+      form.reset();
+    } catch {
+      setStatus("error");
+    }
   }
 
   return (
@@ -73,37 +95,67 @@ export function ContactForm() {
       </div>
 
       <div className="form-field">
-        <label htmlFor="contact-process">¿Qué necesitás?</label>
+        <label htmlFor="contact-process">¿Qué proceso te gustaría automatizar o qué necesitás?</label>
         <textarea
           id="contact-process"
-          name="Pedido"
+          name="proceso"
           required
           rows={5}
-          placeholder="Ej: una landing, contenido para Instagram, una app, un dashboard..."
+          placeholder="El reporte, el pedido o el mensaje que hoy se hace a mano"
+        />
+      </div>
+
+      <div className="form-honeypot" aria-hidden="true">
+        <label htmlFor="contact-gotcha">No completar</label>
+        <input
+          id="contact-gotcha"
+          name="_gotcha"
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
         />
       </div>
 
       <div className="form-actions">
-        <button type="submit" className="btn-primary">
-          Contanos qué necesitás <span className="btn-arrow">→</span>
+        <button type="submit" className="btn-primary" disabled={status === "sending"}>
+          {status === "sending" ? (
+            "Enviando…"
+          ) : (
+            <>
+              Pedir diagnóstico <span className="btn-arrow">↗</span>
+            </>
+          )}
         </button>
       </div>
 
-      {mailtoHint ? (
+      {status === "sending" ? (
+        <p className="contact-alt" role="status">
+          Enviando…
+        </p>
+      ) : null}
+      {status === "ok" ? (
         <p className="contact-fallback" role="status">
-          Si no se abrió tu correo, escribinos directo a{" "}
-          <a href={`mailto:${MAIL}?subject=${MAILTO_SUBJECT}`} className="contact-mail-inline">
-            hola@hilo.studio
-          </a>
+          Listo. Te respondemos en unos días.
         </p>
-      ) : (
-        <p className="contact-alt">
-          o escribinos a{" "}
-          <a href={`mailto:${MAIL}?subject=${MAILTO_SUBJECT}`} className="contact-mail-inline">
-            hola@hilo.studio
-          </a>
+      ) : null}
+      {status === "error" ? (
+        <p className="contact-fallback" role="status">
+          No se pudo enviar. Probá de nuevo o escribinos por Instagram.
         </p>
-      )}
+      ) : null}
+
+      <p className="contact-alt">
+        o{" "}
+        <a
+          // TODO: verificar que la cuenta sea nuestra
+          href="https://www.instagram.com/hilo.studio/"
+          className="contact-mail-inline"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          escribinos por Instagram
+        </a>
+      </p>
     </form>
   );
 }

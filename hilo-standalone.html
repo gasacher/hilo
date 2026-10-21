@@ -3,15 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hilo Estudio — el hilo conductor</title>
-    <meta name="description" content="Estudio de diseño y desarrollo en Buenos Aires. Web, identidad, tableros, automatización, contenido y productos digitales, con propuesta concreta y precio cerrado." />
-    <meta property="og:title" content="Hilo Estudio — el hilo conductor" />
-    <meta property="og:description" content="Web, identidad, tableros, bots, contenido y productos digitales. Contanos qué necesitás, te decimos qué haríamos y cuánto." />
+    <title>Hilo Estudio — Entendemos tu negocio antes de programarlo</title>
+    <meta name="description" content="Estudio en Buenos Aires: dashboards, automatización, desarrollo web, apps, identidad visual y social media. Diagnóstico corto sin costo, precio cerrado por escrito." />
+    <link rel="canonical" href="https://gasacher.github.io/hilo/" />
+    <meta property="og:title" content="Hilo Estudio — Entendemos tu negocio antes de programarlo" />
+    <meta property="og:description" content="Dashboards, automatización, web y apps. Contanos tu proceso y te decimos qué se puede automatizar." />
+    <meta property="og:url" content="https://gasacher.github.io/hilo/" />
+    <meta property="og:locale" content="es_AR" />
     <meta property="og:type" content="website" />
     <link rel="icon" type="image/svg+xml" href="public/favicon.svg" />
     <link rel="icon" type="image/png" href="public/favicon.png" />
     <style>
-      html, body { margin: 0; background: #0a0e1a; }
 :root {
   --bg: #0a0e1a;
   --surface: #111827;
@@ -111,7 +113,7 @@ html {
 }
 
 .hilo-landing .header-inner {
-  max-width: var(--max);
+  max-width: 1200px;
   margin: 0 auto;
   padding: 16px 24px;
   display: flex;
@@ -389,7 +391,24 @@ html {
 .hilo-landing .hero-actions {
   display: flex;
   flex-wrap: wrap;
+  align-items: flex-start;
   gap: 12px;
+}
+
+.hilo-landing .hero-cta-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.hilo-landing .hero-note {
+  margin: 0;
+  max-width: 280px;
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--text-muted);
+  font-weight: 400;
 }
 
 .hilo-landing .btn-primary,
@@ -490,9 +509,11 @@ html {
   background: var(--border);
 }
 
+.hilo-landing #trabajos,
 .hilo-landing #trabajo,
 .hilo-landing #como,
 .hilo-landing #estudio,
+.hilo-landing #nosotros,
 .hilo-landing #faq,
 .hilo-landing #contacto {
   background: transparent;
@@ -655,6 +676,19 @@ html {
   margin: 0;
 }
 
+.hilo-landing .dif-card .dif-text + .dif-text {
+  margin-top: 10px;
+}
+
+.hilo-landing .dif-card a {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.hilo-landing .dif-card a:hover {
+  text-decoration: underline;
+}
+
 .hilo-landing .service-list {
   margin: 16px 0 0;
   padding: 0;
@@ -679,6 +713,34 @@ html {
   width: 5px;
   height: 1px;
   background: var(--accent);
+}
+
+.hilo-landing .service-example {
+  margin: 14px 0 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+.hilo-landing .work-label {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.hilo-landing .work-bridge {
+  margin: 10px 0 0;
+  color: var(--accent);
+  font-size: 14px;
+  line-height: 1;
+}
+
+.hilo-landing .work-solution {
+  margin-top: 10px;
 }
 
 .hilo-landing .service-tags {
@@ -917,14 +979,28 @@ html {
   height: 18px;
 }
 
-.hilo-landing .contact-email:hover,
+.hilo-landing a.contact-email:hover,
 .hilo-landing .contact-instagram:hover,
 .hilo-landing .contact-mail-inline:hover {
   text-decoration: underline;
 }
 
+.hilo-landing .form-honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
 .hilo-landing .form-actions {
   margin-top: 4px;
+}
+
+.hilo-landing .btn-primary:disabled {
+  opacity: 0.7;
+  transform: none;
 }
 
 .hilo-landing .contact-alt {
@@ -948,12 +1024,18 @@ html {
   display: none;
 }
 
+.hilo-landing .contact-fallback-error {
+  background: rgba(248, 113, 113, 0.1);
+  border-color: rgba(248, 113, 113, 0.28);
+}
+
 .hilo-landing .form-field textarea {
   resize: vertical;
   min-height: 120px;
 }
 
 .hilo-landing .contact-form {
+  position: relative;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
@@ -1095,7 +1177,7 @@ html {
   display: none;
 }
 
-@media (max-width: 720px) {
+@media (max-width: 1200px) {
   .hilo-landing .nav-links {
     display: none;
   }
@@ -1171,7 +1253,9 @@ html {
   .hilo-landing .nav-mobile-links a.nav-mobile-cta::before {
     display: none;
   }
+}
 
+@media (max-width: 720px) {
   .hilo-landing #hero {
     padding: 60px 20px 50px;
   }
@@ -1186,10 +1270,16 @@ html {
     align-items: stretch;
   }
 
+  .hilo-landing .hero-cta-block,
   .hilo-landing .hero-actions .btn-primary,
   .hilo-landing .hero-actions .btn-ghost {
     justify-content: center;
     width: 100%;
+  }
+
+  .hilo-landing .hero-note {
+    max-width: none;
+    text-align: center;
   }
 
   .hilo-landing .hero-nodes {
@@ -1276,6 +1366,9 @@ html {
   }
 }
 
+</style>
+    <style>
+      html, body { margin: 0; background: #0a0e1a; }
     </style>
   </head>
   <body>
@@ -1298,9 +1391,11 @@ html {
             </span>
           </a>
           <ul class="nav-links">
+            <li><a href="#trabajos">Trabajos</a></li>
             <li><a href="#trabajo">Servicios</a></li>
             <li><a href="#como">Cómo trabajamos</a></li>
             <li><a href="#estudio">Por qué nosotros</a></li>
+            <li><a href="#nosotros">Quiénes somos</a></li>
             <li><a href="#faq">Preguntas</a></li>
           </ul>
           <div class="nav-actions">
@@ -1313,9 +1408,11 @@ html {
         </div>
         <div id="nav-menu" class="nav-mobile-panel">
           <ul class="nav-mobile-links">
+            <li><a href="#trabajos">Trabajos</a></li>
             <li><a href="#trabajo">Servicios</a></li>
             <li><a href="#como">Cómo trabajamos</a></li>
             <li><a href="#estudio">Por qué nosotros</a></li>
+            <li><a href="#nosotros">Quiénes somos</a></li>
             <li><a href="#faq">Preguntas</a></li>
             <li><a href="#contacto" class="nav-mobile-cta">Contanos →</a></li>
           </ul>
@@ -1329,15 +1426,17 @@ html {
           </div>
           <div class="hero-inner">
             <div class="hero-content">
-              <h1>Somos el hilo conductor<br />que potencia <em>digitalmente</em> tu negocio.</h1>
+              <h1>Entendemos tu negocio antes de programarlo.</h1>
               <p class="hero-sub">
-                ¿Qué te está frenando: web, identidad visual o procesos repetitivos
-                y sin automatizar? Lo evaluamos y te decimos qué haríamos, en
-                cuánto tiempo y a qué precio.
+                Dashboards, automatización, web y apps. Primero vemos cómo
+                trabajás; después hacemos lo que hace falta.
               </p>
               <div class="hero-actions">
-                <a href="#contacto" class="btn-primary">Contanos <span class="btn-arrow">→</span></a>
-                <a href="#trabajo" class="btn-ghost">Ver qué hacemos</a>
+                <div class="hero-cta-block">
+                  <a href="#contacto" class="btn-primary">Contanos tu proceso <span class="btn-arrow">→</span></a>
+                  <p class="hero-note">Diagnóstico corto y sin costo: te decimos qué se puede automatizar.</p>
+                </div>
+                <a href="#trabajos" class="btn-ghost">Ver trabajos</a>
               </div>
             </div>
             <svg class="hero-nodes" viewBox="0 0 340 340" fill="none" aria-hidden>
@@ -1364,6 +1463,47 @@ html {
 
         <div class="divider"></div>
 
+        <section id="trabajos">
+          <div class="services-header reveal">
+            <h2>Trabajos</h2>
+            <p class="section-desc">Lo que hicimos y lo que estamos haciendo.</p>
+          </div>
+          <div class="services-grid">
+            <article class="service-card reveal">
+              <div class="card-tag">Confidencial</div>
+              <h3 class="service-title">Cámara empresarial del sector pagos</h3>
+              <p class="service-desc"><span class="work-label">Problema</span> El reporte mensual se armaba a mano.</p>
+              <p class="service-desc work-solution"><span class="work-label">Solución</span> Reportería mensual automatizada con IA.</p>
+            </article>
+            <article class="service-card reveal">
+              <div class="card-tag">En desarrollo</div>
+              <h3 class="service-title">FUZZ Equipamientos</h3>
+              <p class="service-desc"><span class="work-label">Problema</span> Catálogo y stock dispersos.</p>
+              <p class="service-desc work-solution"><span class="work-label">Solución</span> Catálogo online + panel de gestión.</p>
+            </article>
+            <article class="service-card reveal">
+              <div class="card-tag">Lanzado</div>
+              <h3 class="service-title">El Femenino Hub</h3>
+              <p class="service-desc"><span class="work-label">Problema</span> No tenía dónde mostrarse ni recibir consultas.</p>
+              <p class="service-desc work-solution"><span class="work-label">Solución</span> Sitio web.</p>
+            </article>
+            <article class="service-card reveal">
+              <div class="card-tag">En desarrollo</div>
+              <h3 class="service-title">Velitas de la Luna</h3>
+              <p class="service-desc"><span class="work-label">Problema</span> Necesitaba vender online con su propia lógica.</p>
+              <p class="service-desc work-solution"><span class="work-label">Solución</span> E-commerce a medida en Laravel.</p>
+            </article>
+            <article class="service-card reveal">
+              <div class="card-tag">Propio</div>
+              <h3 class="service-title">Fujeira</h3>
+              <p class="service-desc"><span class="work-label">Problema</span> Queríamos probar en carne propia lo que ofrecemos.</p>
+              <p class="service-desc work-solution"><span class="work-label">Solución</span> Marca propia de e-commerce.</p>
+            </article>
+          </div>
+        </section>
+
+        <div class="divider"></div>
+
         <section id="trabajo">
           <div class="services-header reveal">
             <h2>Qué hacemos</h2>
@@ -1374,32 +1514,10 @@ html {
               <summary>
                 <div class="card-head">
                   <svg class="service-icon" viewBox="0 0 32 32" fill="none" aria-hidden>
-                    <rect x="4" y="6" width="24" height="20" rx="3" stroke="currentColor" stroke-width="1.5" />
-                    <path d="M4 12h24" stroke="currentColor" stroke-width="1.5" />
-                    <circle cx="8.5" cy="9" r="1" fill="currentColor" />
-                    <circle cx="12" cy="9" r="1" fill="currentColor" opacity="0.5" />
-                    <path d="M9 17h8M9 21h5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-                  </svg>
-                  <div class="card-tag">01</div>
-                </div>
-                <h3 class="service-title">Desarrollo web</h3>
-                <p class="service-desc">Landings y sitios para explicar, vender o que te encuentren.</p>
-              </summary>
-              <ul class="service-list">
-                <li>Landing para un lanzamiento o un servicio</li>
-                <li>Sitio institucional o e-commerce (Tiendanube, Shopify u otra)</li>
-                <li>SEO técnico y on-page</li>
-                <li>Que se adapte a cualquier pantalla</li>
-              </ul>
-            </details>
-            <details class="service-card reveal">
-              <summary>
-                <div class="card-head">
-                  <svg class="service-icon" viewBox="0 0 32 32" fill="none" aria-hidden>
                     <path d="M8 22V14M16 22V8M24 22v-6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
                     <path d="M6 24h20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.45" />
                   </svg>
-                  <div class="card-tag">02</div>
+                  <div class="card-tag">01</div>
                 </div>
                 <h3 class="service-title">Dashboards</h3>
                 <p class="service-desc">Tableros y reportes a partir de los datos que ya tenés.</p>
@@ -1409,6 +1527,7 @@ html {
                 <li>Reportes que no tengas que armar a mano cada vez</li>
                 <li>Que se pueda actualizar después</li>
               </ul>
+              <p class="service-example">Ejemplo: reportería mensual automática para una cámara empresarial del sector pagos.</p>
             </details>
             <details class="service-card reveal">
               <summary>
@@ -1419,16 +1538,61 @@ html {
                     <circle cx="24" cy="23" r="3" stroke="currentColor" stroke-width="1.5" />
                     <path d="M11 16h10M21.5 11.2l-8.8 3.6M21.5 20.8l-8.8-3.6" stroke="currentColor" stroke-width="1.4" opacity="0.7" />
                   </svg>
-                  <div class="card-tag">03</div>
+                  <div class="card-tag">02</div>
                 </div>
                 <h3 class="service-title">Automatización</h3>
                 <p class="service-desc">Bots y flujos para lo que hoy se responde o se copia a mano.</p>
               </summary>
               <ul class="service-list">
-                <li>Bot de WhatsApp u otro canal</li>
-                <li>Pasar datos entre herramientas</li>
-                <li>Un flujo chico, no un proyecto que no termina nunca</li>
+                <li>Bot de WhatsApp u otro canal para responder lo de siempre</li>
+                <li>Pasar datos entre herramientas sin copiar y pegar</li>
+                <li>Reportes que se arman solos, con IA si suma</li>
               </ul>
+              <p class="service-example">Ejemplo: el reporte mensual de una cámara empresarial, que antes se armaba a mano.</p>
+            </details>
+            <details class="service-card reveal">
+              <summary>
+                <div class="card-head">
+                  <svg class="service-icon" viewBox="0 0 32 32" fill="none" aria-hidden>
+                    <rect x="4" y="6" width="24" height="20" rx="3" stroke="currentColor" stroke-width="1.5" />
+                    <path d="M4 12h24" stroke="currentColor" stroke-width="1.5" />
+                    <circle cx="8.5" cy="9" r="1" fill="currentColor" />
+                    <circle cx="12" cy="9" r="1" fill="currentColor" opacity="0.5" />
+                    <path d="M9 17h8M9 21h5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                  </svg>
+                  <div class="card-tag">03</div>
+                </div>
+                <h3 class="service-title">Desarrollo web</h3>
+                <p class="service-desc">Landings y sitios para explicar, vender o que te encuentren.</p>
+              </summary>
+              <ul class="service-list">
+                <li>Landing para un lanzamiento o un servicio</li>
+                <li>Sitio institucional o e-commerce (Tiendanube, Shopify o a medida en Laravel)</li>
+                <li>SEO técnico y on-page</li>
+                <li>Que se adapte a cualquier pantalla</li>
+              </ul>
+            </details>
+            <details class="service-card reveal">
+              <summary>
+                <div class="card-head">
+                  <svg class="service-icon" viewBox="0 0 32 32" fill="none" aria-hidden>
+                    <rect x="5" y="5" width="9" height="9" rx="2" stroke="currentColor" stroke-width="1.5" />
+                    <rect x="18" y="5" width="9" height="9" rx="2" stroke="currentColor" stroke-width="1.5" />
+                    <rect x="5" y="18" width="9" height="9" rx="2" stroke="currentColor" stroke-width="1.5" />
+                    <rect x="18" y="18" width="9" height="9" rx="2" stroke="currentColor" stroke-width="1.5" opacity="0.55" />
+                  </svg>
+                  <div class="card-tag">04</div>
+                </div>
+                <h3 class="service-title">Apps</h3>
+                <p class="service-desc">Productos digitales para usar: web apps, herramientas, lo que hace falta.</p>
+              </summary>
+              <ul class="service-list">
+                <li>Web apps y herramientas internas</li>
+                <li>Backend, login y base de datos</li>
+                <li>Integración de pagos (Stripe, Mercado Pago)</li>
+                <li>Algo que se abra y se use, no un sistema infinito</li>
+              </ul>
+              <p class="service-example">Ejemplo: panel de gestión para FUZZ Equipamientos (en desarrollo).</p>
             </details>
             <details class="service-card reveal">
               <summary>
@@ -1438,7 +1602,7 @@ html {
                     <path d="M18 18l7 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
                     <path d="M11 13h4M13 11v4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" opacity="0.7" />
                   </svg>
-                  <div class="card-tag">04</div>
+                  <div class="card-tag">05</div>
                 </div>
                 <h3 class="service-title">Identidad visual</h3>
                 <p class="service-desc">Logo, piezas y sistema visual. Lo que hace falta.</p>
@@ -1457,7 +1621,7 @@ html {
                     <circle cx="16" cy="16" r="5" stroke="currentColor" stroke-width="1.5" />
                     <circle cx="22" cy="10" r="1.2" fill="currentColor" />
                   </svg>
-                  <div class="card-tag">05</div>
+                  <div class="card-tag">06</div>
                 </div>
                 <h3 class="service-title">Social media</h3>
                 <p class="service-desc">Contenido para redes sociales. Que se vea y se publique.</p>
@@ -1466,27 +1630,6 @@ html {
                 <li>Dirección de contenido y piezas para el feed</li>
                 <li>Stories y formatos cortos</li>
                 <li>Una línea visual, no un post suelto cada tanto</li>
-              </ul>
-            </details>
-            <details class="service-card reveal">
-              <summary>
-                <div class="card-head">
-                  <svg class="service-icon" viewBox="0 0 32 32" fill="none" aria-hidden>
-                    <rect x="5" y="5" width="9" height="9" rx="2" stroke="currentColor" stroke-width="1.5" />
-                    <rect x="18" y="5" width="9" height="9" rx="2" stroke="currentColor" stroke-width="1.5" />
-                    <rect x="5" y="18" width="9" height="9" rx="2" stroke="currentColor" stroke-width="1.5" />
-                    <rect x="18" y="18" width="9" height="9" rx="2" stroke="currentColor" stroke-width="1.5" opacity="0.55" />
-                  </svg>
-                  <div class="card-tag">06</div>
-                </div>
-                <h3 class="service-title">Apps</h3>
-                <p class="service-desc">Productos digitales para usar: web apps, herramientas, lo que hace falta.</p>
-              </summary>
-              <ul class="service-list">
-                <li>Web apps y herramientas internas</li>
-                <li>Backend, login y base de datos</li>
-                <li>Integración de pagos (Stripe, Mercado Pago)</li>
-                <li>Algo que se abra y se use, no un sistema infinito</li>
               </ul>
             </details>
           </div>
@@ -1506,7 +1649,7 @@ html {
               <span class="process-num">01</span>
               <h4 class="process-title">Nos contás qué necesitás</h4>
               <p class="process-text">
-                Web, dashboards, identidad, social media, automatización o apps — o algo que no entra en esa lista.
+                Dashboards, automatización, web, apps, identidad o social media — o algo que no entra en esa lista.
               </p>
             </div>
             <div class="process-step reveal">
@@ -1591,6 +1734,46 @@ html {
 
         <div class="divider"></div>
 
+        <section id="nosotros">
+          <div class="reveal">
+            <h2>Somos dos, pero somos un montón.</h2>
+            <p class="section-desc">Un estudio chico en Buenos Aires que cubre lo que normalmente necesita un equipo entero.</p>
+          </div>
+          <div class="services-grid">
+            <article class="dif-card reveal">
+              <h3 class="dif-title">Análisis de procesos</h3>
+              <p class="dif-text">Entendemos cómo trabaja tu equipo antes de tocar nada.</p>
+            </article>
+            <article class="dif-card reveal">
+              <h3 class="dif-title">Dashboards</h3>
+              <p class="dif-text">Tus números, claros y en un solo lugar.</p>
+            </article>
+            <article class="dif-card reveal">
+              <h3 class="dif-title">Automatización</h3>
+              <p class="dif-text">Lo repetitivo, que lo haga la máquina.</p>
+            </article>
+            <article class="dif-card reveal">
+              <h3 class="dif-title">Desarrollo web</h3>
+              <p class="dif-text">Sitios rápidos, prolijos y fáciles de mantener.</p>
+            </article>
+            <article class="dif-card reveal">
+              <h3 class="dif-title">Apps</h3>
+              <p class="dif-text">Herramientas a medida para tu día a día.</p>
+            </article>
+            <article class="dif-card reveal">
+              <h3 class="dif-title">Identidad visual</h3>
+              <p class="dif-text">Una marca que se reconoce de un vistazo.</p>
+            </article>
+            <article class="dif-card reveal">
+              <h3 class="dif-title">Diseño para redes</h3>
+              <p class="dif-text">Piezas que mantienen la coherencia en cada posteo.</p>
+            </article>
+          </div>
+          <p class="section-desc section-close">Dos cabezas, un montón de sombreros. Hablás directo con quien hace el trabajo.</p>
+        </section>
+
+        <div class="divider"></div>
+
         <section id="faq">
           <div class="reveal">
             <h2>Preguntas frecuentes</h2>
@@ -1599,27 +1782,27 @@ html {
           <div class="faq-list">
             <details class="faq-item reveal">
               <summary>¿Cuánto cuesta un proyecto?</summary>
-              <p>No te lo podemos decir antes de ver el pedido — y desconfiá de quien sí lo haga. Evaluamos el trabajo, definimos el alcance y te pasamos un precio cerrado por escrito. El número de la propuesta es el número que pagás. Sin extras que aparecen a mitad de camino.</p>
+              <p>Cotizamos según alcance. Vemos el pedido, definimos qué entra y te pasamos un precio cerrado por escrito antes de empezar. Sin extras a mitad de camino.</p>
             </details>
             <details class="faq-item reveal">
               <summary>¿Cuánto tarda un proyecto?</summary>
-              <p>Los extremos los conocemos: una landing o un flujo simple puede estar en 1 a 2 semanas; algo más armado, como un tablero con varias fuentes o una app, lleva más. En la propuesta va una fecha de entrega concreta, no un rango vago. Y si tu fecha es innegociable, lo evaluamos con eso sobre la mesa — a veces el alcance se ajusta para llegar.</p>
+              <p>Depende del alcance. Una landing o un flujo simple: [A CONFIRMAR: 1–3 semanas]. Un sitio o e-commerce: [A CONFIRMAR: 4–8 semanas]. Un tablero o una app: [A CONFIRMAR: 6–12 semanas]. La fecha concreta va en la propuesta.</p>
             </details>
             <details class="faq-item reveal">
               <summary>¿Trabajan con marcas que ya tienen web o logo?</summary>
-              <p>Sí. Si lo que tenés sirve, lo usamos y ahorrás plata. Si no sirve, te lo decimos antes de arrancar: no vamos a maquillar algo que por dentro está roto. Cuando la diferencia es de fondo, lo repensamos de cero.</p>
+              <p>Sí. Si lo que tenés sirve, lo usamos. Si no, te lo decimos antes de arrancar.</p>
             </details>
             <details class="faq-item reveal">
               <summary>¿Puedo contratar un solo servicio?</summary>
-              <p>Sí. Cada pedido se evalúa solo: si necesitás solo un tablero, te proponemos solo un tablero. Dicho esto, cuando la web, la marca y los procesos los hace la misma gente, nada queda suelto en el medio — por eso el paquete completo suele dar mejor resultado. Y no te lo vamos a empujar si no lo necesitás.</p>
+              <p>Sí. Si necesitás solo un tablero, te proponemos solo un tablero. Si después querés sumar algo, lo vemos.</p>
             </details>
             <details class="faq-item reveal">
               <summary>¿De dónde son?</summary>
-              <p>Buenos Aires. Trabajamos remoto con todo el país — y si el proyecto es de afuera, también lo vemos. Evaluación, propuesta y entregas quedan por escrito. Si hace falta, nos tomamos un cafecito, un vermú o una birra — lo que gustes.</p>
+              <p>Buenos Aires. Trabajamos remoto con todo el país y con proyectos de afuera.</p>
             </details>
             <details class="faq-item reveal">
               <summary>¿Y si no me convence el primer entregable?</summary>
-              <p>La propuesta incluye dos rondas de ajustes. Si necesitás más, lo conversamos y encontramos una solución juntos. Lo que no va a pasar es que te quedes atado a algo que no te sirve.</p>
+              <p>La propuesta incluye [A CONFIRMAR: dos] rondas de ajustes. Si hace falta más, lo hablamos antes de seguir.</p>
             </details>
           </div>
         </section>
@@ -1631,21 +1814,14 @@ html {
             <div class="contact-info reveal">
               <h2>¿Hablamos?</h2>
               <p class="contact-info-text">
-                Web, dashboards, identidad, social media, automatización o apps — o
-                algo que no entra en esa lista. Contanos: si lo podemos hacer, qué
-                haríamos y cuánto, o te decimos que no es para Hilo.
+                Contanos tu proceso y te decimos qué se puede automatizar. Es un
+                diagnóstico corto y sin costo. Si no es para Hilo, también te lo
+                decimos.
               </p>
               <div class="contact-channels">
+                <p class="contact-email">Email: [A DEFINIR]</p>
                 <p>
-                  <a href="mailto:hola@hilo.studio?subject=Consulta%20desde%20hilo.studio" class="contact-email">
-                    <svg viewBox="0 0 24 24" fill="none" aria-hidden>
-                      <rect x="3.5" y="5.5" width="17" height="13" rx="2" stroke="currentColor" stroke-width="1.6" />
-                      <path d="M5 8l7 5 7-5" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" />
-                    </svg>
-                    hola@hilo.studio
-                  </a>
-                </p>
-                <p>
+                  <!-- TODO: verificar que la cuenta sea nuestra -->
                   <a href="https://www.instagram.com/hilo.studio/" class="contact-instagram" target="_blank" rel="noreferrer">
                     <svg viewBox="0 0 24 24" fill="none" aria-hidden>
                       <rect x="3.5" y="3.5" width="17" height="17" rx="5" stroke="currentColor" stroke-width="1.6" />
@@ -1658,6 +1834,7 @@ html {
               </div>
             </div>
             <form class="contact-form reveal" id="pedido-form" aria-label="Formulario de contacto">
+              <input class="form-honeypot" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" />
               <div class="form-row">
                 <div class="form-field">
                   <label for="contact-name">Nombre</label>
@@ -1673,20 +1850,15 @@ html {
                 <input id="contact-company" name="Empresa" type="text" autocomplete="organization" placeholder="Nombre de tu empresa" />
               </div>
               <div class="form-field">
-                <label for="contact-process">¿Qué necesitás?</label>
-                <textarea id="contact-process" name="Pedido" required rows="5" placeholder="Ej: una landing, contenido para Instagram, una app, un dashboard..."></textarea>
+                <label for="contact-process">¿Qué proceso te gustaría automatizar o qué necesitás?</label>
+                <textarea id="contact-process" name="Pedido" required rows="5" placeholder="Ej: un reporte mensual, un catálogo, una landing..."></textarea>
               </div>
               <div class="form-actions">
-                <button type="submit" class="btn-primary">Contanos qué necesitás <span class="btn-arrow">→</span></button>
+                <button type="submit" class="btn-primary" id="contact-submit">Pedir diagnóstico <span class="btn-arrow">→</span></button>
               </div>
-              <p class="contact-alt" id="contact-alt">
-                o escribinos a
-                <a href="mailto:hola@hilo.studio?subject=Consulta%20desde%20hilo.studio" class="contact-mail-inline">hola@hilo.studio</a>
-              </p>
-              <p class="contact-fallback" id="contact-fallback" role="status" hidden>
-                Si no se abrió tu correo, escribinos directo a
-                <a href="mailto:hola@hilo.studio?subject=Consulta%20desde%20hilo.studio" class="contact-mail-inline">hola@hilo.studio</a>
-              </p>
+              <p class="contact-alt" id="contact-alt">o escribinos por Instagram</p>
+              <p class="contact-fallback" id="contact-ok" role="status" hidden>Listo. Te respondemos en unos días.</p>
+              <p class="contact-fallback contact-fallback-error" id="contact-error" role="alert" hidden>No se pudo enviar. Probá de nuevo o escribinos por Instagram.</p>
             </form>
           </div>
         </section>
@@ -1707,7 +1879,7 @@ html {
           </span>
         </a>
         <div class="footer-right">
-          <a href="mailto:hola@hilo.studio" class="footer-email">hola@hilo.studio</a>
+          <!-- TODO: verificar que la cuenta sea nuestra -->
           <a href="https://www.instagram.com/hilo.studio/" class="footer-instagram" target="_blank" rel="noreferrer">
             <svg viewBox="0 0 24 24" fill="none" aria-hidden>
               <rect x="3.5" y="3.5" width="17" height="17" rx="5" stroke="currentColor" stroke-width="1.6" />
@@ -1782,27 +1954,47 @@ html {
         requestAnimationFrame(animateRing);
       })();
 
-      document.getElementById("pedido-form")?.addEventListener("submit", (event) => {
+      document.getElementById("pedido-form")?.addEventListener("submit", async (event) => {
         event.preventDefault();
+        const FORM_ENDPOINT = "[A DEFINIR]";
         const form = event.currentTarget;
         const data = new FormData(form);
-        const name = String(data.get("Nombre") || "").trim();
-        const email = String(data.get("Email") || "").trim();
-        const company = String(data.get("Empresa") || "").trim();
-        const pedido = String(data.get("Pedido") || "").trim();
-        const lines = [
-          `Nombre: ${name}`,
-          `Email: ${email}`,
-          company ? `Empresa: ${company}` : null,
-          "",
-          "Pedido:",
-          pedido,
-        ].filter(Boolean);
+        const submit = document.getElementById("contact-submit");
         const alt = document.getElementById("contact-alt");
-        const fallback = document.getElementById("contact-fallback");
-        if (alt) alt.hidden = true;
-        if (fallback) fallback.hidden = false;
-        window.location.href = `mailto:hola@hilo.studio?subject=${encodeURIComponent("Consulta desde hilo.studio")}&body=${encodeURIComponent(lines.join("\n"))}`;
+        const ok = document.getElementById("contact-ok");
+        const error = document.getElementById("contact-error");
+        const setState = (state) => {
+          if (alt) alt.hidden = state !== "idle" && state !== "sending";
+          if (ok) ok.hidden = state !== "ok";
+          if (error) error.hidden = state !== "error";
+          if (submit) {
+            submit.disabled = state === "sending";
+            submit.textContent = state === "sending" ? "Enviando…" : "Pedir diagnóstico →";
+          }
+        };
+        if (String(data.get("website") || "").trim()) {
+          setState("ok");
+          return;
+        }
+        setState("sending");
+        try {
+          if (!FORM_ENDPOINT.startsWith("http")) throw new Error("endpoint-undefined");
+          const response = await fetch(FORM_ENDPOINT, {
+            method: "POST",
+            headers: { Accept: "application/json", "Content-Type": "application/json" },
+            body: JSON.stringify({
+              name: String(data.get("Nombre") || "").trim(),
+              email: String(data.get("Email") || "").trim(),
+              company: String(data.get("Empresa") || "").trim(),
+              message: String(data.get("Pedido") || "").trim(),
+            }),
+          });
+          if (!response.ok) throw new Error("send-failed");
+          form.reset();
+          setState("ok");
+        } catch {
+          setState("error");
+        }
       });
     </script>
   </body>

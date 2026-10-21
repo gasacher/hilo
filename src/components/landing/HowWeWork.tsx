@@ -2,7 +2,7 @@ const steps = [
   {
     num: "01",
     title: "Nos contás qué necesitás",
-    text: "Web, dashboards, identidad, social media, automatización o apps — o algo que no entra en esa lista.",
+    text: "Un pedido concreto, o algo que no entra en la lista.",
   },
   {
     num: "02",
@@ -17,7 +17,7 @@ const steps = [
   {
     num: "04",
     title: "Se entrega",
-    text: "Una web, un dashboard, una identidad, contenido, una automatización o una app. Si hace falta un ajuste, entra en esa entrega.",
+    text: "Lo entregamos cerrado. Si hace falta un ajuste, entra en esa entrega.",
   },
 ];
 
@@ -25,6 +25,7 @@ export function HowWeWork() {
   return (
     <section id="como">
       <div className="process-header reveal">
+        <p className="section-marker">03 Así entra un trabajo</p>
         <h2>Así entra un trabajo</h2>
         <p className="section-desc">
           Una conversación. Una propuesta. Un entregable.

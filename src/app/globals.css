@@ -1,7 +1,55 @@
 @import "tailwindcss";
 
+/* Paleta crema, para volver:
+:root {
+  --bg: #fff7f0;
+  --bg-2: #f4ede4;
+  --surface: #fffdf9;
+  --text: #3a352d;
+  --text-dim: #6b6358;
+  --text-faint: #9a9186;
+  --accent: #2fa196;
+  --accent-strong: #23847a;
+  --accent-2: #6b6358;
+  --on-accent: #ffffff;
+  --line: color-mix(in srgb, var(--text) 12%, transparent);
+  --shadow: 0 14px 34px color-mix(in srgb, var(--text) 8%, transparent);
+  --nav-bg: color-mix(in srgb, var(--bg) 90%, transparent);
+  --accent-soft: color-mix(in srgb, var(--accent) 18%, transparent);
+  --accent-ring: color-mix(in srgb, var(--accent) 20%, transparent);
+  --hero-glow: color-mix(in srgb, var(--accent) 18%, transparent);
+  --hero-glow-2: color-mix(in srgb, var(--accent-2) 8%, transparent);
+}
+color-scheme: light;
+*/
+
+/* Paleta tomada de la captura de Omni2. Cambiar estos tokens recolorea el sitio. */
+:root {
+  --bg: #080a0c;
+  --bg-2: #0e1114;
+  --surface: #121416;
+  --text: #ecf0f0;
+  --text-dim: #8a939b;
+  /* La etiqueta de la captura es #5c646c (3.1:1). #777f85 llega a 4.5 sobre la tarjeta. */
+  --text-faint: #777f85;
+  --accent: #63cec4;
+  --accent-strong: #63cec4;
+  --accent-2: #8a939b;
+  --on-accent: #080a0c;
+  --glow: #ff2d8a;
+  --line: #393c3d;
+  --shadow: 0 22px 48px color-mix(in srgb, var(--glow) 22%, transparent);
+  --nav-bg: color-mix(in srgb, var(--bg) 88%, transparent);
+  --accent-soft: color-mix(in srgb, var(--accent) 18%, transparent);
+  --accent-ring: color-mix(in srgb, var(--accent) 35%, transparent);
+  --hero-glow: color-mix(in srgb, var(--accent) 22%, transparent);
+  --hero-glow-2: color-mix(in srgb, var(--glow) 16%, transparent);
+}
+
 html,
 body {
   margin: 0;
-  background: #0a0e1a;
+  background: var(--bg);
+  color: var(--text);
+  color-scheme: dark;
 }

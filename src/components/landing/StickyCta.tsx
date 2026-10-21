@@ -22,11 +22,14 @@ export function StickyCta() {
       <a href="#contacto" className="sticky-cta-primary">
         Contanos →
       </a>
+      {/* TODO: verificar que la cuenta sea nuestra */}
       <a
-        href="mailto:hola@hilo.studio?subject=Consulta%20desde%20hilo.studio"
+        href="https://www.instagram.com/hilo.studio/"
         className="sticky-cta-secondary"
+        target="_blank"
+        rel="noreferrer"
       >
-        hola@hilo.studio
+        @hilo.studio
       </a>
     </div>
   );
