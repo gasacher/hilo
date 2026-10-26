@@ -97,6 +97,22 @@ const works: {
       { label: "Cómo quedó", text: "el reporte sale solo cada mes." },
     ],
   },
+  {
+    num: "06",
+    name: "El Femenino",
+    sub: "Reingeniería web",
+    tags: "Sitio web · Reingeniería",
+    status: "En desarrollo",
+    href: "https://www.elfemenino.com.ar/",
+    image: "/trabajos/elfemenino.webp",
+    alt: "Inicio de El Femenino, con el partido de Argentina en el Mundial Sub-17 y las noticias de fútbol femenino.",
+    mobile: "/trabajos/elfemenino_mobile.webp",
+    mobileAlt: "Versión móvil de El Femenino, con el menú y la nota de Argentina en el Mundial Sub-17.",
+    lines: [
+      { label: "Antes", text: "el sitio de noticias se quedó atrás." },
+      { label: "Qué hacemos", text: "la reingeniería de elfemenino.com.ar." },
+    ],
+  },
 ];
 
 const AUTOPLAY_MS = 6000;
