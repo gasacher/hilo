@@ -36,7 +36,13 @@ export function Hero() {
               Resolvemos lo que te frena en tus procesos, tus ventas, tu web y tu día a día.
             </span>
             <span aria-hidden="true">
-              Resolvemos lo que te <span className="ink-violet">frena</span> en <HeroTypeword />
+              <span className="hero-line">
+                Resolvemos lo que te <span className="ink-violet">frena</span>
+              </span>
+              <br />
+              <span className="hero-line">
+                en <HeroTypeword />
+              </span>
             </span>
           </h1>
           <p className="hero-sub">

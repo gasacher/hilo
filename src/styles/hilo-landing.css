@@ -170,6 +170,16 @@ html {
   margin: 0 0 1.25rem;
 }
 
+/* Two-line lockup. 4.85cqi fits "RESOLVEMOS LO QUE TE FRENA" on one line. */
+.hilo-landing #hero h1 {
+  max-width: none;
+  font-size: min(3.45rem, 4.85cqi);
+}
+
+.hilo-landing #hero h1 .hero-line {
+  white-space: nowrap;
+}
+
 .hilo-landing h2 {
   font-size: clamp(2.15rem, 4.4vw, 3.4rem);
   font-weight: 800;
@@ -370,6 +380,7 @@ html {
 
 .hilo-landing .hero-content {
   min-width: 0;
+  container-type: inline-size;
 }
 
 .hilo-landing .hero-kicker,
