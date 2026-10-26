@@ -30,7 +30,9 @@ export function Faq() {
     <section id="faq">
       <div className="reveal">
         <p className="section-marker">05 Preguntas</p>
-        <h2>Preguntas frecuentes</h2>
+        <h2>
+          Preguntas <span className="ink-violet">frecuentes</span>
+        </h2>
       </div>
       <div className="faq-list">
         {items.map((item) => (

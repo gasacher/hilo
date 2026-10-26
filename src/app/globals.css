@@ -23,27 +23,28 @@
 color-scheme: light;
 */
 
-/* Paleta tomada de la captura de Omni2. Cambiar estos tokens recolorea el sitio. */
+/* Identidad Hilo: negro, lima, violeta y off-white. */
 :root {
-  --bg: #080a0c;
-  --bg-2: #0e1114;
-  --surface: #121416;
-  --text: #ecf0f0;
-  --text-dim: #8a939b;
-  /* La etiqueta de la captura es #5c646c (3.1:1). #777f85 llega a 4.5 sobre la tarjeta. */
-  --text-faint: #777f85;
-  --accent: #63cec4;
-  --accent-strong: #63cec4;
-  --accent-2: #8a939b;
-  --on-accent: #080a0c;
-  --glow: #ff2d8a;
-  --line: #393c3d;
-  --shadow: 0 22px 48px color-mix(in srgb, var(--glow) 22%, transparent);
-  --nav-bg: color-mix(in srgb, var(--bg) 88%, transparent);
-  --accent-soft: color-mix(in srgb, var(--accent) 18%, transparent);
+  --bg: #000000;
+  --bg-2: #0b0b0d;
+  --surface: #121216;
+  --text: #f4f3ef;
+  --text-dim: #b8b7b2;
+  --text-faint: #8e8d88;
+  --accent: #c6ff34;
+  --accent-strong: #c6ff34;
+  --accent-2: #8b5cf6;
+  --on-accent: #000000;
+  --violet: #7f3aed;
+  --violet-text: #9b6bff;
+  --glow: #7f3aed;
+  --line: #232329;
+  --shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+  --nav-bg: rgba(0, 0, 0, 0.82);
+  --accent-soft: color-mix(in srgb, var(--accent) 16%, transparent);
   --accent-ring: color-mix(in srgb, var(--accent) 35%, transparent);
-  --hero-glow: color-mix(in srgb, var(--accent) 22%, transparent);
-  --hero-glow-2: color-mix(in srgb, var(--glow) 16%, transparent);
+  --hero-glow: rgba(127, 58, 237, 0.22);
+  --hero-glow-2: rgba(127, 58, 237, 0.08);
 }
 
 html,

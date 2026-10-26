@@ -55,6 +55,7 @@ export function ContactForm() {
 
   return (
     <form className="contact-form" onSubmit={onSubmit} aria-label="Formulario de contacto">
+      <p className="form-badge">Diagnóstico</p>
       <div className="form-row">
         <div className="form-field">
           <label htmlFor="contact-name">Nombre</label>

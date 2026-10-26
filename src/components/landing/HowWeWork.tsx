@@ -26,7 +26,9 @@ export function HowWeWork() {
     <section id="como">
       <div className="process-header reveal">
         <p className="section-marker">03 Así entra un trabajo</p>
-        <h2>Así entra un trabajo</h2>
+        <h2>
+          Así entra un <span className="ink-lime">trabajo</span>
+        </h2>
         <p className="section-desc">
           Una conversación. Una propuesta. Un entregable.
         </p>

@@ -4,9 +4,15 @@ import { HiloLogo } from "./HiloLogo";
 export function Footer() {
   return (
     <footer>
-      <Link href="/" className="footer-logo" aria-label="hilo">
-        <HiloLogo size={36} />
-      </Link>
+      <div className="footer-brand">
+        <Link href="/" className="footer-logo" aria-label="hilo">
+          <HiloLogo size={36} />
+        </Link>
+        <p className="footer-descriptor">
+          Creative Technology Studio
+          <span className="footer-rule" />
+        </p>
+      </div>
       <div className="footer-right">
         {/* TODO: verificar que la cuenta sea nuestra */}
         <a

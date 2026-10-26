@@ -6,7 +6,7 @@ export function Contact() {
       <div className="contact-grid">
         <div className="contact-info reveal">
           <p className="section-marker">06 Contacto</p>
-          <h2>¿Hablamos?</h2>
+          <h2 className="ink-lime">¿Hablamos?</h2>
           <p className="contact-info-text">
             Contanos tu proceso y te decimos qué se puede automatizar. Es un
             diagnóstico corto y sin costo. Si no es para Hilo, también te lo

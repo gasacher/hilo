@@ -403,7 +403,9 @@ export function Works() {
     >
       <div className="reveal">
         <p className="section-marker">01 Trabajos</p>
-        <h2 id="trabajos-title">Trabajos</h2>
+        <h2 id="trabajos-title">
+          Trabajos<span className="ink-violet">.</span>
+        </h2>
       </div>
 
       <div
@@ -444,7 +446,7 @@ export function Works() {
               </div>
               <p className="work-sub">{work.sub}</p>
               <p className="work-tags">{work.tags}</p>
-              <p className="work-pill">
+              <p className={`work-pill ${work.status === "Lanzado" ? "is-live" : work.status === "Confidencial" ? "is-confidential" : "is-wip"}`}>
                 <span className="work-dot" aria-hidden="true" />
                 {work.status}
               </p>

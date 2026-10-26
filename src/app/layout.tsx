@@ -1,27 +1,19 @@
 import type { Metadata } from "next";
-import { Bricolage_Grotesque, Hanken_Grotesk, IBM_Plex_Mono, Instrument_Serif } from "next/font/google";
+import { Hanken_Grotesk, IBM_Plex_Mono, Unbounded } from "next/font/google";
 import { assetPath } from "@/lib/base-path";
 import "./globals.css";
 
-const bricolage = Bricolage_Grotesque({
-  subsets: ["latin"],
-  weight: "600",
-  variable: "--font-bricolage",
+const unbounded = Unbounded({
+  subsets: ["latin", "latin-ext"],
+  weight: ["700", "800"],
+  variable: "--font-unbounded",
   display: "swap",
 });
 
 const hanken = Hanken_Grotesk({
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  subsets: ["latin", "latin-ext"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-hanken",
-  display: "swap",
-});
-
-const instrument = Instrument_Serif({
-  subsets: ["latin"],
-  weight: "400",
-  style: "italic",
-  variable: "--font-instrument",
   display: "swap",
 });
 
@@ -66,8 +58,16 @@ export default function RootLayout({
   return (
     <html
       lang="es-AR"
-      className={`${bricolage.variable} ${hanken.variable} ${instrument.variable} ${plex.variable} h-full antialiased`}
+      className={`${unbounded.variable} ${hanken.variable} ${plex.variable} h-full antialiased`}
     >
+      <head>
+        <link rel="preconnect" href="https://api.fontshare.com" />
+        <link rel="preconnect" href="https://cdn.fontshare.com" crossOrigin="" />
+        <link
+          href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap"
+          rel="stylesheet"
+        />
+      </head>
       <body className="min-h-full">{children}</body>
     </html>
   );

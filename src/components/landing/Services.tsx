@@ -131,7 +131,9 @@ export function Services() {
     <section id="trabajo">
       <div className="services-header reveal">
         <p className="section-marker">02 Qué hacemos</p>
-        <h2>Qué hacemos</h2>
+        <h2>
+          Qué <span className="ink-violet">hacemos</span>
+        </h2>
       </div>
 
       <div className="services-grid">

@@ -1,14 +1,17 @@
 const axes = [
   {
     title: "Datos",
+    tone: "axis-lime",
     chips: ["Análisis de procesos", "Dashboards", "Automatización"],
   },
   {
     title: "Producto",
+    tone: "axis-violet",
     chips: ["Desarrollo web", "Apps"],
   },
   {
     title: "Marca",
+    tone: "axis-mix",
     chips: ["Identidad visual", "Diseño para redes"],
   },
 ];
@@ -19,7 +22,7 @@ export function Team() {
       <div className="reveal">
         <p className="section-marker">04 Quiénes somos</p>
         <h2>
-          Somos dos, pero somos <em>un montón.</em>
+          Somos dos, <span className="ink-violet">pero somos un montón.</span>
         </h2>
         <p className="section-desc">
           Un estudio chico en Buenos Aires que cubre lo que normalmente necesita un equipo entero.
@@ -27,7 +30,7 @@ export function Team() {
       </div>
       <div className="axes">
         {axes.map((axis) => (
-          <div key={axis.title} className="axis reveal">
+          <div key={axis.title} className={`axis reveal ${axis.tone}`}>
             <h3 className="axis-title">{axis.title}</h3>
             <ul className="chip-list">
               {axis.chips.map((chip) => (

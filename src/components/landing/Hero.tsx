@@ -1,43 +1,23 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import { HiloGlyph } from "./HiloIcon";
 import { HeroTypeword } from "./HeroTypeword";
 
 function HeroMark() {
+  const [flow, setFlow] = useState(false);
+
+  useEffect(() => {
+    const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const apply = () => setFlow(!motion.matches);
+    apply();
+    motion.addEventListener("change", apply);
+    return () => motion.removeEventListener("change", apply);
+  }, []);
+
   return (
-    <svg className="hero-nodes" viewBox="0 0 340 340" fill="none" aria-hidden>
-      <circle className="mark-accent-fill" cx="170" cy="170" r="160" opacity="0.06" />
-      <circle className="mark-text" cx="170" cy="170" r="140" strokeWidth="1" opacity="0.08" />
-      <circle className="mark-muted" cx="170" cy="170" r="100" strokeWidth="1" opacity="0.28" />
-      <line className="mark-accent" x1="80" y1="260" x2="170" y2="80" strokeWidth="1.5" opacity="0.3" />
-      <line className="mark-text" x1="170" y1="80" x2="280" y2="190" strokeWidth="1" opacity="0.15" />
-      <line
-        className="mark-accent"
-        x1="80"
-        y1="260"
-        x2="280"
-        y2="190"
-        strokeWidth="1"
-        opacity="0.12"
-        strokeDasharray="5 5"
-      />
-      <line
-        className="mark-accent"
-        x1="170"
-        y1="80"
-        x2="230"
-        y2="270"
-        strokeWidth="1"
-        opacity="0.1"
-        strokeDasharray="3 6"
-      />
-      <line className="mark-text" x1="80" y1="260" x2="140" y2="160" strokeWidth="1" opacity="0.08" />
-      <line className="mark-accent" x1="140" y1="160" x2="280" y2="190" strokeWidth="1" opacity="0.15" />
-      <circle className="mark-accent-fill" cx="80" cy="260" r="10" opacity="0.7" />
-      <circle className="mark-accent-fill" cx="80" cy="260" r="18" opacity="0.08" />
-      <circle className="mark-text-fill" cx="170" cy="80" r="14" opacity="0.9" />
-      <circle className="mark-text-fill" cx="170" cy="80" r="24" opacity="0.05" />
-      <circle className="mark-accent-fill" cx="280" cy="190" r="8" opacity="0.5" />
-      <circle className="mark-accent-fill" cx="280" cy="190" r="16" opacity="0.06" />
-      <circle className="mark-text-fill" cx="140" cy="160" r="5" opacity="0.4" />
-      <circle className="mark-accent-fill" cx="230" cy="270" r="6" opacity="0.35" />
+    <svg className="hero-nodes" viewBox="0 0 100 100" fill="none" aria-hidden>
+      <HiloGlyph glow flow={flow} />
     </svg>
   );
 }
@@ -56,14 +36,14 @@ export function Hero() {
               Resolvemos lo que te frena en tus procesos, tus ventas, tu web y tu día a día.
             </span>
             <span aria-hidden="true">
-              Resolvemos lo que te frena en <HeroTypeword />
+              Resolvemos lo que te <span className="ink-violet">frena</span> en <HeroTypeword />
             </span>
           </h1>
           <p className="hero-sub">
             Eso que hacés a mano, lo que no te deja crecer, lo que no se ve. Contanos y del resto nos encargamos nosotros.
           </p>
           <a href="#contacto" className="btn-primary">
-            Hablemos <span className="btn-arrow">→</span>
+            Hablemos <span className="btn-arrow">↗</span>
           </a>
         </div>
         <HeroMark />

@@ -10,9 +10,8 @@
   --section-y: clamp(3.5rem, 6.5vw, 6rem);
   --max: 1280px;
   --gutter: clamp(1.25rem, 4vw, 2.5rem);
-  --font: var(--font-hanken), "Hanken Grotesk", sans-serif;
-  --font-display: var(--font-bricolage), "Bricolage Grotesque", sans-serif;
-  --font-serif: var(--font-instrument), "Instrument Serif", serif;
+  --font: "General Sans", var(--font-hanken), "Hanken Grotesk", sans-serif;
+  --font-display: var(--font-unbounded), "Unbounded", sans-serif;
   --font-mono: var(--font-plex), "IBM Plex Mono", ui-monospace, monospace;
 }
 
@@ -45,7 +44,7 @@
   top: -12vh;
   right: -8vw;
   background: var(--accent);
-  opacity: 0.08;
+  opacity: 0.06;
   animation: hilo-wash-cyan 28s ease-in-out infinite alternate;
 }
 
@@ -55,7 +54,7 @@
   width: min(70vw, 740px);
   height: min(70vw, 740px);
   background: var(--glow);
-  opacity: 0.08;
+  opacity: 0.16;
   animation: hilo-wash-magenta 24s ease-in-out infinite alternate;
 }
 
@@ -67,22 +66,22 @@
 @keyframes hilo-wash-cyan {
   from {
     transform: translate3d(0, 0, 0);
-    opacity: 0.06;
+    opacity: 0.05;
   }
   to {
     transform: translate3d(-10vw, 12vh, 0);
-    opacity: 0.1;
+    opacity: 0.08;
   }
 }
 
 @keyframes hilo-wash-magenta {
   from {
     transform: translate3d(0, 0, 0);
-    opacity: 0.06;
+    opacity: 0.12;
   }
   to {
     transform: translate3d(12vw, -10vh, 0);
-    opacity: 0.1;
+    opacity: 0.18;
   }
 }
 
@@ -151,30 +150,32 @@ html {
   font-weight: 600;
 }
 
-.hilo-landing h1 em,
-.hilo-landing h2 em,
-.hilo-landing h3 em {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-weight: 400;
-  letter-spacing: 0;
+.hilo-landing .ink-lime {
   color: var(--accent);
 }
 
+.hilo-landing .ink-violet {
+  color: var(--violet-text);
+}
+
 .hilo-landing h1 {
-  font-size: clamp(2.25rem, 4.2vw, 3.75rem);
-  line-height: 1.02;
-  letter-spacing: -0.03em;
+  font-size: clamp(2.15rem, 3.7vw, 3.45rem);
+  font-weight: 800;
+  line-height: 0.96;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
   text-align: left;
   color: var(--text);
-  max-width: 18ch;
+  max-width: 16ch;
   margin: 0 0 1.25rem;
 }
 
 .hilo-landing h2 {
-  font-size: clamp(2.25rem, 5vw, 3.75rem);
-  line-height: 1.02;
-  letter-spacing: -0.03em;
+  font-size: clamp(2.15rem, 4.4vw, 3.4rem);
+  font-weight: 800;
+  line-height: 0.96;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
   color: var(--text);
   margin: 0 0 1rem;
   text-wrap: balance;
@@ -223,9 +224,11 @@ html {
 }
 
 .hilo-landing .hilo-logo-word {
-  font-size: 1.55rem;
-  letter-spacing: -0.045em;
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
   line-height: 1;
+  text-transform: lowercase;
   color: var(--text);
 }
 
@@ -309,9 +312,9 @@ html {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: minmax(0, 1.65fr) minmax(140px, 300px);
-  align-items: end;
-  gap: clamp(1.5rem, 4vw, 3rem);
+  grid-template-columns: minmax(0, 1.45fr) minmax(200px, 360px);
+  align-items: center;
+  gap: clamp(1.5rem, 4vw, 3.5rem);
 }
 
 .hilo-landing .hero-bg {
@@ -333,14 +336,24 @@ html {
 
 .hilo-landing .hero-blob {
   position: absolute;
-  width: 560px;
-  height: 560px;
+  width: 640px;
+  height: 640px;
   border-radius: 50%;
-  background: radial-gradient(circle, var(--hero-glow) 0%, var(--hero-glow-2) 46%, transparent 72%);
-  top: 46%;
-  right: -80px;
-  transform: translateY(-50%);
-  animation: hilo-blob-pulse 8s var(--ease) infinite;
+  background: radial-gradient(circle, rgba(127, 58, 237, 0.26) 0%, rgba(127, 58, 237, 0.1) 48%, transparent 72%);
+  top: 8%;
+  right: -140px;
+  filter: blur(16px);
+  animation: hilo-blob-drift 11s ease-in-out infinite;
+}
+
+@keyframes hilo-blob-drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(28px, 22px, 0);
+  }
 }
 
 @keyframes hilo-blob-pulse {
@@ -371,7 +384,7 @@ html {
   font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--text-dim);
 }
 
 .hilo-landing .hero-kicker {
@@ -383,6 +396,16 @@ html {
   height: auto;
   display: block;
   animation: hilo-float 8s ease-in-out infinite;
+}
+
+.hilo-landing .hilo-flow-pulse {
+  stroke: #fff;
+  stroke-width: 5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.72;
+  stroke-dasharray: 11 89;
+  filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.85));
 }
 
 .hilo-landing .mark-accent {
@@ -509,7 +532,7 @@ html {
 .hilo-landing .nav-cta:focus-visible .btn-arrow,
 .hilo-landing .nav-mobile-cta:hover .btn-arrow,
 .hilo-landing .nav-mobile-cta:focus-visible .btn-arrow {
-  transform: rotate(45deg);
+  transform: translate(2px, -2px);
 }
 
 .hilo-landing .btn-primary:disabled {
@@ -649,6 +672,15 @@ html {
 }
 
 .hilo-landing .service-title,
+.hilo-landing .process-title {
+  font-family: var(--font);
+  font-weight: 700;
+  text-transform: none;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.hilo-landing .service-title,
 .hilo-landing .dif-title {
   margin: 0 0 0.45rem;
 }
@@ -752,8 +784,8 @@ html {
   bottom: 0;
   height: 2px;
   border-radius: var(--radius-pill);
-  background: color-mix(in srgb, var(--glow) 75%, transparent);
-  box-shadow: 0 0 28px 8px color-mix(in srgb, var(--glow) 42%, transparent);
+  background: var(--accent);
+  box-shadow: none;
   pointer-events: none;
 }
 
@@ -808,12 +840,35 @@ html {
   align-items: center;
   gap: 0.5rem;
   margin: 1.1rem 0 0;
-  padding: 0.4rem 0.9rem;
-  border: 1px solid var(--line);
+  padding: 0.35rem 0.75rem;
+  border: 0;
   border-radius: var(--radius-pill);
   color: var(--text);
-  font-size: 0.92rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
   line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.hilo-landing .work-pill.is-live {
+  background: var(--accent);
+  color: #000;
+}
+
+.hilo-landing .work-pill.is-live .work-dot {
+  background: #000;
+}
+
+.hilo-landing .work-pill.is-wip,
+.hilo-landing .work-pill.is-confidential {
+  background: var(--violet);
+  color: var(--text);
+}
+
+.hilo-landing .work-pill.is-wip .work-dot,
+.hilo-landing .work-pill.is-confidential .work-dot {
+  background: var(--text);
 }
 
 .hilo-landing .work-dot {
@@ -826,7 +881,7 @@ html {
 
 .hilo-landing .work-lines dt {
   font-size: 11px;
-  color: var(--accent);
+  color: var(--text-dim);
 }
 
 .hilo-landing .work-lines {
@@ -1177,13 +1232,14 @@ html {
   justify-content: center;
   min-width: 2.4rem;
   margin-bottom: 1rem;
-  padding: 0.15rem 0.35rem;
-  background: var(--bg);
-  font-family: var(--font-mono);
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  color: var(--accent);
+  padding: 0.28rem 0.55rem;
+  border-radius: var(--radius-pill);
+  background: var(--violet);
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--text);
 }
 
 .hilo-landing .process-title {
@@ -1223,12 +1279,40 @@ html {
   display: inline-flex;
   align-items: center;
   padding: 0.45rem 0.85rem;
-  border: 1px solid var(--line);
+  border: 1px solid transparent;
   border-radius: var(--radius-pill);
   background: var(--surface);
   color: var(--text);
   font-size: 0.95rem;
   line-height: 1.3;
+}
+
+.hilo-landing .axis-lime .chip {
+  background: var(--accent);
+  color: #000;
+}
+
+.hilo-landing .axis-lime .axis-title {
+  color: var(--accent);
+}
+
+.hilo-landing .axis-violet .chip {
+  background: var(--violet);
+  color: var(--text);
+}
+
+.hilo-landing .axis-violet .axis-title {
+  color: var(--violet-text);
+}
+
+.hilo-landing .axis-mix .chip {
+  background: rgba(127, 58, 237, 0.22);
+  border-color: var(--violet);
+  color: var(--text);
+}
+
+.hilo-landing .axis-mix .axis-title {
+  color: var(--text);
 }
 
 .hilo-landing .faq-list {
@@ -1250,10 +1334,11 @@ html {
 .hilo-landing .faq-item summary {
   list-style: none;
   padding: 1.15rem 0;
-  font-family: var(--font-display);
-  font-weight: 600;
+  font-family: var(--font);
+  font-weight: 500;
   font-size: 1.15rem;
   letter-spacing: -0.02em;
+  text-transform: none;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1330,12 +1415,41 @@ html {
 .hilo-landing .contact-form {
   position: relative;
   background: var(--surface);
-  border: 1px solid var(--line);
+  border: 2px solid var(--violet);
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow);
-  padding: clamp(1.25rem, 3vw, 2rem);
+  box-shadow: none;
+  padding: 0 0 clamp(1.25rem, 3vw, 2rem);
   display: grid;
   gap: 1rem;
+  overflow: hidden;
+}
+
+.hilo-landing .form-badge {
+  margin: 0;
+  padding: 0.7rem 1.2rem;
+  background: var(--violet);
+  color: var(--text);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.hilo-landing .contact-form > :not(.form-badge) {
+  margin-left: clamp(1.25rem, 3vw, 2rem);
+  margin-right: clamp(1.25rem, 3vw, 2rem);
+}
+
+.hilo-landing .form-field ::placeholder {
+  color: #9a9994;
+  opacity: 1;
+}
+
+.hilo-landing .contact-form .form-field input:focus,
+.hilo-landing .contact-form .form-field textarea:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-color: var(--accent);
 }
 
 .hilo-landing .form-row {
@@ -1426,9 +1540,33 @@ html {
   color: var(--text-faint);
 }
 
+.hilo-landing .footer-brand {
+  display: grid;
+  gap: 0.45rem;
+}
+
 .hilo-landing .footer-logo {
   display: flex;
   align-items: center;
+}
+
+.hilo-landing .footer-descriptor {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin: 0;
+  color: var(--text-dim);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.hilo-landing .footer-rule {
+  display: inline-block;
+  width: 1.7rem;
+  height: 2px;
+  background: var(--accent);
 }
 
 .hilo-landing .footer-logo:hover .hilo-logo-word {
@@ -1628,6 +1766,11 @@ html {
   .hilo-landing .hero-caret,
   .hilo-landing #trabajos.is-playing .work-dotbtn[aria-current="true"]::after {
     animation: none;
+  }
+
+  .hilo-landing .hero-nodes animate,
+  .hilo-landing .hilo-flow-pulse {
+    display: none;
   }
 
   .hilo-landing .hero-caret {
