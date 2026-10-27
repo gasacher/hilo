@@ -536,15 +536,22 @@ html {
   transition: background 0.25s var(--ease), color 0.25s var(--ease), border-color 0.25s var(--ease);
 }
 
-.hilo-landing .btn-primary,
-.hilo-landing .nav-cta,
-.hilo-landing .nav-mobile-cta {
+.hilo-landing :is(a, button).btn-primary,
+.hilo-landing a.nav-cta,
+.hilo-landing .nav-mobile-links a.nav-mobile-cta,
+.hilo-landing :is(a, button).btn-primary:is(:hover, :focus, :focus-visible, :active, :visited, :disabled),
+.hilo-landing a.nav-cta:is(:hover, :focus, :focus-visible, :active, :visited),
+.hilo-landing .nav-mobile-links a.nav-mobile-cta:is(:hover, :focus, :focus-visible, :active, :visited) {
   background: var(--accent-strong);
   color: var(--on-accent);
+  -webkit-text-fill-color: var(--on-accent);
 }
 
 .hilo-landing .btn-arrow {
   display: inline-block;
+  color: inherit;
+  -webkit-text-fill-color: currentcolor;
+  font-variant-emoji: text;
   transition: transform 0.45s var(--ease);
 }
 
@@ -1662,7 +1669,7 @@ html {
     gap: 0.15rem;
   }
 
-  .hilo-landing .nav-mobile-links a {
+  .hilo-landing .nav-mobile-links a:not(.nav-mobile-cta) {
     display: inline-flex;
     align-items: center;
     padding: 0.7rem 0;

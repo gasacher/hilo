@@ -46,7 +46,7 @@ export function Hero() {
             Eso que hacés a mano, lo que no te deja crecer, lo que no se ve. Contanos y del resto nos encargamos nosotros.
           </p>
           <a href="#contacto" className="btn-primary">
-            Hablemos <span className="btn-arrow">↗</span>
+            Hablemos <span className="btn-arrow">{"\u2197\uFE0E"}</span>
           </a>
         </div>
         <HeroMark />

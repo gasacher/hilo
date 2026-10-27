@@ -123,7 +123,7 @@ export function ContactForm() {
             "Enviando…"
           ) : (
             <>
-              Pedir diagnóstico <span className="btn-arrow">↗</span>
+              Pedir diagnóstico <span className="btn-arrow">{"\u2197\uFE0E"}</span>
             </>
           )}
         </button>

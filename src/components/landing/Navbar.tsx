@@ -110,7 +110,7 @@ export function Navbar() {
 
         <div className="nav-actions">
           <a href="#contacto" className="nav-cta" onClick={closeMenu}>
-            Hablemos <span className="btn-arrow">↗</span>
+            Hablemos <span className="btn-arrow">{"\u2197\uFE0E"}</span>
           </a>
           <button
             type="button"
@@ -141,7 +141,7 @@ export function Navbar() {
           ))}
           <li>
             <a href="#contacto" className="nav-mobile-cta" onClick={closeMenu}>
-              Hablemos <span className="btn-arrow">↗</span>
+              Hablemos <span className="btn-arrow">{"\u2197\uFE0E"}</span>
             </a>
           </li>
         </ul>
