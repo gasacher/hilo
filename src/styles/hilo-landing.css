@@ -170,14 +170,25 @@ html {
   margin: 0 0 1.25rem;
 }
 
-/* Two-line lockup. 4.85cqi fits "RESOLVEMOS LO QUE TE FRENA" on one line. */
+/* Two lines. Size tracks the text column; the gap keeps the accent on “día” clear. */
 .hilo-landing #hero h1 {
   max-width: none;
-  font-size: min(3.45rem, 4.85cqi);
+  font-size: min(3.45rem, 6.15cqi);
+  line-height: 1;
+}
+
+.hilo-landing #hero h1 .hero-lines {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.2em;
 }
 
 .hilo-landing #hero h1 .hero-line {
+  display: block;
   white-space: nowrap;
+  line-height: 0.98;
+  padding-block: 0.08em;
 }
 
 .hilo-landing h2 {
@@ -322,7 +333,7 @@ html {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: minmax(0, 1.45fr) minmax(200px, 360px);
+  grid-template-columns: minmax(0, 1fr) minmax(200px, 300px);
   align-items: center;
   gap: clamp(1.5rem, 4vw, 3.5rem);
 }

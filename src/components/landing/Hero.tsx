@@ -35,13 +35,10 @@ export function Hero() {
             <span className="sr-only">
               Resolvemos lo que te frena en tus procesos, tus ventas, tu web y tu día a día.
             </span>
-            <span aria-hidden="true">
+            <span aria-hidden="true" className="hero-lines">
+              <span className="hero-line">Resolvemos lo que te</span>
               <span className="hero-line">
-                Resolvemos lo que te <span className="ink-violet">frena</span>
-              </span>
-              <br />
-              <span className="hero-line">
-                en <HeroTypeword />
+                <span className="ink-violet">frena</span> en <HeroTypeword />
               </span>
             </span>
           </h1>
