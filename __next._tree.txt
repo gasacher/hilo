@@ -1,0 +1,10 @@
+:HL["/hilo/_next/static/chunks/0eyn03ubkzfcs.css","style"]
+:HL["/hilo/_next/static/media/8b4ed0a90d903ab5-s.p.18283yqfiehau.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/hilo/_next/static/media/99e609270109b47d-s.p.16-z~2sp29ex6.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/hilo/_next/static/media/b59689b1142d37ce-s.p.0f8~qglggluhl.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/hilo/_next/static/media/c47649aa31f9e140-s.p.11uo_35nso9mn.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/hilo/_next/static/media/dd14639a62c56cb2-s.p.06a7f.f9wwf6c.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/hilo/_next/static/media/effe91970fc4db64-s.p.07ig5l8azj~hy.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/hilo/_next/static/chunks/0gmjtkiy-fbnj.css","style"]
+:HL["https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap","style"]
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}},"staleTime":300,"buildId":"fCbSKSzqMWUxW071a94dk"}
